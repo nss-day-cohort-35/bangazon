@@ -14,7 +14,7 @@ export default class CustomerSearchResults extends Component {
     getData = () => {
         APIManager.getAll("customers").then(customers => {
             this.setState({
-                customers: customers,
+                customers: customers
             })
         })
     }

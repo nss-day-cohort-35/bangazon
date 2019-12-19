@@ -26,19 +26,19 @@ const StyledTableRow = withStyles(theme => ({
     },
   },
 }))(TableRow);
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(productTypeId, price, description, title, dateAdded) {
+  return {productTypeId, price, description, title, dateAdded};
 }
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('productTypeId', 159, 6.0, 24, 4.0),
+  createData('price', 237, 9.0, 37, 4.3),
+  createData('description', 262, 16.0, 24, 6.0),
+  createData('title', 305, 3.7, 67, 4.3),
+  createData('dateAdded', 356, 16.0, 49, 3.9),
 ];
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+  maxWidth: 250,
   },
 });
 export default class CustomerOrders extends Component {
@@ -49,11 +49,11 @@ export default class CustomerOrders extends Component {
       <Table className={this.classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>productTypeId</StyledTableCell>
+            <StyledTableCell align="right">price</StyledTableCell>
+            <StyledTableCell align="right">description</StyledTableCell>
+            <StyledTableCell align="right">title</StyledTableCell>
+            <StyledTableCell align="right">dateAdded</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

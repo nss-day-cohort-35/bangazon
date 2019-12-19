@@ -48,14 +48,16 @@ export default class SideBar extends Component {
         return (
             <>
             <h2>SideBar</h2>
-            {(this.props.view === "Employees") ?
+              <ul>
+                {(this.props.view === "Employees") ?
 
-                this.employeeOptions.map(options =>
-                    <li><a href={options.link}>{options.title}</a></li>)
-                    :
-                this.customerOptions.map(options =>
-                    <li><a href={options.link}>{options.title}</a></li>)
-                        }
+                  this.employeeOptions.map((options, index) =>
+                    <li key={index}><a href={options.link}>{options.title}</a></li>)
+                      :
+                this.customerOptions.map((options, index) =>
+                    <li key={index}><a href={options.link}>{options.title}</a></li>)
+                }
+              </ul>
             </>
         )
 

@@ -36,12 +36,10 @@ export default class CustomerSearchResults extends Component {
                 {this.state.customers.map(item => (
                 <Table.Row key={item.id}>
                     <Table.Cell component="th" scope="row">{item.firstName} {item.lastName}</Table.Cell>
-                    <Table.Cell>Approved</Table.Cell>
-                    <Table.Cell>None</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Cell>Jamie</Table.Cell>
-                    <Table.Cell>Approved</Table.Cell>
+                    <Table.Cell align="right">{item.id}</Table.Cell>
+                    <Table.Cell align="right">{item.address}, {item.state}</Table.Cell>
+                    <Table.Cell align="right">{item.email}</Table.Cell>
+                    <Table.Cell>{item.phone}</Table.Cell>
                     <Table.Cell>Requires call</Table.Cell>
                 </Table.Row>
                 <Table.Row>

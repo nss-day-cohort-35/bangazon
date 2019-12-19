@@ -39,43 +39,11 @@ export default class CustomerSearchResults extends Component {
                     <Table.Cell align="right">{item.id}</Table.Cell>
                     <Table.Cell align="right">{item.address}, {item.state}</Table.Cell>
                     <Table.Cell align="right">{item.email}</Table.Cell>
-                    <Table.Cell>{item.phone}</Table.Cell>
-                    <Table.Cell>Requires call</Table.Cell>
+                    <Table.Cell align="right">{item.phone}</Table.Cell>
                 </Table.Row>
-                <Table.Row>
-                    <Table.Cell>Jill</Table.Cell>
-                    <Table.Cell>Denied</Table.Cell>
-                    <Table.Cell>None</Table.Cell>
-                </Table.Row>
+                ))}
             </Table.Body>
         </Table>
-
-        <TableContainer component={Paper}>
-        <Table>
-            <TableHead>
-            <TableRow>
-                <TableCell>NAME</TableCell>
-                <TableCell align="right">CUSTOMER ID</TableCell>
-                <TableCell align="right">ADDRESS</TableCell>
-                <TableCell align="right">EMAIL</TableCell>
-                <TableCell align="right">PHONE</TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {this.state.customers.map(item => (
-                <TableRow key={item.id}>
-                <TableCell component="th" scope="row">
-                    {item.firstName} {item.lastName}
-                </TableCell>
-                <TableCell align="right">{item.id}</TableCell>
-            <TableCell align="right">{item.address}, {item.state}</TableCell>
-                <TableCell align="right">{item.email}</TableCell>
-                <TableCell align="right">{item.phone}</TableCell>
-                </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </TableContainer>
     );
   }
 }

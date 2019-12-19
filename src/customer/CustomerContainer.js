@@ -21,7 +21,7 @@ export default class CustomerContainer extends Component {
 
                 <Route
 					exact
-					path="/customer-portal/customers"
+					path="/customer-portal"
 					render={props => {
 						return <CustomerLanding {...props} />;
 					}}

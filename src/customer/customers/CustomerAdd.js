@@ -1,16 +1,15 @@
 import React from 'react';
-import API from '../../../api/APIManager'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField'
-import APIManager from '../../../api/APIManager';
+import APIManager from '../../api/APIManager';
 
 class CustomerAddForm extends React.Component {
 
     state = {
         firstName: "",
         lastName: "",
-        address: "",
         phoneNumber: "",
+        streetAddress: "",
         emailAddress: "",
         city: "",
         state: "",
@@ -38,23 +37,24 @@ class CustomerAddForm extends React.Component {
             const customer = {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                address: this.state.address,
+                streetAddress: this.state.streetAddress,
                 phoneNumber: this.state.phoneNumber,
                 emailAddress: this.state.emailAddress,
                 state: this.state.state,
                 city: this.state.city,
             };
             APIManager.addData("customers", customer)
+            console.log ("customer", customer)
             // .then(this.props.getData);
         }
     };
     handleClick = evt => {
         evt.preventDefault();
-        this.addNewCar();
+        this.addCustomer();
         // this.onClose();
         document.querySelector('#firstName').value = '';
         document.querySelector('#lastName').value = '';
-        document.querySelector('#address').value = '';
+        document.querySelector('#streetAddress').value = '';
         document.querySelector('#phoneNumber').value = '';
         document.querySelector('#emailAddress').value = '';
         document.querySelector('#state').value = '';
@@ -62,7 +62,7 @@ class CustomerAddForm extends React.Component {
         this.setState({
             firstName: "",
             lastName: "",
-            address: "",
+            streetAddress: "",
             phoneNumber: "",
             emailAddress: "",
             city: "",
@@ -72,7 +72,7 @@ class CustomerAddForm extends React.Component {
     render() {
         return (
 
-            <div class="addForm">
+            <div className="addForm">
                 <TextField
                     onChange={this.handleFieldChange}
                     type='firstName'

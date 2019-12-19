@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 
 export default class NavigationBar extends Component {
-    state = {
-        view: ""
-    }
+    // state = {
+    //     view: ""
+    // }
 
 
     render() {

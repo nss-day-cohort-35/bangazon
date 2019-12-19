@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 export default class SideBar extends Component {
-    state = {
-        activeTitle: ""
-    }
 
     employeeOptions = [
+        {
+            title: "Dashboard",
+            link: "/employee-portal/dashboard"
+        },
         {
             title: "Computers",
             link: "/employee-portal/computers"

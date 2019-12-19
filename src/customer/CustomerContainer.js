@@ -6,6 +6,7 @@ import PaymentLanding from './payment/PaymentLanding'
 import ProductLanding from './product/ProductLanding'
 import OrderLanding from './order/OrderLanding'
 import CustomerLanding from './customers/CustomerLanding'
+import CustomerProfileCard from './customers/CustomerProfileCard';
 import CustomerOrders from './customers/CustomerOrders'
 
 export default class CustomerContainer extends Component {
@@ -16,6 +17,7 @@ export default class CustomerContainer extends Component {
 				<p>Customer Container</p>
                 <CustomerOrders />
 				<SideBar view="Customers" />
+                <CustomerProfileCard />
 
                 <Route
 					exact

@@ -4,7 +4,7 @@ export default {
 
     // Used for customers, products, paymentTypes, productTypes, employees,     departments, trainingPrograms and revenueReport
     getAll(resource) {
-        return fetch(`${remoteURL}${resource}`).then(result => result.json())
+        return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
 
     // Only for searching customers and products

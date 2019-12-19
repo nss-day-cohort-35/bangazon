@@ -7,8 +7,24 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import APIManager from '../../api/APIManager';
 
-export default class CustomerOrderTable extends Component {
+export default class CustomerSearchResults extends Component {
+    state = {
+        customers: []
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    getData = () => {
+        APIManager.getAll("customers").then(customers => {
+            this.setState({
+                customers: customers,
+            })
+        })
+    }
 
     classes = () => makeStyles({
         table: {
@@ -16,41 +32,29 @@ export default class CustomerOrderTable extends Component {
         },
       });
 
-      createData = (name, calories, fat, carbs, protein) => {
-        return { name, calories, fat, carbs, protein };
-      }
-
-      rows = [
-        this.createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        this.createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        this.createData('Eclair', 262, 16.0, 24, 6.0),
-        this.createData('Cupcake', 305, 3.7, 67, 4.3),
-        this.createData('Gingerbread', 356, 16.0, 49, 3.9),
-      ];
-
   render() {
     return (
         <TableContainer component={Paper}>
         <Table className={this.classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                <TableCell>NAME</TableCell>
+                <TableCell align="right">CUSTOMER ID</TableCell>
+                <TableCell align="right">ADDRESS</TableCell>
+                <TableCell align="right">EMAIL</TableCell>
+                <TableCell align="right">PHONE</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
-            {this.rows.map(row => (
-                <TableRow key={row.name}>
+            {this.state.customers.map(item => (
+                <TableRow key={item.id}>
                 <TableCell component="th" scope="row">
-                    {row.name}
+                    {item.firstName} {item.lastName}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">{item.id}</TableCell>
+            <TableCell align="right">{item.address}, {item.state}</TableCell>
+                <TableCell align="right">{item.email}</TableCell>
+                <TableCell align="right">{item.phone}</TableCell>
                 </TableRow>
             ))}
             </TableBody>

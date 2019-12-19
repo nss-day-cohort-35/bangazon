@@ -6,10 +6,10 @@ const CustomerOrders = () => (
   <Table striped>
     <Table.Header>
       <Table.Row>
-        <Table.HeaderCell>Name</Table.HeaderCell>
-        <Table.HeaderCell>Date Joined</Table.HeaderCell>
-        <Table.HeaderCell>E-mail</Table.HeaderCell>
-        <Table.HeaderCell>Called</Table.HeaderCell>
+        <Table.HeaderCell>productTypeId</Table.HeaderCell>
+        <Table.HeaderCell>dateAdded</Table.HeaderCell>
+        <Table.HeaderCell>title</Table.HeaderCell>
+        <Table.HeaderCell>price</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 

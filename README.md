@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bang-A-Zon
+## We sell aquariums and aquarium related accessories. Ah-yup. I tehell you huwhat.
+![](RM-images/original.jpg)
+## Project Overview
+We were tasked creating a company intranet website for an Esty-esque marketplace. We consulted with our stakeholders Madi and Adam to determine the functionality/requirements. We split into two teams to tackle the two major components of the intranet site: Employee and Customer.
 
-## Available Scripts
+## Challenge Statement
+### Employee
+##### How might we ... provide a centralized platform to track and manage Bangazon employee information?
 
-In the project directory, you can run:
+### Customer
+##### How might we create a user interface that allows Bangazon’s customer service team to easily find and manage customers’ information, orders, products, and payments in order to continue their growth and be able to support their customer base and employees?
 
-### `npm start`
+## Research
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Competitor Analysis
+![](RM-images/research1.png)
+![](RM-images/research2.png)
+![](RM-images/research3.png)
+![](RM-images/research4.png)
+![](RM-images/research5.png)
+![](RM-images/research6.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Design System (Canvas Hubspot)
+![](RM-images/hubspotlogo.jpg)
 
-### `npm test`
+https://canvas.hubspot.com/
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Many of our design decisions were based on a set of guidlines gounf in the link above. For example, we could not have more than one orange button in a view at any given time, and all orange buttons were the most important action on that particular view. All other buttons that were secondary to that primary action would be the second example in the above image, and no more than two were allowed in a given view. For more information please, checkout the url above for the full documentation.
 
-### `npm run build`
+![](RM-images/hubspot.jpg)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Color Palette
+Color Palette was put together based on design guideliness dictated by the Hubspot Canvas Design System. We were able to make some decisions on themeing within the site as a visual indicator of what part of the intranet site you were on.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](RM-images/bang-color.jpg)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Personas
+![](RM-images/persona-emp1.png)
+![](RM-images/persona-emp2.png)
+![](RM-images/persona-cus1.png)
+![](RM-images/persona-cus2.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Journey Mapping
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](RM-images/journey-map.jpg)
+![](RM-images/journey-map1.jpg)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Content Mapping
 
-## Learn More
+![](RM-images/content-map.jpg)
+![](RM-images/content-map1.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##  Wireframes and Mockups
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Paper Mockups (Lo-Fidelity)
+![](RM-images/paper-mockup.jpg)
+### First round of User Testing
+![](RM-images/paper-mockup-usertest.jpg)
+#### User Feedback/Lessons Learned
 
-### Code Splitting
+### Digital Mockups (Hi-Fidelity)
+![](RM-images/figma-mockup.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Second Round of User Testing
 
-### Analyzing the Bundle Size
+#### User Feedback/Lessons Learned
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## To Install
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### TBD

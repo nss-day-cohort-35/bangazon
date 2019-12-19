@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { Table } from 'semantic-ui-react'
 import APIManager from '../../api/APIManager';
 
 export default class CustomerSearchResults extends Component {
@@ -26,16 +19,41 @@ export default class CustomerSearchResults extends Component {
         })
     }
 
-    classes = () => makeStyles({
-        table: {
-          minWidth: 650,
-        },
-      });
-
   render() {
     return (
+        <Table basic>
+            <Table.Header>
+                <Table.Row>
+                    <Table.HeaderCell>NAME</Table.HeaderCell>
+                    <Table.HeaderCell>CUSTOMER ID</Table.HeaderCell>
+                    <Table.HeaderCell>ADDRESS</Table.HeaderCell>
+                    <Table.HeaderCell>EMAIL</Table.HeaderCell>
+                    <Table.HeaderCell>PHONE</Table.HeaderCell>
+                </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+                {this.state.customers.map(item => (
+                <Table.Row key={item.id}>
+                    <Table.Cell component="th" scope="row">{item.firstName} {item.lastName}</Table.Cell>
+                    <Table.Cell>Approved</Table.Cell>
+                    <Table.Cell>None</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                    <Table.Cell>Jamie</Table.Cell>
+                    <Table.Cell>Approved</Table.Cell>
+                    <Table.Cell>Requires call</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                    <Table.Cell>Jill</Table.Cell>
+                    <Table.Cell>Denied</Table.Cell>
+                    <Table.Cell>None</Table.Cell>
+                </Table.Row>
+            </Table.Body>
+        </Table>
+
         <TableContainer component={Paper}>
-        <Table className={this.classes.table} aria-label="simple table">
+        <Table>
             <TableHead>
             <TableRow>
                 <TableCell>NAME</TableCell>

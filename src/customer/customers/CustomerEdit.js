@@ -15,6 +15,9 @@ class CustomerAddForm extends React.Component {
         state: "",
     };
 
+    componentDidMount() {
+        this.getData();
+    }
     handleFieldChange = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;

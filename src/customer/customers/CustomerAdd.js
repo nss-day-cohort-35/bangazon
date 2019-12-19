@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField'
+import { Input } from 'semantic-ui-react'
 import APIManager from '../../api/APIManager';
 
 class CustomerAddForm extends React.Component {
@@ -44,7 +45,7 @@ class CustomerAddForm extends React.Component {
                 city: this.state.city,
             };
             APIManager.addData("customers", customer)
-            console.log ("customer", customer)
+            console.log("customer", customer)
             // .then(this.props.getData);
         }
     };
@@ -73,15 +74,14 @@ class CustomerAddForm extends React.Component {
         return (
 
             <div className="addForm">
-                <TextField
-                    onChange={this.handleFieldChange}
-                    type='firstName'
+                <Input
+                    size='large'
                     id='firstName'
-                    required=''
-                    autoFocus=''
-                    label='First Name'
-                    margin="dense"
-                    variant="outlined"
+                    placeholder='First Nane'
+                    label="First Name"
+                    onChange={this.handleFieldChange}
+                />
+                <TextField
                 />
                 <TextField
                     onChange={this.handleFieldChange}

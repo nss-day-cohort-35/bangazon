@@ -9,6 +9,7 @@ import CustomerAddForm from './customer/customers/CustomerAdd'
 ReactDOM.render(
     <Router>
         <Landing />
+        <CustomerAddForm />
     </Router>
     , document.getElementById('root'));
 

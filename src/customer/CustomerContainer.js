@@ -17,9 +17,9 @@ export default class CustomerContainer extends Component {
 				<SideBar view="Customers" />
                 <CustomerProfileCard />
 
-                				<Route
+        <Route
 					exact
-					path="/customer-portal/customers"
+					path="/customer-portal"
 					render={props => {
 						return <CustomerLanding {...props} />;
 					}}
@@ -48,7 +48,7 @@ export default class CustomerContainer extends Component {
 						return <ProductLanding {...props} />;
 					}}
 				/>
-                
+
 			</>
 		);
  }

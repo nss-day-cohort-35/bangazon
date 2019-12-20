@@ -6,6 +6,7 @@ import PaymentLanding from './payment/PaymentLanding'
 import ProductLanding from './product/ProductLanding'
 import OrderLanding from './order/OrderLanding'
 import CustomerLanding from './customers/CustomerLanding'
+import CustomerSearchResults from './customers/CustomerSearchResults'
 import CustomerProfileCard from './customers/CustomerProfileCard';
 
 export default class CustomerContainer extends Component {
@@ -15,9 +16,10 @@ export default class CustomerContainer extends Component {
 				<NavigationBar view="Customers" />
 				<p>Customer Container</p>
 				<SideBar view="Customers" />
+				<CustomerSearchResults/>
                 <CustomerProfileCard />
 
-        <Route
+                <Route
 					exact
 					path="/customer-portal"
 					render={props => {
@@ -48,7 +50,6 @@ export default class CustomerContainer extends Component {
 						return <ProductLanding {...props} />;
 					}}
 				/>
-
 			</>
 		);
  }

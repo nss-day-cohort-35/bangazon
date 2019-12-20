@@ -1,66 +1,77 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { Menu } from "semantic-ui-react";
 
-export default class SideBar extends Component {
+class SideBar extends Component {
+	state = {
+		activeItem: ""
+    };
 
-    employeeOptions = [
-        {
-            title: "Dashboard",
-            link: "/employee-portal/dashboard"
-        },
-        {
-            title: "Computers",
-            link: "/employee-portal/computers"
-        },
-        {
-            title: "Training",
-            link: "/employee-portal/training"
-        },
-        {
-            title: "Employees",
-            link: "/employee-portal/employees"
-        },
-        {
-            title: "Departments",
-            link: "/employee-portal/departments"
-        }
-    ]
+	employeeOptions = [
+		{
+			title: "Computers",
+			link: "/employee-portal/computers"
+		},
+		{
+			title: "Training",
+			link: "/employee-portal/training"
+		},
+		{
+			title: "Employees",
+			link: "/employee-portal/employees"
+		},
+		{
+			title: "Departments",
+			link: "/employee-portal/departments"
+		}
+	];
 
-    customerOptions = [
-        {
-            title: "Customers",
-            link: "/customer-portal/customers"
-        },
-        {
-            title: "Products",
-            link: "/customer-portal/products"
-        },
-        {
-            title: "Orders",
-            link: "/customer-portal/orders"
-        },
-        {
-            title: "Payments",
-            link: "/customer-portal/payments"
-        }
-    ]
+	customerOptions = [
+		{
+			title: "Customers",
+			link: "/customer-portal/customers"
+		},
+		{
+			title: "Products",
+			link: "/customer-portal/products"
+		},
+		{
+			title: "Orders",
+			link: "/customer-portal/orders"
+		},
+		{
+			title: "Payments",
+			link: "/customer-portal/payments"
+		}
+	];
+	handleItemClick = (e, { name, url }) => {
+		this.setState({ activeItem: name });
+		this.props.history.push(url);
+	};
 
-    render() {
-        return (
-            <>
-            <h2>SideBar</h2>
-              <ul>
-                {(this.props.view === "Employees") ?
+	render() {
+		const { activeItem } = this.state;
 
-                  this.employeeOptions.map((options, index) =>
-                    <li key={index}><a href={options.link}>{options.title}</a></li>)
-                      :
-                this.customerOptions.map((options, index) =>
-                    <li key={index}><a href={options.link}>{options.title}</a></li>)
-                }
-              </ul>
-            </>
-        )
+		const items =
+			this.props.view === "Employees"
+				? this.employeeOptions
+				: this.customerOptions;
 
-
-    }
+		return (
+			<>
+				<Menu pointing vertical>
+					{items.map((option) => (
+						<Menu.Item
+                            key={option.link}
+							name={option.title}
+							url={option.link}
+							active={activeItem === option.title}
+							onClick={this.handleItemClick}
+						/>
+					))}
+				</Menu>
+			</>
+		);
+	}
 }
+export default withRouter(SideBar)

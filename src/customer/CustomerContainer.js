@@ -16,9 +16,9 @@ export default class CustomerContainer extends Component {
 			<>
 				<NavigationBar view="Customers" />
 				<p>Customer Container</p>
-                <CustomerOrders />
 				<SideBar view="Customers" />
 				<CustomerSearchResults/>
+				<CustomerOrders />
                 <CustomerProfileCard />
 
                 <Route

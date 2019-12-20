@@ -119,7 +119,6 @@ class CustomerEditForm extends React.Component {
                 <Input
                     size='large'
                     id='phone'
-                    value={this.state.make}
                     placeholder='Phone Number'
                     label="Phone Number"
                     value={this.state.phone}

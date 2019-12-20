@@ -14,13 +14,13 @@ export default class NavigationBar extends Component {
 			<>
 				<h1>{this.props.view}</h1>
 				{this.props.view === "Employees" ? (
-					<Button color="orange">
-						<Link to="/customer-portal">Go to Customer Portal</Link>
-					</Button>
+					<Link to="/customer-portal">
+						<Button color="orange">Go to Customer Portal</Button>
+					</Link>
 				) : (
-					<Button color="orange">
-						<Link to="/employee-portal">Go to Employee Portal</Link>
-					</Button>
+					<Link to="/employee-portal">
+						<Button color="orange">Go to Employee Portal</Button>
+					</Link>
 				)}
 			</>
 		);

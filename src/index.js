@@ -5,11 +5,12 @@ import 'semantic-ui-css/semantic.min.css'
 import './index.css';
 import Landing from './Landing';
 import CustomerAddForm from './customer/customers/CustomerAdd'
+import CustomerEditForm from './customer/customers/CustomerEdit'
 
 ReactDOM.render(
     <Router>
         <Landing />
-        <CustomerAddForm />
+        <CustomerEditForm />
     </Router>
     , document.getElementById('root'));
 

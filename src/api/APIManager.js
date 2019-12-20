@@ -4,17 +4,15 @@ export default {
 
     // Used for customers, products, paymentTypes, productTypes, employees,     departments, trainingPrograms and revenueReport
     getAll(resource) {
-        return fetch(`${remoteURL}${resource}`).then(result => result.json())
+        return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
-
+    // Used for customers, paymentTypes, orders, productTypes, employees, departments, computers, and trainingPrograms
+    getById(resource, id) {
+        return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
+    },
     // Only for searching customers and products
     searchByName(resource, searchTerm) {
         return fetch(`${remoteURL}/${resource}?q=${searchTerm}`).then(result => result.json())
-    },
-
-    // Used for customers, paymentTypes, orders, productTypes, employees, departments, computers, and trainingPrograms
-    getById(resource, id) {
-        return fetch(`${remoteURL}/${resource}/${id}`)
     },
     //Used for customers and productTypes
     getDataWithProduct(resource, id) {

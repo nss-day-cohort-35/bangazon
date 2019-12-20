@@ -3,14 +3,16 @@ import { Input } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
 import APIManager from '../../api/APIManager';
 
-class CustomerAddForm extends React.Component {
+class CustomerEditForm extends React.Component {
 
     state = {
+        id: "",
+        customer: "",
         firstName: "",
         lastName: "",
-        phoneNumber: "",
-        streetAddress: "",
-        emailAddress: "",
+        phone: "",
+        address: "",
+        email: "",
         city: "",
         state: "",
     };
@@ -18,56 +20,78 @@ class CustomerAddForm extends React.Component {
     componentDidMount() {
         this.getData();
     }
+
+    getData = () => {
+        let id = "1575559407789"
+        // id: this.props.carId,
+        APIManager.getById("customers", id).then(customer => {
+            console.log("customer edit", customer)
+            this.setState({
+                id: customer.id,
+                customer: customer,
+                firstName: customer.firstName,
+                lastName: customer.lastName,
+                address: customer.address,
+                city: customer.city,
+                state: customer.state,
+                phone: customer.phone,
+                email: customer.email,
+
+            })
+        })
+    }
+
     handleFieldChange = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
         this.setState(stateToChange);
     };
 
-    addCustomer = () => {
+    editCustomer = () => {
         // evt.preventDefault();
         if (
             this.state.firstName === '' ||
             this.state.lastName === '' ||
             this.state.address === '' ||
-            this.state.phoneNumber === '' ||
-            this.state.emailAddress === '' ||
+            this.state.phone === '' ||
+            this.state.address === '' ||
             this.state.state === '' ||
             this.state.city === ''
         ) {
             window.alert('Please fill out all the fields');
         } else {
-            const customer = {
+            const editedCustomer = {
+                id: this.state.id,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                streetAddress: this.state.streetAddress,
-                phoneNumber: this.state.phoneNumber,
-                emailAddress: this.state.emailAddress,
+                address: this.state.address,
+                phone: this.state.phone,
+                email: this.state.email,
                 state: this.state.state,
                 city: this.state.city,
             };
-            APIManager.addData("customers", customer)
-            console.log("customer", customer)
+            APIManager.updateData("customers", editedCustomer)
+            console.log("customer", editedCustomer)
             // .then(this.props.getData);
         }
     };
     handleClick = evt => {
         evt.preventDefault();
-        this.addCustomer();
+        this.editCustomer();
         // this.onClose();
         document.querySelector('#firstName').value = '';
         document.querySelector('#lastName').value = '';
-        document.querySelector('#streetAddress').value = '';
-        document.querySelector('#phoneNumber').value = '';
-        document.querySelector('#emailAddress').value = '';
+        document.querySelector('#address').value = '';
+        document.querySelector('#phone').value = '';
+        document.querySelector('#address').value = '';
         document.querySelector('#state').value = '';
         document.querySelector('#city').value = '';
         this.setState({
             firstName: "",
             lastName: "",
-            streetAddress: "",
-            phoneNumber: "",
-            emailAddress: "",
+            address: "",
+            phone: "",
+            email: "",
             city: "",
             state: "",
         })
@@ -81,6 +105,7 @@ class CustomerAddForm extends React.Component {
                     id='firstName'
                     placeholder='First Name'
                     label="First Name"
+                    value={this.state.firstName}
                     onChange={this.handleFieldChange}
                 />
                 <Input
@@ -88,25 +113,30 @@ class CustomerAddForm extends React.Component {
                     id='lastName'
                     placeholder='LastName'
                     label="Last Name"
+                    value={this.state.lastName}
                     onChange={this.handleFieldChange}
                 />
                 <Input
                     size='large'
-                    id='phoneNumber'
+                    id='phone'
+                    value={this.state.make}
                     placeholder='Phone Number'
                     label="Phone Number"
+                    value={this.state.phone}
                     onChange={this.handleFieldChange}
                 />
                 <Input
                     size='large'
-                    id='emailAddress'
+                    id='email'
+                    value={this.state.email}
                     placeholder='Email Address'
                     label="Email Address"
                     onChange={this.handleFieldChange}
                 />
                 <Input
                     size='large'
-                    id='streetAddress'
+                    id='address'
+                    value={this.state.address}
                     placeholder='Street Address'
                     label="Street Address"
                     onChange={this.handleFieldChange}
@@ -114,6 +144,7 @@ class CustomerAddForm extends React.Component {
                 <Input
                     size='large'
                     id='city'
+                    value={this.state.city}
                     placeholder='City'
                     label="City"
                     onChange={this.handleFieldChange}
@@ -121,6 +152,7 @@ class CustomerAddForm extends React.Component {
                 <Input
                     size='large'
                     id='state'
+                    value={this.state.state}
                     placeholder='State'
                     label="State"
                     onChange={this.handleFieldChange}
@@ -129,7 +161,7 @@ class CustomerAddForm extends React.Component {
                     color='orange'
                     disabled={this.state.loadingStatus}
                     onClick={this.handleClick}
-                    >Add Customer
+                    >Edit Customer
                 </Button>
                 <Button
                     basic
@@ -144,4 +176,4 @@ class CustomerAddForm extends React.Component {
     }
 }
 
-export default CustomerAddForm;
+export default CustomerEditForm;

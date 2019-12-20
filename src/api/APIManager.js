@@ -16,7 +16,7 @@ export default {
     },
     //Used for customers and productTypes
     getDataWithProduct(resource, id) {
-        return fetch(`${remoteURL}/${resource}/${id}?include=products`)
+        return fetch(`${remoteURL}/${resource}/${id}?include=products`).then(result => result.json())
     },
 
     // Used for customers, products, paymentTypes, userPaymentTypes, orders, productTypes, employees, departments, computers, trainingPrograms

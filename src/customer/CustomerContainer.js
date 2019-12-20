@@ -13,8 +13,7 @@ export default class CustomerContainer extends Component {
  render() {
      return (
 			<>
-				<NavigationBar view="Customers" />
-				<p>Customer Container</p>
+				<NavigationBar view="Customer Portal" />
 				<SideBar view="Customers" />
 				<CustomerSearchResults/>
                 <CustomerProfileCard />

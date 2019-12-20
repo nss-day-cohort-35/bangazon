@@ -27,8 +27,8 @@ class CustomerAddForm extends React.Component {
             this.state.firstName === '' ||
             this.state.lastName === '' ||
             this.state.address === '' ||
-            this.state.phoneNumber === '' ||
-            this.state.emailAddress === '' ||
+            this.state.phone === '' ||
+            this.state.email === '' ||
             this.state.state === '' ||
             this.state.city === ''
         ) {
@@ -37,9 +37,9 @@ class CustomerAddForm extends React.Component {
             const customer = {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                streetAddress: this.state.streetAddress,
-                phoneNumber: this.state.phoneNumber,
-                emailAddress: this.state.emailAddress,
+                address: this.state.streetAddress,
+                phone: this.state.phoneNumber,
+                email: this.state.emailAddress,
                 state: this.state.state,
                 city: this.state.city,
             };

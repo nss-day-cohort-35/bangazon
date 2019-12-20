@@ -8,6 +8,7 @@ import OrderLanding from './order/OrderLanding'
 import CustomerLanding from './customers/CustomerLanding'
 import CustomerSearchResults from './customers/CustomerSearchResults'
 import CustomerProfileCard from './customers/CustomerProfileCard';
+import CustomerOrders from './customers/CustomerOrders'
 
 export default class CustomerContainer extends Component {
  render() {
@@ -17,6 +18,7 @@ export default class CustomerContainer extends Component {
 				<p>Customer Container</p>
 				<SideBar view="Customers" />
 				<CustomerSearchResults/>
+				<CustomerOrders />
                 <CustomerProfileCard />
 
                 <Route
@@ -50,6 +52,7 @@ export default class CustomerContainer extends Component {
 						return <ProductLanding {...props} />;
 					}}
 				/>
+
 			</>
 		);
  }

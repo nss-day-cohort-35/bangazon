@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 
 export default class NavigationBar extends Component {
@@ -10,16 +11,19 @@ export default class NavigationBar extends Component {
 
     render() {
         return (
-            <>
-                <h1>{this.props.view}</h1>
-                {(this.props.view === "Employees") ?
-
-                    <button><Link to="/customer-portal">Go to Customer Portal</Link></button>
-                    :
-                    <button><Link to="/employee-portal">Go to Employee Portal</Link></button>
-                }
-            </>
-        )
+			<>
+				<h1>{this.props.view}</h1>
+				{this.props.view === "Employees" ? (
+					<Link to="/customer-portal">
+						<Button color="orange">Go to Customer Portal</Button>
+					</Link>
+				) : (
+					<Link to="/employee-portal">
+						<Button color="orange">Go to Employee Portal</Button>
+					</Link>
+				)}
+			</>
+		);
     }
 
 }

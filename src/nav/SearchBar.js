@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
         isLoading: false,
         value: ""
     }
-
+    
     handleFieldChange = (e) => {
         const stateToChange = {};
         stateToChange[e.target.id] = e.target.value;

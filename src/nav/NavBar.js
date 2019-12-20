@@ -10,7 +10,7 @@ export default class NavigationBar extends Component {
 
 
     render() {
-        
+
         return (
             <>
                 <h1>{this.props.portal}</h1>

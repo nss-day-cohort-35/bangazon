@@ -14,7 +14,7 @@ export default class CustomerContainer extends Component {
  render() {
      return (
 			<>
-				<NavigationBar view="Customers" />
+				<NavigationBar portal="Customers" {...this.props} />
 				<p>Customer Container</p>
 				<SideBar view="Customers" />
 				<CustomerSearchResults/>

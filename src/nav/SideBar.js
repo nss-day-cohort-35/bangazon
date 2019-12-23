@@ -9,20 +9,24 @@ class SideBar extends Component {
 
 	employeeOptions = [
 		{
+			title: "Dashboard",
+			link: "/employee-portal/"
+		},
+		{
 			title: "Computers",
 			link: "/employee-portal/computers"
 		},
 		{
-			title: "Training",
-			link: "/employee-portal/training"
+			title: "Departments",
+			link: "/employee-portal/departments"
 		},
 		{
 			title: "Employees",
 			link: "/employee-portal/employees"
 		},
 		{
-			title: "Departments",
-			link: "/employee-portal/departments"
+			title: "Training",
+			link: "/employee-portal/training"
 		}
 	];
 

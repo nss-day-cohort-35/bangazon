@@ -24,6 +24,14 @@ export default class SearchBar extends Component {
             placeholderText = "Search for products..."
         } else if (this.props.view === "orders"){
             placeholderText = "Search for order by ID"
+        } else if (this.props.view === "employees"){
+            placeholderText = "Search employees"
+        } else if (this.props.view === "computers"){
+            placeholderText = "Search computers by ID"
+        } else if (this.props.view === "departments"){
+            placeholderText = "Search departments"
+        } else if (this.props.view === "training"){
+            placeholderText = "Search trainings"
         }
         console.log("placeholderText", placeholderText)
         return (

@@ -5,29 +5,30 @@ import { Button } from 'semantic-ui-react'
 
 
 export default class NavigationBar extends Component {
-    state = {
-        view: ""
-    }
-    render() {
-        return (
-            <>
-                <h1>{this.props.view}</h1>
+	state = {
+		view: ""
+	}
+	render() {
+		return (
+			<>
+				<h1>{this.props.view}</h1>
 				{this.props.view === "Employees" ? (
 					<Link to="/customer-portal">
 						<Button color="orange">Go to Customer Portal</Button>
 					</Link>
 				) : (
-					<Link to="/employee-portal">
-						<Button color="orange">Go to Employee Portal</Button>
-					</Link>
-				)}
-                <Route
+						<Link to="/employee-portal">
+							<Button color="orange">Go to Employee Portal</Button>
+						</Link>
+					)}
+				<Route
 					exact path="/customer-portal"
 					render={props => {
 						return <SearchBar {...props} view="customers" />;
 					}}
 				/>
-                <Route
+
+				<Route
 					path="/customer-portal/customers"
 					render={props => {
 						return <SearchBar {...props} view="customers" />;
@@ -53,8 +54,43 @@ export default class NavigationBar extends Component {
 						return <SearchBar {...props} view="products" />;
 					}}
 				/>
+
+				<Route
+					exact path="/employee-portal"
+					render={props => {
+						return <SearchBar {...props} view="employees" />;
+					}}
+				/>
+
+				<Route
+					exact path="/employee-portal/employees"
+					render={props => {
+						return <SearchBar {...props} view="employees" />;
+					}}
+				/>
+
+				<Route
+					exact path="/employee-portal/computers"
+					render={props => {
+						return <SearchBar {...props} view="computers" />;
+					}}
+				/>
+
+				<Route
+					exact path="/employee-portal/departments"
+					render={props => {
+						return <SearchBar {...props} view="departments" />;
+					}}
+				/>
+
+				<Route
+					exact path="/employee-portal/training"
+					render={props => {
+						return <SearchBar {...props} view="training" />;
+					}}
+				/>
 			</>
 		);
-    }
+	}
 
 }

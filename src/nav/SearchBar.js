@@ -7,14 +7,18 @@ export default class SearchBar extends Component {
     state = {
         view: "",
         isLoading: false,
-        value: ""
+        value: "",
+        employeeValue: ""
     }
-    
+
     handleFieldChange = (e) => {
         const stateToChange = {};
         stateToChange[e.target.id] = e.target.value;
         this.setState(stateToChange);
     }
+
+
+
     render() {
 
         let placeholderText = "Search..."
@@ -25,7 +29,7 @@ export default class SearchBar extends Component {
         } else if (this.props.view === "orders"){
             placeholderText = "Search for order by ID"
         } else if (this.props.view === "employees"){
-            placeholderText = "Search employees"
+            placeholderText = "Find your employees"
         } else if (this.props.view === "computers"){
             placeholderText = "Search computers by ID"
         } else if (this.props.view === "departments"){
@@ -33,7 +37,13 @@ export default class SearchBar extends Component {
         } else if (this.props.view === "training"){
             placeholderText = "Search trainings"
         }
-        console.log("placeholderText", placeholderText)
+
+        let id = 'value'
+        if (this.props.view === "employees"){
+            id = 'employeeValue'
+        }
+        console.log("value in state:", this.state.value.split(' '))
+        console.log("employee value in state:", this.state.employeeValue.split(' '))
         return (
             <>
             <Input
@@ -41,7 +51,7 @@ export default class SearchBar extends Component {
             icon='search'
             type="text"
             onChange={this.handleFieldChange}
-            id="value"
+            id={id}
             placeholder={placeholderText}
             />
 

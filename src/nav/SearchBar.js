@@ -17,43 +17,55 @@ export default class SearchBar extends Component {
         this.setState(stateToChange);
     }
 
+    handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+          this.handleEmployeeSearch()
+        }
+      }
+
+    handleEmployeeSearch = (e) => {
+        sessionStorage.setItem("employeeSearch", this.state.employeeValue)
+        this.props.history.push("/employee-portal/employees")
+    }
+
 
 
     render() {
 
         let placeholderText = "Search..."
-        if (this.props.view === "customers"){
+        if (this.props.view === "customers") {
             placeholderText = "Search for customer..."
-        } else if (this.props.view === "products"){
+        } else if (this.props.view === "products") {
             placeholderText = "Search for products..."
-        } else if (this.props.view === "orders"){
+        } else if (this.props.view === "orders") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.view === "employees"){
+        } else if (this.props.view === "employees") {
             placeholderText = "Find your employees"
-        } else if (this.props.view === "computers"){
+        } else if (this.props.view === "computers") {
             placeholderText = "Search computers by ID"
-        } else if (this.props.view === "departments"){
+        } else if (this.props.view === "departments") {
             placeholderText = "Search departments"
-        } else if (this.props.view === "training"){
+        } else if (this.props.view === "training") {
             placeholderText = "Search trainings"
         }
 
         let id = 'value'
-        if (this.props.view === "employees"){
+        if (this.props.view === "employees") {
             id = 'employeeValue'
         }
-        console.log("value in state:", this.state.value.split(' '))
-        console.log("employee value in state:", this.state.employeeValue.split(' '))
+
         return (
             <>
-            <Input
-            size='large'
-            icon='search'
-            type="text"
-            onChange={this.handleFieldChange}
-            id={id}
-            placeholder={placeholderText}
-            />
+                <Input
+                    size='large'
+                    icon={{name: 'search', link: true}}
+                    type="text"
+                    onChange={this.handleFieldChange}
+                    onKeyPress={this.handleKeyPress}
+                    id={id}
+                    placeholder={placeholderText}
+
+                />
 
             </>
         )

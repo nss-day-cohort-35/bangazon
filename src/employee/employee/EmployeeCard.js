@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+// import { Card } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
     render() {
 
         return (
             <>
-                <h3>Employee Card</h3>
-                <p>Employee Name:</p>
-                <p>Title:</p>
-                <p>Department:</p>
+                <div>
+                    <h4>{this.props.employee.firstName} {this.props.employee.lastName}</h4>
+                    <h5>Title: 
+                        <br></br>
+                        Department: </h5>
+                </div>
             </>
         )
     }

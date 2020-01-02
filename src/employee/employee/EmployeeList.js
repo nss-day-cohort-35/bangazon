@@ -11,24 +11,25 @@ export default class EmployeeList extends Component {
 
     storedEmployeeString = sessionStorage.getItem("employeeSearch").split(" ")
 
-componentDidMount() {
-    this.setState({
-        storedEmployee: this.storedEmployeeString
-    })
-        APIManager.searchForEmployeeByName(this.state.storedEmployee[0], this.state.storedEmployee[1])
+    componentWillMount() {
+        this.setState({
+            storedEmployee: this.storedEmployeeString
+        })
+    }
+    componentDidMount() { 
+    APIManager.searchForEmployeeByName(this.state.storedEmployee[0], this.state.storedEmployee[1])
             .then(response => {
-                this.setState({
-                    employees: response
-                })
-            })
-
-}
+        this.setState({
+            employees: response
+        })
+    })
+    }
 
 
 render() {
 
-    console.log("stored employee", (this.state.storedEmployee[0]))
-    console.log("employee returned", this.state.employees)
+    console.log("stored employee:", this.state.storedEmployee[0], this.state.storedEmployee[1])
+    console.log("employee returned:", this.state.employees)
     return (
         <>
             <EmployeeCard />

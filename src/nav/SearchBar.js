@@ -17,8 +17,8 @@ export default class SearchBar extends Component {
         this.setState(stateToChange);
     }
 
-    handleKeyPress = (event) => {
-        if(event.key === 'Enter'){
+    employeeHandleKeyPress = (event) => {
+        if(event.key === 'Enter' && this.props.view === "employees"){
           this.handleEmployeeSearch()
         }
       }
@@ -61,7 +61,7 @@ export default class SearchBar extends Component {
                     icon={{name: 'search', link: true}}
                     type="text"
                     onChange={this.handleFieldChange}
-                    onKeyPress={this.handleKeyPress}
+                    onKeyPress={this.employeeHandleKeyPress}
                     id={id}
                     placeholder={placeholderText}
 

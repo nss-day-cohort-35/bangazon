@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import PaymentTypeSearchResults from './PaymentTypeSearchResults'
 
 export default class PaymentLanding extends Component {
 
   render() {
     return (
-      <h2>Payment Landing View - put some stats here</h2>
+      <Route
+        exact
+        path="/customer-portal/payments/"
+        render={props => {
+          return <PaymentTypeSearchResults {...props} />;
+        }}
+      />
     )
   }
 }

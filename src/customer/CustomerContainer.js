@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import NavigationBar from '../nav/NavBar'
 import SideBar from '../nav/SideBar'
@@ -11,23 +11,25 @@ import CustomerProfileCard from './customers/CustomerProfileCard';
 import CustomerOrders from './customers/CustomerOrders'
 
 export default class CustomerContainer extends Component {
- render() {
-     return (
+	render() {
+		return (
 			<>
 				<NavigationBar portal="Customers" {...this.props} />
 				<p>Customer Container</p>
 				<SideBar view="Customers" />
-				<CustomerSearchResults/>
-				<CustomerOrders />
-                <CustomerProfileCard />
 
-                <Route
+				<CustomerOrders />
+				<CustomerProfileCard />
+
+				<Route
 					exact
 					path="/customer-portal"
 					render={props => {
 						return <CustomerLanding {...props} />;
 					}}
 				/>
+
+				
 
 				<Route
 					exact
@@ -55,6 +57,6 @@ export default class CustomerContainer extends Component {
 
 			</>
 		);
- }
+	}
 
 }

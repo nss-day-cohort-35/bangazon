@@ -1,22 +1,39 @@
-import React from "react";
-import { Card, Icon } from "semantic-ui-react";
+import React, { Component } from "react";
+import { Card, Image } from "semantic-ui-react";
+import APIManager from "../../api/APIManager";
 
-const extra = (
-	<a>
-		<Icon name="user" />
-		Edit
-	</a>
-);
 
-const CustomerProfileCard = () => (
-	<Card
-		image="https://secure.gravatar.com/avatar/49b917047d697e1593433718dcd0212d"
-		header="Sage Klein"
-		meta="ID# 9283729834"
-		description="Home: Yadyad St. Nashville TN 37209"
-		description="E-mail: sageklein@gmail.com"
-		extra="Phone: 615-765-7835"
-	/>
-);
+export default class CustomerProfileCard extends Component {
+	state = {
+		customers: []
+	};
 
-export default CustomerProfileCard;
+	componentDidMount() {
+		this.getData();
+	}
+
+	getData = () => {
+		APIManager.getById("customers", id).then(customers => {
+			this.setState({
+				customers: customers
+			});
+		});
+	};
+
+	render() {
+		return (
+					<Card key={item.id}>
+						<Card.Content>
+							<Image src="https://image.flaticon.com/icons/png/512/1077/1077012.png" />
+							<Card.Header>
+								{item.firstName} {item.lastName}
+							</Card.Header>
+							<Card.Meta>ID#: {item.id}</Card.Meta>
+							<Card.Description>E-mail: {item.email}</Card.Description>
+							<Card.Description>Phone Numer: {item.phone}</Card.Description>
+							<Card.Description>Address: {item.address}</Card.Description>
+						</Card.Content>
+					</Card>
+				)
+	};
+	}

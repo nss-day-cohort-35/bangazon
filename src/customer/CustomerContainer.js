@@ -15,10 +15,10 @@ export default class CustomerContainer extends Component {
 			<>
 				<NavigationBar view="Customer Portal" />
 				<SideBar view="Customers" />
-				<CustomerSearchResults/>
-                <CustomerProfileCard />
+				<CustomerSearchResults />
+				<CustomerProfileCard {...props} />
 
-                <Route
+				<Route
 					exact
 					path="/customer-portal"
 					render={props => {

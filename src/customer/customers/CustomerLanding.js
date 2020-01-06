@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 import CustomerProfileCard from './CustomerProfileCard';
+import CustomerSearchResults from './CustomerSearchResults'
+import CustomerOrders from './CustomerOrders'
 
 export default class CustomerLanding extends Component {
 

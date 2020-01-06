@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
     }
 
     employeeHandleKeyPress = (event) => {
-        if(event.key === 'Enter' && this.props.view === "employees"){
+        if(event.key === 'Enter' && this.props.match.path === "employees"){
           this.handleEmployeeSearch()
         }
       }
@@ -28,29 +28,37 @@ export default class SearchBar extends Component {
         this.props.history.push("/employee-portal/employees")
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        // only update chart if the data has changed
+        console.log("prevProps",prevProps, this.props)
+        // if (prevProps.data !== this.props.data) {
+        //   this.chart = c3.load({
+        //     data: this.props.data
+        //   });
+        }
 
 
     render() {
 
         let placeholderText = "Search..."
-        if (this.props.view === "customers") {
+        if (this.props.match.path === "/customer-portal/customers") {
             placeholderText = "Search for customer..."
-        } else if (this.props.view === "products") {
+        } else if (this.props.match.path === "/customer-portal/products") {
             placeholderText = "Search for products..."
-        } else if (this.props.view === "orders") {
+        } else if (this.props.match.path === "/customer-portal/orders") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.view === "employees") {
+        } else if (this.props.match.path === "/employee-portal/employees") {
             placeholderText = "Find your employees"
-        } else if (this.props.view === "computers") {
+        } else if (this.props.match.path === "/employee-portal/computers") {
             placeholderText = "Search computers by ID"
-        } else if (this.props.view === "departments") {
+        } else if (this.props.match.path === "/employee-portal/departments") {
             placeholderText = "Search departments"
-        } else if (this.props.view === "training") {
+        } else if (this.props.match.path === "/employee-portal/training") {
             placeholderText = "Search trainings"
         }
 
         let id = 'value'
-        if (this.props.view === "employees") {
+        if (this.props.match.path === "/employee-portal/employees") {
             id = 'employeeValue'
         }
 

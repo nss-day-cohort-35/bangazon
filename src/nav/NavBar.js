@@ -24,71 +24,10 @@ export default class NavigationBar extends Component {
 				<Route
 					exact path="/customer-portal"
 					render={props => {
-						return <SearchBar {...props} view="customers" />;
+						return <SearchBar {...props} />;
 					}}
 				/>
 
-				<Route
-					path="/customer-portal/customers"
-					render={props => {
-						return <SearchBar {...props} view="customers" />;
-					}}
-				/>
-				<Route
-					path="/customer-portal/orders"
-					render={props => {
-						return <SearchBar {...props} view="orders" />;
-					}}
-				/>
-
-				<Route
-					path="/customer-portal/payments"
-					render={props => {
-						return null;
-					}}
-				/>
-
-				<Route
-					path="/customer-portal/products"
-					render={props => {
-						return <SearchBar {...props} view="products" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal"
-					render={props => {
-						return <SearchBar {...props} view="employees" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/employees"
-					render={props => {
-						return <SearchBar {...props} view="employees" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/computers"
-					render={props => {
-						return <SearchBar {...props} view="computers" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/departments"
-					render={props => {
-						return <SearchBar {...props} view="departments" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/training"
-					render={props => {
-						return <SearchBar {...props} view="training" />;
-					}}
-				/>
 			</>
 		);
 	}

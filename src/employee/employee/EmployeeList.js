@@ -6,9 +6,8 @@ import EmployeeCard from './EmployeeCard';
 export default class EmployeeList extends Component {
     state = {
         employees: [],
-        storedEmployee: sessionStorage.getItem("employeeSearch").split(" "),
+        storedEmployee: sessionStorage.getItem("employeeSearch").split(" ")
     }
-
 
     componentDidMount() {
         APIManager.searchForEmployeeByName(this.state.storedEmployee[0], this.state.storedEmployee[1])
@@ -19,9 +18,11 @@ export default class EmployeeList extends Component {
             })
     }
 
+    // componentDidUpdate() {
+
+    // }
 
     render() {
-
         return (
             <>
                 <div>
@@ -31,7 +32,6 @@ export default class EmployeeList extends Component {
                             employee={employee}
                         />
                     ))}
-                    
                 </div>
             </>
         )

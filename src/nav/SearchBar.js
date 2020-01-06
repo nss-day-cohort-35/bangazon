@@ -23,7 +23,7 @@ export default class SearchBar extends Component {
         }
       }
 
-    handleEmployeeSearch = (e) => {
+    handleEmployeeSearch = () => {
         sessionStorage.setItem("employeeSearch", this.state.employeeValue)
         this.props.history.push("/employee-portal/employees")
     }

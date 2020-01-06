@@ -3,9 +3,8 @@ import EmployeeDetails from './EmployeeDetails'
 import { Card } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
-    state = {
-        details: false
-    }
+    // state = {
+    // }
 
     // toggle = () => {
     //     this.setState(prevState => ({
@@ -18,17 +17,13 @@ export default class EmployeeCard extends Component {
         return (
             <>
                 <div>
-                    <Card
-                    href="#">
+                    <Card href="#employeeDetails">
                         <h4>
                             {this.props.employee.firstName} {this.props.employee.lastName}
                         </h4>
-                        <h5>
                             Title:
                             <br></br>
                             Department:
-                        </h5>
-
                     </Card>
                     <Card>
                         <EmployeeDetails

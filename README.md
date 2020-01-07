@@ -57,6 +57,7 @@ Color Palette was put together based on design guideliness dictated by the Hubsp
 
 ### Paper Mockups (Lo-Fidelity)
 ![](RM-images/paper-mockup.jpg)
+![](RM-images/lofi_2.gif)
 ### First round of User Testing
 ![](RM-images/paper-mockup-usertest.jpg)
 #### User Feedback/Lessons Learned

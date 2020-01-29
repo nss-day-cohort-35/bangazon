@@ -18,10 +18,6 @@ export default class EmployeeList extends Component {
             })
     }
 
-    // componentDidUpdate() {
-
-    // }
-
     render() {
         return (
             <>

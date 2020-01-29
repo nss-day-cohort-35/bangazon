@@ -22,12 +22,11 @@ export default class NavigationBar extends Component {
 						</Link>
 					)}
 				<Route
-					exact path="/customer-portal"
+					path="/"
 					render={props => {
 						return <SearchBar {...props} />;
 					}}
 				/>
-
 			</>
 		);
 	}

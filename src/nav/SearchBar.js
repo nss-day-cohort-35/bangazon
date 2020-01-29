@@ -18,10 +18,10 @@ export default class SearchBar extends Component {
     }
 
     employeeHandleKeyPress = (event) => {
-        if(event.key === 'Enter' && this.props.match.path === "employees"){
-          this.handleEmployeeSearch()
+        if (event.key === 'Enter' && this.props.match.path === "employees") {
+            this.handleEmployeeSearch()
         }
-      }
+    }
 
     handleEmployeeSearch = () => {
         sessionStorage.setItem("employeeSearch", this.state.employeeValue)
@@ -30,35 +30,35 @@ export default class SearchBar extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         // only update chart if the data has changed
-        console.log("prevProps",prevProps, this.props)
-        // if (prevProps.data !== this.props.data) {
-        //   this.chart = c3.load({
-        //     data: this.props.data
-        //   });
+        console.log("prevProps", prevProps, this.props)
+        if (prevProps.data !== this.props.data) {
+            //   this.chart = c3.load({
+            //     data: this.props.data
+            //   });
         }
+    }
 
 
     render() {
-
         let placeholderText = "Search..."
-        if (this.props.match.path === "/customer-portal/customers") {
+        if (this.props.location.pathname === "/customer-portal/customers") {
             placeholderText = "Search for customer..."
-        } else if (this.props.match.path === "/customer-portal/products") {
+        } else if (this.props.location.pathname === "/customer-portal/products") {
             placeholderText = "Search for products..."
-        } else if (this.props.match.path === "/customer-portal/orders") {
+        } else if (this.props.location.pathname === "/customer-portal/orders") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.match.path === "/employee-portal/employees") {
+        } else if (this.props.location.pathname === "/employee-portal/employees") {
             placeholderText = "Find your employees"
-        } else if (this.props.match.path === "/employee-portal/computers") {
+        } else if (this.props.location.pathname === "/employee-portal/computers") {
             placeholderText = "Search computers by ID"
-        } else if (this.props.match.path === "/employee-portal/departments") {
+        } else if (this.props.location.pathname === "/employee-portal/departments") {
             placeholderText = "Search departments"
-        } else if (this.props.match.path === "/employee-portal/training") {
+        } else if (this.props.location.pathname === "/employee-portal/training") {
             placeholderText = "Search trainings"
         }
 
         let id = 'value'
-        if (this.props.match.path === "/employee-portal/employees") {
+        if (this.props.location.pathname === "/employee-portal/employees") {
             id = 'employeeValue'
         }
 
@@ -66,13 +66,12 @@ export default class SearchBar extends Component {
             <>
                 <Input
                     size='large'
-                    icon={{name: 'search', link: true}}
+                    icon={{ name: 'search', link: true }}
                     type="text"
                     onChange={this.handleFieldChange}
                     onKeyPress={this.employeeHandleKeyPress}
                     id={id}
                     placeholder={placeholderText}
-
                 />
 
             </>

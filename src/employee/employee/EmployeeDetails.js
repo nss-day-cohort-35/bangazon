@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { List } from 'semantic-ui-react'
+import { List, Button, Icon } from 'semantic-ui-react'
 
 export default class EmployeeDetails extends Component {
-    render() {
 
+    render() {
         return (
             <>
 
@@ -14,6 +14,9 @@ export default class EmployeeDetails extends Component {
                         </List.Content>
                     </List.Item>
                     <List.Item>
+                            <Button icon>
+                                <Icon name='edit' />
+                            </Button>
                         <List.Content>
                             <h4>{this.props.employee.firstName} {this.props.employee.lastName}</h4>
                         </List.Content>
@@ -48,7 +51,7 @@ export default class EmployeeDetails extends Component {
                         <List.Icon name='users' />
                         <List.Content>Supervisor: eh</List.Content>
                     </List.Item>
-                <hr></hr>
+                    <hr></hr>
                     <List.Item>
                         <List.Content> <h4>Upcoming Events</h4></List.Content>
                     </List.Item>

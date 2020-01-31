@@ -33,7 +33,7 @@ export default class EmployeeContainer extends Component {
                     return <TrainingLanding {...props} />
                 }} />
 
-                <Route exact path="/employee-portal/employees" render={props => {
+                <Route exact path="/employee-portal/employees/" render={props => {
                     return <EmployeeLanding  {...props} />
                 }} />
 

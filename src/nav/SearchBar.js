@@ -35,8 +35,7 @@ export default class SearchBar extends Component {
 
     render() {
 
-        // const searchValue = this.props.searchValue;
-
+console.log(this.state.employeeValue)
         let placeholderText = "Search..."
         if (this.props.location.pathname === "/customer-portal/customers") {
             placeholderText = "Search for customer..."
@@ -57,7 +56,7 @@ export default class SearchBar extends Component {
         let id = 'value'
         if (this.props.location.pathname === "/employee-portal/") {
             id = 'employeeValue'
-        } else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees")) {
             id = 'employeeValue'
         }
 
@@ -71,7 +70,6 @@ export default class SearchBar extends Component {
                     onKeyPress={this.employeeHandleKeyPress}
                     id={id}
                     placeholder={placeholderText}
-                // value={searchValue}
                 />
 
             </>

@@ -13,22 +13,24 @@ export default class NavigationBar extends Component {
 			<>
 				<h1>{this.props.view}</h1>
 				{this.props.view === "Employees" ? (
-					<Link to="/customer-portal">
-						<Button color="orange">Go to Customer Portal</Button>
-					</Link>
-				) : (
-						<Link to="/employee-portal">
-							<Button color="orange">Go to Employee Portal</Button>
+					<>
+						<Link to="/customer-portal">
+							<Button color="blue">Go to Customer Portal</Button>
 						</Link>
-					)}
-				<Route
-					path="/"
-					render={props => {
-						return <SearchBar {...props} />;
-					}}
-				/>
-			</>
-		);
-	}
+						</>
+						) : (
+							<Link to="/employee-portal">
+							<Button color="blue">Go to Employee Portal</Button>
+						</Link>
+						)}
 
+				<Route
+							path="/"
+							render={props => {
+								return <SearchBar {...props} />;
+							}}
+						/>
+					</>
+				);
+			}
 }

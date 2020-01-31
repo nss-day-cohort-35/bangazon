@@ -10,6 +10,7 @@ import SideBar from '../nav/SideBar'
 // import EmployeeCard from './employee/EmployeeCard';
 // import EmployeeDetails from './employee/EmployeeDetails';
 import EmployeeList from './employee/EmployeeList';
+import EmployeeDetails from './employee/EmployeeDetails';
 
 export default class EmployeeContainer extends Component {
 
@@ -39,11 +40,14 @@ export default class EmployeeContainer extends Component {
                 <Route path="/employee-portal/employees/:employeeName/" render={props => {
                     const searchName = props.match.params.employeeName
                     const splitName = searchName.split("-")
-                    console.log("this is splitName", splitName)
                     return <EmployeeList
                         searchValue={splitName}
                         {...props}
                     />
+                }} />
+
+                <Route path="/employee-portal/employees/:employeeName/details" render={props => {
+                    return <EmployeeDetails {...props} />
                 }} />
 
                 <Route exact path="/employee-portal/departments" render={props => {

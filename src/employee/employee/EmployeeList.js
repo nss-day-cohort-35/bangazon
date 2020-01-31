@@ -18,8 +18,6 @@ class EmployeeList extends Component {
 
 
     componentDidMount() {
-        console.log("employeeName", this.props.match)
-        console.log("searchValue", this.props.searchValue)
         APIManager.searchForEmployeeByName(this.props.searchValue[0], this.props.searchValue[1])
             .then(response => {
                 this.setState({

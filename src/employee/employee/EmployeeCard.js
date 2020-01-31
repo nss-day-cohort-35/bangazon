@@ -3,36 +3,45 @@ import EmployeeDetails from './EmployeeDetails'
 import { Card } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
-    // state = {
-    // }
+    state = {
+        visible: false,
+    }
 
-    // toggle = () => {
-    //     this.setState(prevState => ({
-    //         details: !prevState.details
-    //     }))
-    // }
+
+    employeeDetailsToggle = () => {
+        this.setState(prevState => ({
+            visible: !prevState.visible
+        }))
+    }
+
 
     render() {
 
         return (
             <>
                 <div>
-                    <Card href="#employeeDetails">
+                    <Card
+                        link
+                        onClick={() => {
+                            this.employeeDetailsToggle()
+                        }}>
                         <h4>
                             {this.props.employee.firstName} {this.props.employee.lastName}
                         </h4>
-                            Title:
+                        Title:
                             <br></br>
-                            Department:
+                        Department:
                     </Card>
-                    <Card>
-                        <EmployeeDetails
-                            // isOpen={this.state.details}
-                            // toggle={this.toggle}
-                            employee={this.props.employee}
-                            id={this.props.employee.id} />
-
-                    </Card>
+                    {this.state.visible === true ?
+                        <>
+                            <Card>
+                                <EmployeeDetails
+                                    employee={this.props.employee}
+                                    id={this.props.employee.id} />
+                            </Card>
+                        </>
+                        : null
+                    }
                 </div>
             </>
         )

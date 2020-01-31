@@ -4,11 +4,12 @@ import { Input } from 'semantic-ui-react'
 
 
 export default class SearchBar extends Component {
+
     state = {
         view: "",
         isLoading: false,
-        value: "",
-        employeeValue: ""
+        value: '',
+        employeeValue: '',
     }
 
     handleFieldChange = (e) => {
@@ -18,39 +19,44 @@ export default class SearchBar extends Component {
     }
 
     employeeHandleKeyPress = (event) => {
-        if(event.key === 'Enter' && this.props.view === "employees"){
-          this.handleEmployeeSearch()
+        if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/")) {
+            this.handleEmployeeSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname === "/employee-portal/employees/") {
+            this.handleEmployeeSearch()
         }
-      }
-
-    handleEmployeeSearch = () => {
-        sessionStorage.setItem("employeeSearch", this.state.employeeValue)
-        this.props.history.push("/employee-portal/employees")
     }
 
-
+    handleEmployeeSearch = () => {
+        let newEmployeeValue = this.state.employeeValue.split(" ")
+        let joinedEmployeeValue = newEmployeeValue.join("-")
+        console.log(joinedEmployeeValue)
+        this.props.history.push(`/employee-portal/employees/${joinedEmployeeValue}/`)
+    }
 
     render() {
 
+console.log(this.state.employeeValue)
         let placeholderText = "Search..."
-        if (this.props.view === "customers") {
+        if (this.props.location.pathname === "/customer-portal/customers") {
             placeholderText = "Search for customer..."
-        } else if (this.props.view === "products") {
+        } else if (this.props.location.pathname === "/customer-portal/products") {
             placeholderText = "Search for products..."
-        } else if (this.props.view === "orders") {
+        } else if (this.props.location.pathname === "/customer-portal/orders") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.view === "employees") {
+        } else if (this.props.location.pathname === "/employee-portal/employees") {
             placeholderText = "Find your employees"
-        } else if (this.props.view === "computers") {
+        } else if (this.props.location.pathname === "/employee-portal/computers") {
             placeholderText = "Search computers by ID"
-        } else if (this.props.view === "departments") {
+        } else if (this.props.location.pathname === "/employee-portal/departments") {
             placeholderText = "Search departments"
-        } else if (this.props.view === "training") {
+        } else if (this.props.location.pathname === "/employee-portal/training") {
             placeholderText = "Search trainings"
         }
 
         let id = 'value'
-        if (this.props.view === "employees") {
+        if (this.props.location.pathname === "/employee-portal/") {
+            id = 'employeeValue'
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees")) {
             id = 'employeeValue'
         }
 
@@ -58,13 +64,12 @@ export default class SearchBar extends Component {
             <>
                 <Input
                     size='large'
-                    icon={{name: 'search', link: true}}
+                    icon={{ name: 'search', link: true }}
                     type="text"
                     onChange={this.handleFieldChange}
                     onKeyPress={this.employeeHandleKeyPress}
                     id={id}
                     placeholder={placeholderText}
-
                 />
 
             </>

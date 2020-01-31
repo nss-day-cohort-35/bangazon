@@ -35,7 +35,6 @@ export default class SearchBar extends Component {
 
     render() {
 
-console.log(this.state.employeeValue)
         let placeholderText = "Search..."
         if (this.props.location.pathname === "/customer-portal/customers") {
             placeholderText = "Search for customer..."

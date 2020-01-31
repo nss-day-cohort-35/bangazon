@@ -4,14 +4,20 @@ import { Card } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
     state = {
-        visible: false,
+        cardVisible: false,
     }
 
 
     employeeDetailsToggle = () => {
-        this.setState(prevState => ({
-            visible: !prevState.visible
-        }))
+        if (this.state.cardVisible === false) {
+            this.setState({
+                cardVisible: true
+            })
+        } else {
+            this.setState({
+                cardVisible: false
+            })
+        }
     }
 
 
@@ -21,7 +27,7 @@ export default class EmployeeCard extends Component {
             <>
                 <div>
                     <Card
-                        link
+                        // link
                         onClick={() => {
                             this.employeeDetailsToggle()
                         }}>
@@ -32,7 +38,7 @@ export default class EmployeeCard extends Component {
                             <br></br>
                         Department:
                     </Card>
-                    {this.state.visible === true ?
+                    {this.state.cardVisible === true ?
                         <>
                             <Card>
                                 <EmployeeDetails

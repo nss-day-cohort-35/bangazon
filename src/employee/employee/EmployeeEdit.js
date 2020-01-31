@@ -1,42 +1,50 @@
 import React, { Component } from 'react';
-import { Button, Sidebar, Segment, Form } from 'semantic-ui-react'
+import { Button, Form, Dropdown } from 'semantic-ui-react'
 
 
 export default class EmployeeEdit extends Component {
-state = {
-    visible = false,
-}
+
+    state = {
+        employeeFirstName: '',
+        employeeLastName: '',
+        department: '',
+    }
 
     render() {
         return (
-
-            <Sidebar.Pushable as={Segment}>
-                <Sidebar
-                    as={Form}
-                    animation='overlay'
-                    icon='labeled'
-                    inverted
-                    onHide={() => setVisible(false)}
-                    vertical
-                    visible={visible}
-                    width='thin'
-                ></Sidebar>
+            <>
                 <Form>
                     <Form.Field>
-                        <label>First Name</label>
+                        <label>Employee First Name</label>
                         <input placeholder='First Name' />
                     </Form.Field>
                     <Form.Field>
-                        <label>Last Name</label>
+                        <label>Employee Last Name</label>
                         <input placeholder='Last Name' />
                     </Form.Field>
                     <Form.Field>
-                        <Checkbox label='I agree to the Terms and Conditions' />
+                        <Dropdown text='Choose Department'>
+                            <Dropdown.Menu>
+                                <Dropdown.Item text='New' />
+                                <Dropdown.Item text='New' />
+                                <Dropdown.Item text='New' />
+                                <Dropdown.Item text='New' />
+                                <Dropdown.Item text='New' />
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Supervisor Name</label>
+                        <input placeholder='Supervisor Name' />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>E-mail Address</label>
+                        <input placeholder='E-mail Address' />
                     </Form.Field>
                     <Button type='submit'>Submit</Button>
                 </Form>
-            </Sidebar.Pushable>
 
+            </>
         )
     }
 }

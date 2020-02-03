@@ -71,7 +71,7 @@ export default {
     },
 
     searchForEmployeeByName(firstName, lastName) {
-        return fetch(`${remoteURL}/employees?firstName=${firstName}&lastName=${lastName}`).then(result => result.json())
+        return fetch(`${remoteURL}/employees?firstName=${firstName}&lastName=${lastName}&_expand=department`).then(result => result.json())
     },
 
     getDeptWithEmployees(id) {

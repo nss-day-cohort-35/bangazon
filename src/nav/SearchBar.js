@@ -59,11 +59,16 @@ export default class SearchBar extends Component {
             id = 'employeeValue'
         }
 
+        let onClickAction = null
+        if (this.props.location.pathnam === "/employee-portal" || this.props.location.pathname.startsWith("/employee-portal/employees")) {
+            onClickAction = this.handleEmployeeSearch
+        }
+
         return (
             <>
                 <Input
                     size='large'
-                    icon={{ name: 'search', link: true }}
+                    icon={{ name: 'search', link: true, onClick: onClickAction }}
                     type="text"
                     onChange={this.handleFieldChange}
                     onKeyPress={this.employeeHandleKeyPress}

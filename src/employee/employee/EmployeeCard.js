@@ -22,12 +22,11 @@ export default class EmployeeCard extends Component {
 
 
     render() {
-
         return (
             <>
                 <div>
                     <Card
-                        // link
+                        link
                         onClick={() => {
                             this.employeeDetailsToggle()
                         }}>
@@ -36,12 +35,13 @@ export default class EmployeeCard extends Component {
                         </h4>
                         Title:
                             <br></br>
-                        Department:
+                        Department: {this.props.employee.departmentId}
                     </Card>
                     {this.state.cardVisible === true ?
                         <>
                             <Card>
                                 <EmployeeDetails
+                                    toggle={this.props.toggle}
                                     employee={this.props.employee}
                                     id={this.props.employee.id} />
                             </Card>

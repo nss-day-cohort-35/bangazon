@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react'
 import EmployeeList from './EmployeeList'
 
 export default class EmployeeLanding extends Component {
@@ -8,7 +7,6 @@ export default class EmployeeLanding extends Component {
 
         return (
             <>
-            <Button>Hi</Button>
                 <EmployeeList />
             </>
 

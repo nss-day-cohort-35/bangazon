@@ -13,19 +13,13 @@ export default class NavigationBar extends Component {
 	}
 
 	handleOpen = () => this.setState({ active: true })
-    handleClose = () => this.setState({ active: false })
+	handleClose = () => this.setState({ active: false })
 
 	toggle = () => {
 		if (this.state.visible === false) {
-			this.setState({
-				visible: true,
-				// active: true
-			})
+			this.setState({visible: true})
 		} else {
-			this.setState({
-				visible: false,
-				// active: false
-			})
+			this.setState({visible: false})
 		}
 	}
 
@@ -55,7 +49,7 @@ export default class NavigationBar extends Component {
 		if (this.props.location.pathname.startsWith("/customer-portal/customers")) {
 			return null
 		} else if (this.props.location.pathname.startsWith("/employee-portal/employees") && this.state.visible === true) {
-			console.log('condition met')
+			console.log('condition met', this.state.active)
 			return <>
 
 				<h1>{this.props.view}</h1>
@@ -76,7 +70,7 @@ export default class NavigationBar extends Component {
 					<Button
 						color="orange"
 						onClick={this.handleOpen}
-						>{text}</Button>}
+					>{text}</Button>}
 
 				<Route
 					path="/"
@@ -125,7 +119,6 @@ export default class NavigationBar extends Component {
 						:
 						<Button
 							color="orange"
-							onClick={this.handleOpen}
 							onClick={this.toggle}
 						>
 

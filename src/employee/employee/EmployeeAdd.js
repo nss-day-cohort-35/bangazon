@@ -28,14 +28,13 @@ export default class EmployeeAdd extends Component {
     addEmployee = evt => {
         evt.preventDefault();
         const newEmployee = {
-            id: parseInt(this.props.employee.id),
+            id: parseInt(this.state.id),
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             departmentId: parseInt(this.state.departmentId),
             isSupervisor: this.state.isSupervisor,
             computerId: parseInt(this.state.computerId),
             email: this.state.email
-
         }
         APIManager.addData("employees", newEmployee)
             .then(() => this.props.closeSidebar())

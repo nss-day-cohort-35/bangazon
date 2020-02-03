@@ -8,7 +8,6 @@ import DepartmentLanding from './department/DepartmentLanding'
 import EmployeeDashboard from './EmployeeDashboard'
 import SideBar from '../nav/SideBar'
 import EmployeeList from './employee/EmployeeList';
-import { Button } from 'semantic-ui-react'
 
 export default class EmployeeContainer extends Component {
     state = {

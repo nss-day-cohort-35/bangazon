@@ -4,19 +4,24 @@ import { Card } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
     state = {
-        visible: false,
+        cardVisible: false,
     }
 
 
     employeeDetailsToggle = () => {
-        this.setState(prevState => ({
-            visible: !prevState.visible
-        }))
+        if (this.state.cardVisible === false) {
+            this.setState({
+                cardVisible: true
+            })
+        } else {
+            this.setState({
+                cardVisible: false
+            })
+        }
     }
 
 
     render() {
-
         return (
             <>
                 <div>
@@ -30,12 +35,13 @@ export default class EmployeeCard extends Component {
                         </h4>
                         Title:
                             <br></br>
-                        Department:
+                        Department: {this.props.employee.departmentId}
                     </Card>
-                    {this.state.visible === true ?
+                    {this.state.cardVisible === true ?
                         <>
                             <Card>
                                 <EmployeeDetails
+                                    toggle={this.props.toggle}
                                     employee={this.props.employee}
                                     id={this.props.employee.id} />
                             </Card>

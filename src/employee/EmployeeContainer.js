@@ -7,52 +7,61 @@ import EmployeeLanding from './employee/EmployeeLanding'
 import DepartmentLanding from './department/DepartmentLanding'
 import EmployeeDashboard from './EmployeeDashboard'
 import SideBar from '../nav/SideBar'
-// import EmployeeCard from './employee/EmployeeCard';
-// import EmployeeDetails from './employee/EmployeeDetails';
 import EmployeeList from './employee/EmployeeList';
-import EmployeeDetails from './employee/EmployeeDetails';
+// import { Segment, Dimmer } from 'semantic-ui-react'
 
 export default class EmployeeContainer extends Component {
+    state = {
+        visible: false,
+        active: true
+    }
+
+    handleOpen = () => this.setState({ active: true })
+    handleClose = () => this.setState({ active: false })
 
     render() {
+        // const { active } = this.state
         return (
             <>
-                <NavigationBar view="Employees" />
+                {/* <Dimmer.Dimmable blurring dimmed={this.state.active}>
+                    <Dimmer active={this.state.active} onClickOutside={this.handleClose}/> */}
+                    <NavigationBar view="Employees" />
 
-                <SideBar view="Employees" />
+                    <SideBar view="Employees" />
 
-                <Route exact path="/employee-portal/" render={props => {
-                    return <EmployeeDashboard {...props} />
-                }} />
+                    <Route exact path="/employee-portal/" render={props => {
+                        return <EmployeeDashboard {...props} />
+                    }} />
 
-                <Route exact path="/employee-portal/computers" render={props => {
-                    return <ComputerLanding {...props} />
-                }} />
+                    <Route exact path="/employee-portal/computers" render={props => {
+                        return <ComputerLanding {...props} />
+                    }} />
 
-                <Route exact path="/employee-portal/training" render={props => {
-                    return <TrainingLanding {...props} />
-                }} />
+                    <Route exact path="/employee-portal/training" render={props => {
+                        return <TrainingLanding {...props} />
+                    }} />
 
-                <Route exact path="/employee-portal/employees/" render={props => {
-                    return <EmployeeLanding  {...props} />
-                }} />
+                    <Route exact path="/employee-portal/employees/" render={props => {
+                        return <EmployeeLanding  {...props} />
+                    }} />
 
-                <Route path="/employee-portal/employees/:employeeName/" render={props => {
-                    const searchName = props.match.params.employeeName
-                    const splitName = searchName.split("-")
-                    return <EmployeeList
-                        searchValue={splitName}
-                        {...props}
-                    />
-                }} />
+                    <Route path="/employee-portal/employees/:employeeName/" render={props => {
+                        const searchName = props.match.params.employeeName
+                        const splitName = searchName.split("-")
+                        return <EmployeeList
+                            searchValue={splitName}
+                            {...props}
+                        />
+                    }} />
 
-                <Route path="/employee-portal/employees/:employeeName/details" render={props => {
+                    {/* <Route path="/employee-portal/employees/:employeeName/details" render={props => {
                     return <EmployeeDetails {...props} />
-                }} />
+                }} /> */}
 
-                <Route exact path="/employee-portal/departments" render={props => {
-                    return <DepartmentLanding {...props} />
-                }} />
+                    <Route exact path="/employee-portal/departments" render={props => {
+                        return <DepartmentLanding {...props} />
+                    }} />
+                {/* </Dimmer.Dimmable> */}
             </>
         )
     }

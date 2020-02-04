@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import { Table, Button } from 'semantic-ui-react'
+import ComputerEdit from './ComputerEdit';
 import APIManager from '../../api/APIManager'
+import { Table, Button, Sidebar } from 'semantic-ui-react'
+import '../../App.css';
 
 export default class ComputerTable extends Component {
 
     state = {
         computers: [],
-        storedComputer: {}
+        storedComputer: {},
+        visible: false
     }
 
     componentDidMount() {
@@ -17,11 +20,35 @@ export default class ComputerTable extends Component {
                 })
             })
     }
+
+
+    handleOpen = () => this.setState({ active: true })
+    handleClose = () => this.setState({ active: false })
+
+    toggle = () => {
+        if (this.state.visible === false) {
+            this.setState({
+                visible: true
+            })
+        } else {
+            this.setState({
+                visible: false
+            })
+        }
+    }
+
+    closeSidebar = () => {
+        if (this.state.visible === true) {
+            this.setState({
+                visible: false
+            })
+        }
+    }
+
     render() {
+
         let status = null
-        if (this.state.computers.decomissionDate === null) {
-            status = "Active"
-        } else status = "Inactive"
+        const { active } = this.state
 
         return (
             <>
@@ -40,12 +67,24 @@ export default class ComputerTable extends Component {
                             <Table.Row>
                                 <Table.Cell >{computer.id}</Table.Cell>
                                 <Table.Cell >{computer.make} {computer.model}</Table.Cell>
-                                <Table.Cell ></Table.Cell>
+                                <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"} </Table.Cell>
                                 <Table.Cell >{null}</Table.Cell>
-                                <Table.Cell><Button basic color='orange' content='Details'></Button></Table.Cell>
+                                <Table.Cell><Button basic color='orange' content='Edit Computer' onClick={this.handleOpen}></Button></Table.Cell>
                             </Table.Row>
                         </Table.Body>))}
                 </Table>
+                <Sidebar
+                    animation='push'
+                    icon='labeled'
+                    inverted='false'
+                    onHide={null}
+                    vertical='true'
+                    visible={active}
+                    width='wide'
+                    direction='right'
+                >
+                    <ComputerEdit closeSidebar={this.handleClose}/>
+                </Sidebar>
             </>
         )
     }

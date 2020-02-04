@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon, Label, Menu, Table, Button, Card } from 'semantic-ui-react'
+import {Table, Button} from 'semantic-ui-react'
 
 export default class ComputerCard extends Component {
 
@@ -11,6 +11,8 @@ export default class ComputerCard extends Component {
         } else status = "Inactive"
         return (
             <>
+            <br></br>
+            <p>Search Results</p>
                 <Table celled>
                     <Table.Header>
                         <Table.Row>

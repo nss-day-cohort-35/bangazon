@@ -57,7 +57,7 @@ export default class ComputerAdd extends Component {
             <>
                 <Form>
                     <br></br>
-                    <Header as='h1' color='grey'>Add New Employee</Header>
+                    <Header as='h1' color='grey'>Add New Computer</Header>
                     <div className='fifteen wide field'>
                         <label>Employee First Name</label>
                         <input

@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom'
 import SearchBar from './SearchBar';
 import EmployeeAdd from '../employee/employee/EmployeeAdd';
 import ComputerAdd from '../employee/computer/ComputerAdd';
-import { List, Button, Sidebar, Dimmer } from 'semantic-ui-react'
+import { Button, Sidebar } from 'semantic-ui-react'
 
 
 
@@ -80,9 +80,9 @@ export default class NavigationBar extends Component {
 					}}
 				/>
 				<Sidebar
-					animation='overlay'
+					animation='push'
 					icon='labeled'
-					inverted='false'
+					inverted
 					onHide={null}
 					vertical='false'
 					visible={active}
@@ -121,7 +121,7 @@ export default class NavigationBar extends Component {
 					}}
 				/>
 				<Sidebar
-					animation='overlay'
+					animation='push'
 					icon='labeled'
 					inverted='false'
 					onHide={null}

@@ -8,7 +8,6 @@ import DepartmentLanding from './department/DepartmentLanding'
 import EmployeeDashboard from './EmployeeDashboard'
 import SideBar from '../nav/SideBar'
 import EmployeeList from './employee/EmployeeList';
-// import { Segment, Dimmer } from 'semantic-ui-react'
 
 export default class EmployeeContainer extends Component {
     state = {
@@ -25,42 +24,45 @@ export default class EmployeeContainer extends Component {
             <>
                 {/* <Dimmer.Dimmable blurring dimmed={this.state.active}>
                     <Dimmer active={this.state.active} onClickOutside={this.handleClose}/> */}
-                    <NavigationBar view="Employees" />
+                <Route path="/" render={props => {
+                    return <NavigationBar view="Employees" {...props} />
+                }} />
 
-                    <SideBar view="Employees" />
+                <SideBar view="Employees" />
 
-                    <Route exact path="/employee-portal/" render={props => {
-                        return <EmployeeDashboard {...props} />
-                    }} />
+                <Route exact path="/employee-portal/" render={props => {
+                    return <EmployeeDashboard {...props} />
+                }} />
 
-                    <Route exact path="/employee-portal/computers" render={props => {
-                        return <ComputerLanding {...props} />
-                    }} />
+                <Route exact path="/employee-portal/computers" render={props => {
+                    return <ComputerLanding {...props} />
+                }} />
 
-                    <Route exact path="/employee-portal/training" render={props => {
-                        return <TrainingLanding {...props} />
-                    }} />
+                <Route exact path="/employee-portal/training" render={props => {
+                    return <TrainingLanding {...props} />
+                }} />
 
-                    <Route exact path="/employee-portal/employees/" render={props => {
-                        return <EmployeeLanding  {...props} />
-                    }} />
+                <Route exact path="/employee-portal/employees/" render={props => {
+                    return <EmployeeLanding  {...props} />
+                }} />
 
-                    <Route path="/employee-portal/employees/:employeeName/" render={props => {
-                        const searchName = props.match.params.employeeName
-                        const splitName = searchName.split("-")
-                        return <EmployeeList
-                            searchValue={splitName}
-                            {...props}
-                        />
-                    }} />
 
-                    {/* <Route path="/employee-portal/employees/:employeeName/details" render={props => {
+                <Route path="/employee-portal/employees/:employeeName/" render={props => {
+                    const searchName = props.match.params.employeeName
+                    const splitName = searchName.split("-")
+                    return <EmployeeList
+                        searchValue={splitName}
+                        {...props}
+                    />
+                }} />
+
+                {/* <Route path="/employee-portal/employees/:employeeName/details" render={props => {
                     return <EmployeeDetails {...props} />
                 }} /> */}
 
-                    <Route exact path="/employee-portal/departments" render={props => {
-                        return <DepartmentLanding {...props} />
-                    }} />
+                <Route exact path="/employee-portal/departments" render={props => {
+                    return <DepartmentLanding {...props} />
+                }} />
                 {/* </Dimmer.Dimmable> */}
             </>
         )

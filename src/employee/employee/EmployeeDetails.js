@@ -34,7 +34,7 @@ export default class EmployeeDetails extends Component {
 
     render() {
         const { active } = this.state
-
+console.log("active", active)
         return (
             <>
                 <Dimmer.Dimmable blurring dimmed={active}>
@@ -46,8 +46,8 @@ export default class EmployeeDetails extends Component {
                             </List.Content>
                         </List.Item>
                         <List.Item>
-                            <Button onClick={this.toggle,
-                                this.handleOpen}
+                            <Button onClick={this.toggle}
+                                onClick={this.handleOpen}
                                 icon
                             >
                                 <Icon name='pencil alternate' />

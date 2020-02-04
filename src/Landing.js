@@ -14,17 +14,17 @@ class Landing extends Component {
       <>
         <Route exact path="/" render={props => {
           return <div>
-            <button><Link to="/employee-portal">Employees</Link></button>
-            <button><Link to="/customer-portal">Customers</Link></button>
+            <button><Link to="/employee-portal/">Employees</Link></button>
+            <button><Link to="/customer-portal/">Customers</Link></button>
           </div>
         }} />
 
-        <Route path="/employee-portal" render={props => {
+        <Route path="/employee-portal/" render={props => {
           return <EmployeeContainer {...props} />
 
         }} />
 
-        <Route path="/customer-portal" render={props => {
+        <Route path="/customer-portal/" render={props => {
           return <CustomerContainer {...props} />
         }} />
       </>

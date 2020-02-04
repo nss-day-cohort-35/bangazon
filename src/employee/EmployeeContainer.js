@@ -8,37 +8,45 @@ import DepartmentLanding from './department/DepartmentLanding'
 import EmployeeDashboard from './EmployeeDashboard'
 import SideBar from '../nav/SideBar'
 import EmployeeList from './employee/EmployeeList';
+import ComputerList from './computer/ComputerList';
+// import { Sidebar, Segment } from 'semantic-ui-react';
 
 export default class EmployeeContainer extends Component {
-    state = {
-        visible: false,
-        active: true
-    }
+    // state = {
+    //     visible: false,
+    //     active: true
+    // }
 
-    handleOpen = () => this.setState({ active: true })
-    handleClose = () => this.setState({ active: false })
+    // handleOpen = () => this.setState({ active: true })
+    // handleClose = () => this.setState({ active: false })
 
     render() {
         // const { active } = this.state
         return (
             <>
-                {/* <Dimmer.Dimmable blurring dimmed={this.state.active}>
-                    <Dimmer active={this.state.active} onClickOutside={this.handleClose}/> */}
+
                 <Route path="/" render={props => {
                     return <NavigationBar view="Employees" {...props} />
                 }} />
-
                 <SideBar view="Employees" />
 
                 <Route exact path="/employee-portal/" render={props => {
                     return <EmployeeDashboard {...props} />
                 }} />
 
-                <Route exact path="/employee-portal/computers" render={props => {
+                <Route exact path="/employee-portal/computers/" render={props => {
                     return <ComputerLanding {...props} />
                 }} />
 
-                <Route exact path="/employee-portal/training" render={props => {
+                <Route path="/employee-portal/computers/:computerId(\d+)/" render={props => {
+                    const searchValue = parseInt(props.match.params.computerId)
+                    return <ComputerList
+                        searchValue={searchValue}
+                        {...props}
+                    />
+                }} />
+
+                <Route exact path="/employee-portal/training/" render={props => {
                     return <TrainingLanding {...props} />
                 }} />
 
@@ -56,14 +64,10 @@ export default class EmployeeContainer extends Component {
                     />
                 }} />
 
-                {/* <Route path="/employee-portal/employees/:employeeName/details" render={props => {
-                    return <EmployeeDetails {...props} />
-                }} /> */}
-
                 <Route exact path="/employee-portal/departments" render={props => {
                     return <DepartmentLanding {...props} />
                 }} />
-                {/* </Dimmer.Dimmable> */}
+
             </>
         )
     }

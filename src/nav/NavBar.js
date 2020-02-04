@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom'
 import SearchBar from './SearchBar';
 import EmployeeAdd from '../employee/employee/EmployeeAdd';
+import ComputerAdd from '../employee/computer/ComputerAdd';
 import { List, Button, Sidebar, Dimmer } from 'semantic-ui-react'
 
 
@@ -17,9 +18,9 @@ export default class NavigationBar extends Component {
 
 	toggle = () => {
 		if (this.state.visible === false) {
-			this.setState({visible: true})
+			this.setState({ visible: true })
 		} else {
-			this.setState({visible: false})
+			this.setState({ visible: false })
 		}
 	}
 
@@ -91,7 +92,46 @@ export default class NavigationBar extends Component {
 				</Sidebar>
 			</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
-			return null
+			return <>
+
+				<h1>{this.props.view}</h1>
+				{this.props.view === "Employees" ? (
+					<>
+
+						<Link to="/customer-portal/">
+							<Button color="blue">Go to Customer Portal</Button>
+						</Link>
+					</>
+				) : (
+						<Link to="/employee-portal/">
+							<Button color="blue">Go to Employee Portal</Button>
+						</Link>
+					)}
+				{this.props.location.pathname === "/employee-portal/" ? null
+					:
+					<Button
+						color="orange"
+						onClick={this.handleOpen}
+					>{text}</Button>}
+
+				<Route
+					path="/"
+					render={props => {
+						return <SearchBar {...props} />;
+					}}
+				/>
+				<Sidebar
+					animation='overlay'
+					icon='labeled'
+					inverted='false'
+					onHide={null}
+					vertical='false'
+					visible={active}
+					width='wide'
+					direction='right'>
+					<ComputerAdd closeSidebar={this.handleClose} />
+				</Sidebar>
+			</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/departments")) {
 			return null
 		} else if (this.props.location.pathname.startsWith("/employee-portal/training")) {

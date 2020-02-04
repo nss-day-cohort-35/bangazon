@@ -42,6 +42,8 @@ class EmployeeList extends Component {
     }
     render() {
 
+        console.log(this.state.employees)
+
         return (
             <>
                 {this.props.searchValue === undefined ?

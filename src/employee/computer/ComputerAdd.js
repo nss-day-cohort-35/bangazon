@@ -59,6 +59,7 @@ export default class ComputerAdd extends Component {
                 <Form>
                     <br></br>
                     <Header as='h1' color='grey'>Add New Computer</Header>
+                    <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Employee First Name</label>
                         <input
@@ -125,7 +126,7 @@ export default class ComputerAdd extends Component {
                         type='submit'
                         color='orange'
                         onClick={(evt) => this.addEmployee(evt)}>
-                        Create New Employee!
+                        Create New Computer!
                         </Button>
                     <Button
                         basic

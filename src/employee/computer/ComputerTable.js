@@ -57,7 +57,7 @@ export default class ComputerTable extends Component {
 
         return (
             <>
-                <div>
+
                     <Table size='small' celled>
                         <Table.Header>
                             <Table.Row>
@@ -77,11 +77,13 @@ export default class ComputerTable extends Component {
                                     <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
                                     <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
                                     <Table.Cell >{null}</Table.Cell>
-                                    <Table.Cell><Button basic color='orange' content='Edit Computer'
+                                    <Table.Cell><Button basic color='orange' content='Edit'
                                         onClick={() => this.handleOpen(computer)}>
                                     </Button></Table.Cell>
                                 </Table.Row>
                             </Table.Body>))}
+
+                    </Table>
                         <Sidebar
                             animation='push'
                             icon='labeled'
@@ -94,9 +96,6 @@ export default class ComputerTable extends Component {
                         >
                             <ComputerEdit closeSidebar={this.handleClose} computer={this.state.storedComputer} />
                         </Sidebar>
-
-                    </Table>
-                </div>
             </>
         )
     }

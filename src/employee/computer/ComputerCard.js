@@ -37,9 +37,10 @@ export default class ComputerCard extends Component {
                             <Table.Cell>{this.props.computer.make} {this.props.computer.model}</Table.Cell>
                             <Table.Cell>{status}</Table.Cell>
                             <Table.Cell>{null}</Table.Cell>
-                            <Table.Cell><Button basic color='orange' content='Cancel' onClick={this.handleOpen}>Details</Button></Table.Cell>
+                            <Table.Cell><Button basic color='orange' content='Edit' onClick={this.handleOpen}></Button></Table.Cell>
                         </Table.Row>
                     </Table.Body>
+                </Table>
                     <Sidebar
                         animation='push'
                         icon='labeled'
@@ -52,7 +53,6 @@ export default class ComputerCard extends Component {
                     >
                         <ComputerEdit closeSidebar={this.handleClose} computer={this.props.computer} />
                     </Sidebar>
-                </Table>
             </>
         )
     }

@@ -38,7 +38,7 @@ export default {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(editedObj)
-        }).then(data => data.json)
+        }).then(data => data.json())
     },
 
     // Used for customers, products, paymentTypes, userPaymentTypes, computers, and trainingPrograms

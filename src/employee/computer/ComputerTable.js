@@ -21,6 +21,14 @@ export default class ComputerTable extends Component {
             })
     }
 
+    refresh = () => {
+        APIManager.getAll("computers")
+        .then(response => {
+            this.setState({
+                computers: response
+            })
+        })
+    }
 
     handleOpen = (computer) => this.setState({
         active: true,
@@ -94,7 +102,7 @@ export default class ComputerTable extends Component {
                             width='wide'
                             direction='right'
                         >
-                            <ComputerEdit closeSidebar={this.handleClose} computer={this.state.storedComputer} />
+                            <ComputerEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} />
                         </Sidebar>
             </>
         )

@@ -34,8 +34,8 @@ export default class ComputerEdit extends Component {
             model: this.state.model
         }
         APIManager.updateData("computers", updatedComputer)
-            .then(this.props.closeSidebar)
-        console.log("updated computer", updatedComputer)
+            .then(() => this.props.refresh())
+        this.props.closeSidebar()
     };
 
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager'
-import { Button, Form, Header } from 'semantic-ui-react'
+import { Button, Form, Header, Dropdown } from 'semantic-ui-react'
 
 
 export default class ComputerEdit extends Component {
@@ -43,10 +43,10 @@ export default class ComputerEdit extends Component {
     };
 
     render() {
-        // const supervisorOptions = [
-        //     { key: 1, text: 'Yes', value: true },
-        //     { key: 2, text: 'No', value: false }
-        // ]
+        const booleanOptions = [
+            { key: 1, text: 'Yes', value: null },
+            { key: 2, text: 'No', value: Date.now() }
+        ]
 
         // const deptOptions = [
         //     { key: 1575559403192, text: 'Marketing', value: 1575559403192 },
@@ -55,7 +55,7 @@ export default class ComputerEdit extends Component {
         //     { key: 1575559403195, text: 'Legal', value: 1575559403195 }
         // ]
 
-        // const { dropdownValue } = this.state;
+        const { dropdownValue } = this.state;
 
         return (
 
@@ -63,7 +63,7 @@ export default class ComputerEdit extends Component {
                 <Form>
                     <br></br>
                     <Header as='h1' color='grey'>Edit Computer</Header>
-                    <Header as='p' color='grey'>Computer ID: {null}</Header>
+                    <Header as='p' color='grey'>Computer ID: {this.props.computer.id}</Header>
                     {/* <div className='fifteen wide field'>
                         <label>Computer First Name</label>
                         <input
@@ -90,19 +90,19 @@ export default class ComputerEdit extends Component {
                             onChange={this.handleDeptDropdownChange}
                             id='departmentId'
                         />
-                    </div>
+                    </div>*/}
                     <div className='fifteen wide field'>
-                        <label>Grant Supervisor Privileges?</label>
+                        <label>Active or Inactive?</label>
                         <Dropdown
                             selection
                             placeholder='Supervisor Privileges?'
-                            options={supervisorOptions}
+                            options={booleanOptions}
                             value={dropdownValue}
                             onChange={this.handleSupervisorDropdownChange}
                             id='isSupervisor'
                         />
                     </div>
-                    <div className='fifteen wide field'>
+                    {/* <div className='fifteen wide field'>
                         <label>Computer ID</label>
                         <input
                             onChange={this.handleFieldChange}

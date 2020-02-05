@@ -22,7 +22,11 @@ export default class ComputerTable extends Component {
     }
 
 
-    handleOpen = () => this.setState({ active: true })
+    handleOpen = (computer) => this.setState({
+        active: true,
+        storedComputer: computer
+    })
+
     handleClose = () => this.setState({ active: false })
 
     toggle = () => {
@@ -45,6 +49,7 @@ export default class ComputerTable extends Component {
         }
     }
 
+
     render() {
 
         let status = null
@@ -52,39 +57,46 @@ export default class ComputerTable extends Component {
 
         return (
             <>
-                <Table celled>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Computer ID</Table.HeaderCell>
-                            <Table.HeaderCell>Computer Model</Table.HeaderCell>
-                            <Table.HeaderCell>Active Status</Table.HeaderCell>
-                            <Table.HeaderCell>Used By</Table.HeaderCell>
-                            <Table.HeaderCell>Details</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    {this.state.computers.map(computer => (
-                        <Table.Body key={computer.id}>
+                <div>
+                    <Table size='small' celled>
+                        <Table.Header>
                             <Table.Row>
-                                <Table.Cell >{computer.id}</Table.Cell>
-                                <Table.Cell >{computer.make} {computer.model}</Table.Cell>
-                                <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"} </Table.Cell>
-                                <Table.Cell >{null}</Table.Cell>
-                                <Table.Cell><Button basic color='orange' content='Edit Computer' onClick={this.handleOpen}></Button></Table.Cell>
+                                <Table.HeaderCell>Computer ID</Table.HeaderCell>
+                                <Table.HeaderCell>Computer Model</Table.HeaderCell>
+                                <Table.HeaderCell>Purchase Date</Table.HeaderCell>
+                                <Table.HeaderCell>Active Status</Table.HeaderCell>
+                                <Table.HeaderCell>Used By</Table.HeaderCell>
+                                <Table.HeaderCell>Details</Table.HeaderCell>
                             </Table.Row>
-                        </Table.Body>))}
-                </Table>
-                <Sidebar
-                    animation='push'
-                    icon='labeled'
-                    inverted='false'
-                    onHide={null}
-                    vertical='true'
-                    visible={active}
-                    width='wide'
-                    direction='right'
-                >
-                    <ComputerEdit closeSidebar={this.handleClose}/>
-                </Sidebar>
+                        </Table.Header>
+                        {this.state.computers.map(computer => (
+                            <Table.Body key={computer.id}>
+                                <Table.Row>
+                                    <Table.Cell >{computer.id}</Table.Cell>
+                                    <Table.Cell >{computer.make} {computer.model}</Table.Cell>
+                                    <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
+                                    <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
+                                    <Table.Cell >{null}</Table.Cell>
+                                    <Table.Cell><Button basic color='orange' content='Edit Computer'
+                                        onClick={() => this.handleOpen(computer)}>
+                                    </Button></Table.Cell>
+                                </Table.Row>
+                            </Table.Body>))}
+                        <Sidebar
+                            animation='push'
+                            icon='labeled'
+                            inverted='false'
+                            onHide={null}
+                            vertical='true'
+                            visible={active}
+                            width='wide'
+                            direction='right'
+                        >
+                            <ComputerEdit closeSidebar={this.handleClose} computer={this.state.storedComputer} />
+                        </Sidebar>
+
+                    </Table>
+                </div>
             </>
         )
     }

@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
-import {Table, Button} from 'semantic-ui-react'
+import ComputerEdit from './ComputerEdit'
+import { Table, Button, Sidebar } from 'semantic-ui-react'
 
 export default class ComputerCard extends Component {
+    state = {
+        visible: false
+    }
 
+    handleOpen = () => this.setState({ active: true })
+    handleClose = () => this.setState({ active: false })
 
     render() {
         let status = null
+        let { active } = this.state
         if (this.props.computer.decomissionDate === null) {
             status = "Active"
         } else status = "Inactive"
+
         return (
             <>
-            <br></br>
-            <p>Search Results</p>
+                <br></br>
+                <p>Search Results</p>
                 <Table celled>
                     <Table.Header>
                         <Table.Row>
@@ -29,9 +37,21 @@ export default class ComputerCard extends Component {
                             <Table.Cell>{this.props.computer.make} {this.props.computer.model}</Table.Cell>
                             <Table.Cell>{status}</Table.Cell>
                             <Table.Cell>{null}</Table.Cell>
-                            <Table.Cell><Button basic color='orange' content='Cancel'>Details</Button></Table.Cell>
+                            <Table.Cell><Button basic color='orange' content='Cancel' onClick={this.handleOpen}>Details</Button></Table.Cell>
                         </Table.Row>
                     </Table.Body>
+                    <Sidebar
+                        animation='push'
+                        icon='labeled'
+                        inverted='false'
+                        onHide={null}
+                        vertical='true'
+                        visible={active}
+                        width='wide'
+                        direction='right'
+                    >
+                        <ComputerEdit closeSidebar={this.handleClose} computer={this.props.computer} />
+                    </Sidebar>
                 </Table>
             </>
         )

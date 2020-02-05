@@ -5,7 +5,7 @@ export default class ComputerLanding extends Component {
     render() {
         return (
             <>
-                <ComputerTable />
+                <ComputerTable {...this.props} />
             </>
 
         )

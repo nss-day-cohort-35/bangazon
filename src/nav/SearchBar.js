@@ -18,12 +18,21 @@ export default class SearchBar extends Component {
         this.setState(stateToChange);
     }
 
-    employeeHandleKeyPress = (event) => {
-        if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/")) {
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter' && this.props.location.pathname === "/employee-portal/") {
             this.handleEmployeeSearch()
-        } else if (event.key === 'Enter' && this.props.location.pathname === "/employee-portal/employees/") {
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             this.handleEmployeeSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/computers/")) {
+            this.handleComputerSearch()
         }
+    }
+
+    handleComputerSearch = () => {
+        let computerSearchValue = this.state.value
+        console.log(computerSearchValue)
+        this.props.history.push(`/employee-portal/computers/${computerSearchValue}/`)
     }
 
     handleEmployeeSearch = () => {
@@ -36,19 +45,19 @@ export default class SearchBar extends Component {
     render() {
 
         let placeholderText = "Search..."
-        if (this.props.location.pathname === "/customer-portal/customers") {
+        if (this.props.location.pathname === "/customer-portal/customers/") {
             placeholderText = "Search for customer..."
-        } else if (this.props.location.pathname === "/customer-portal/products") {
+        } else if (this.props.location.pathname === "/customer-portal/products/") {
             placeholderText = "Search for products..."
-        } else if (this.props.location.pathname === "/customer-portal/orders") {
+        } else if (this.props.location.pathname === "/customer-portal/orders/") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.location.pathname === "/employee-portal/employees") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             placeholderText = "Find your employees"
-        } else if (this.props.location.pathname === "/employee-portal/computers") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             placeholderText = "Search computers by ID"
-        } else if (this.props.location.pathname === "/employee-portal/departments") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
             placeholderText = "Search departments"
-        } else if (this.props.location.pathname === "/employee-portal/training") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
             placeholderText = "Search trainings"
         }
 
@@ -60,8 +69,10 @@ export default class SearchBar extends Component {
         }
 
         let onClickAction = null
-        if (this.props.location.pathnam === "/employee-portal" || this.props.location.pathname.startsWith("/employee-portal/employees")) {
+        if (this.props.location.pathname === "/employee-portal" || this.props.location.pathname.startsWith("/employee-portal/employees")) {
             onClickAction = this.handleEmployeeSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
+            onClickAction = this.handleComputerSearch
         }
 
         return (
@@ -71,7 +82,7 @@ export default class SearchBar extends Component {
                     icon={{ name: 'search', link: true, onClick: onClickAction }}
                     type="text"
                     onChange={this.handleFieldChange}
-                    onKeyPress={this.employeeHandleKeyPress}
+                    onKeyPress={this.handleKeyPress}
                     id={id}
                     placeholder={placeholderText}
                 />

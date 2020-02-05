@@ -34,7 +34,7 @@ export default class EmployeeDetails extends Component {
 
     render() {
         const { active } = this.state
-console.log("active", active)
+        console.log("active", active)
         return (
             <>
                 <Dimmer.Dimmable blurring dimmed={active}>
@@ -95,11 +95,10 @@ console.log("active", active)
                 </Dimmer.Dimmable>
 
                 <Sidebar
-                    animation='overlay'
+                    animation='push'
                     icon='labeled'
-                    inverted='false'
                     onHide={null}
-                    vertical='false'
+                    vertical
                     visible={active}
                     width='wide'
                     direction='right'

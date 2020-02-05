@@ -14,19 +14,19 @@ class SideBar extends Component {
 		},
 		{
 			title: "Computers",
-			link: "/employee-portal/computers"
+			link: "/employee-portal/computers/"
 		},
 		{
 			title: "Departments",
-			link: "/employee-portal/departments"
+			link: "/employee-portal/departments/"
 		},
 		{
 			title: "Employees",
-			link: "/employee-portal/employees"
+			link: "/employee-portal/employees/"
 		},
 		{
 			title: "Training",
-			link: "/employee-portal/training"
+			link: "/employee-portal/training/"
 		}
 	];
 

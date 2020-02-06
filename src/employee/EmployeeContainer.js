@@ -50,7 +50,7 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/employees/" render={props => {
-                    return <EmployeeLanding  {...props} />
+                    return <EmployeeLanding sidebarState={this.state.addResourceSidebar} closeSidebar={this.handleCloseNewResource} {...props} />
                 }} />
 
 
@@ -59,6 +59,8 @@ export default class EmployeeContainer extends Component {
                     const splitName = searchName.split("-")
                     return <EmployeeList
                         searchValue={splitName}
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}
                         {...props}
                     />
                 }} />

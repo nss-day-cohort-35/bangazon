@@ -30,8 +30,7 @@ export default class NavigationBar extends Component {
 
 		if (this.props.location.pathname.startsWith("/customer-portal/customers")) {
 			return null
-		} else if (this.props.location.pathname.startsWith("/employee-portal/employees") && this.state.visible === true) {
-			console.log('condition met', this.state.active)
+		} else if (this.props.location.pathname.startsWith("/employee-portal/employees")) {
 			return <>
 
 				<h1>{this.props.view}</h1>
@@ -51,7 +50,7 @@ export default class NavigationBar extends Component {
 					:
 					<Button
 						color="orange"
-						onClick={this.props.handleOpen}
+						onClick={this.props.openSidebar}
 					>{text}</Button>}
 
 				<Route
@@ -93,7 +92,66 @@ export default class NavigationBar extends Component {
 
 			</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/departments")) {
-			return null
+			return <>
+
+			<h1>{this.props.view}</h1>
+			{this.props.view === "Employees" ? (
+				<>
+
+					<Link to="/customer-portal/">
+						<Button color="blue">Go to Customer Portal</Button>
+					</Link>
+				</>
+			) : (
+					<Link to="/employee-portal/">
+						<Button color="blue">Go to Employee Portal</Button>
+					</Link>
+				)}
+			{this.props.location.pathname === "/employee-portal/" ? null
+				:
+				<Button
+					color="orange"
+					onClick={this.props.handleOpen}
+				>{text}</Button>}
+			<Route
+				path="/"
+				render={props => {
+					return <SearchBar {...props} />;
+				}}
+			/>
+
+		</>
+	} else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
+		return <>
+
+			<h1>{this.props.view}</h1>
+			{this.props.view === "Employees" ? (
+				<>
+
+					<Link to="/customer-portal/">
+						<Button color="blue">Go to Customer Portal</Button>
+					</Link>
+				</>
+			) : (
+					<Link to="/employee-portal/">
+						<Button color="blue">Go to Employee Portal</Button>
+					</Link>
+				)}
+			{this.props.location.pathname === "/employee-portal/" ? null
+				:
+				<Button
+					color="orange"
+					onClick={this.props.openSidebar}
+				>{text}</Button>}
+			<Route
+				path="/"
+				render={props => {
+					return <SearchBar {...props} />;
+				}}
+			/>
+
+
+		</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/training")) {
 			return null
 		} else if (this.props.location.pathname.startsWith("/customer-portal/products")) {

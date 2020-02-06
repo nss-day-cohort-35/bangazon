@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager'
-import { Button, Form, Header, Dropdown } from 'semantic-ui-react'
-import moment from 'moment';
+import { Button, Form, Header } from 'semantic-ui-react'
 import '../../App.css'
 
 
@@ -35,8 +34,6 @@ export default class DepartmentAdd extends Component {
 
     render() {
 
-
-
         return (
 
             <>
@@ -65,7 +62,7 @@ export default class DepartmentAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Department Budget'
-                            id='name'
+                            id='budget'
                         />
                     </div>
                     <Button

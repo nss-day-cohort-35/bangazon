@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager'
-import { Button, Form, Header, Dropdown } from 'semantic-ui-react'
+import { Button, Form, Header } from 'semantic-ui-react'
 
 
 export default class DepartmentEdit extends Component {

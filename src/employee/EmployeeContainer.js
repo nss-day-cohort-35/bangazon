@@ -24,7 +24,9 @@ export default class EmployeeContainer extends Component {
             <>
 
                 <Route path="/" render={props => {
-                    return <NavigationBar view="Employees" openSidebar={this.handleOpenNewResource} {...props} />
+                    return <NavigationBar
+                        view="Employees"
+                        openSidebar={this.handleOpenNewResource} {...props} />
                 }} />
 
                 <SideBar view="Employees" />
@@ -34,7 +36,9 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/computers/" render={props => {
-                    return <ComputerLanding sidebarState={this.state.addResourceSidebar} closeSidebar={this.handleCloseNewResource}  {...props} />
+                    return <ComputerLanding
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}  {...props} />
                 }} />
 
                 <Route path="/employee-portal/computers/:computerId(\d+)/" render={props => {
@@ -50,7 +54,9 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/employees/" render={props => {
-                    return <EmployeeLanding sidebarState={this.state.addResourceSidebar} closeSidebar={this.handleCloseNewResource} {...props} />
+                    return <EmployeeLanding
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource} {...props} />
                 }} />
 
 
@@ -66,7 +72,9 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/departments" render={props => {
-                    return <DepartmentLanding {...props} />
+                    return <DepartmentLanding
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}{...props} />
                 }} />
 
             </>

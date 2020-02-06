@@ -4,7 +4,9 @@ import DepartmentTable from './DepartmentTable'
 export default class DepartmentLanding extends Component {
     render() {
         return (
-            <DepartmentTable />
+            <DepartmentTable
+                sidebarState={this.props.sidebarState}
+                closeSidebar={this.props.closeSidebar} />
         )
     }
 }

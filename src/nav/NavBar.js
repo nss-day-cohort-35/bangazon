@@ -111,7 +111,7 @@ export default class NavigationBar extends Component {
 				:
 				<Button
 					color="orange"
-					onClick={this.props.handleOpen}
+					onClick={this.props.openSidebar}
 				>{text}</Button>}
 			<Route
 				path="/"

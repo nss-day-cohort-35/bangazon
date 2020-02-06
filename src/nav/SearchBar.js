@@ -56,7 +56,7 @@ export default class SearchBar extends Component {
         } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             placeholderText = "Search computers by ID"
         } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
-            placeholderText = "Search departments"
+            placeholderText = "Search depts by ID"
         } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
             placeholderText = "Search trainings"
         }

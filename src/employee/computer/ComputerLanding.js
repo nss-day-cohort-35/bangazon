@@ -5,7 +5,7 @@ export default class ComputerLanding extends Component {
     render() {
         return (
             <>
-                <ComputerTable {...this.props} />
+                <ComputerTable sidebarState={this.props.sidebarState} closeSidebar={this.props.closeSidebar} {...this.props} />
             </>
 
         )

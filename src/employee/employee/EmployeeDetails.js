@@ -98,7 +98,7 @@ export default class EmployeeDetails extends Component {
                     animation='push'
                     icon='labeled'
                     onHide={null}
-                    vertical
+                    vertical='true'
                     visible={active}
                     width='wide'
                     direction='right'

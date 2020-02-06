@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ComputerEdit from './ComputerEdit';
-import ComputerAdd from './ComputerAdd';
+import DepartmentEdit from './DepartmentEdit';
+import DepartmentAdd from './DepartmentAdd';
 import APIManager from '../../api/APIManager'
 import { Table, Button, Sidebar } from 'semantic-ui-react'
 import '../../App.css';
@@ -8,26 +8,26 @@ import '../../App.css';
 export default class ComputerTable extends Component {
 
     state = {
-        computers: [],
-        storedComputer: {},
+        departments: [],
+        storedDepartment: {},
         visible: false,
         newSidebarState: this.props.sidebarState
     }
 
     componentDidMount() {
-        APIManager.getAll("computers")
+        APIManager.getAll("departments")
             .then(response => {
                 this.setState({
-                    computers: response
+                    departments: response
                 })
             })
     }
 
     refresh = () => {
-        APIManager.getAll("computers")
+        APIManager.getAll("departments")
             .then(response => {
                 this.setState({
-                    computers: response
+                    departments: response
                 })
             })
     }
@@ -68,32 +68,24 @@ export default class ComputerTable extends Component {
 
         return (
             <>
-
                 <Table size='small' celled striped>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell>Computer ID</Table.HeaderCell>
-                            <Table.HeaderCell>Computer Model</Table.HeaderCell>
-                            <Table.HeaderCell>Purchase Date</Table.HeaderCell>
-                            <Table.HeaderCell>Active Status</Table.HeaderCell>
-                            <Table.HeaderCell>Used By</Table.HeaderCell>
+                            <Table.HeaderCell>Department Name</Table.HeaderCell>
+                            <Table.HeaderCell>Budget</Table.HeaderCell>
                             <Table.HeaderCell>Details</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    {this.state.computers.map(computer => (
-                        <Table.Body key={computer.id}>
+                    {this.state.departments.map(department => (
+                        <Table.Body key={department.id}>
                             <Table.Row>
-                                <Table.Cell >{computer.id}</Table.Cell>
-                                <Table.Cell >{computer.make} {computer.model}</Table.Cell>
-                                <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
-                                <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
-                                <Table.Cell >{null}</Table.Cell>
-                                <Table.Cell><Button basic color='orange' content='Edit'
-                                    onClick={() => this.handleOpen(computer)}>
+                                <Table.Cell width='3'>{department.name} ({department.id})</Table.Cell>
+                                <Table.Cell width='2'>{department.budget}</Table.Cell>
+                                <Table.Cell width='1'><Button basic color='orange' content='Edit'
+                                    onClick={() => this.handleOpen(department)}>
                                 </Button></Table.Cell>
                             </Table.Row>
                         </Table.Body>))}
-
                 </Table>
                 <Sidebar
                     animation='push'
@@ -105,7 +97,7 @@ export default class ComputerTable extends Component {
                     width='wide'
                     direction='right'
                 >
-                    <ComputerEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} />
+                    {/* <DepartmentEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} /> */}
                 </Sidebar>
                 <Sidebar
                     animation='push'
@@ -116,10 +108,10 @@ export default class ComputerTable extends Component {
                     visible={newActive}
                     width='wide'
                     direction='right'>
-                    <ComputerAdd
+                    {/* <DepartmentAdd
                         closeSidebar={this.props.closeSidebar}
                         refresh={this.refresh}
-                    />
+                    /> */}
                 </Sidebar>
             </>
         )

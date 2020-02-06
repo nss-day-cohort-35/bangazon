@@ -55,7 +55,6 @@ export default class EmployeeEdit extends Component {
             { key: 1575559403195, text: 'Legal', value: 1575559403195 }
         ]
 
-        const { dropdownValue } = this.state;
 
         return (
 
@@ -86,7 +85,6 @@ export default class EmployeeEdit extends Component {
                             selection
                             placeholder='Department Name'
                             options={deptOptions}
-                            value={dropdownValue}
                             onChange={this.handleDeptDropdownChange}
                             id='departmentId'
                         />
@@ -97,7 +95,6 @@ export default class EmployeeEdit extends Component {
                             selection
                             placeholder='Supervisor Privileges?'
                             options={supervisorOptions}
-                            value={dropdownValue}
                             onChange={this.handleSupervisorDropdownChange}
                             id='isSupervisor'
                         />

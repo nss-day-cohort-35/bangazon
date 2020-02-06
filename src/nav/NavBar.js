@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom'
 import SearchBar from './SearchBar';
-import EmployeeAdd from '../employee/employee/EmployeeAdd';
-import ComputerAdd from '../employee/computer/ComputerAdd';
-import { Button, Sidebar } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 
 
 export default class NavigationBar extends Component {
-	state = {
-		visible: false,
-		active: false
-	}
-
-	handleOpen = () => this.setState({ active: true })
-	handleClose = () => this.setState({ active: false })
-
-	toggle = () => {
-		if (this.state.visible === false) {
-			this.setState({ visible: true })
-		} else {
-			this.setState({ visible: false })
-		}
-	}
 
 
 	render() {
-
-		const { active } = this.state
 
 		let text = null
 		if (this.props.location.pathname.startsWith("/customer-portal/customers")) {
@@ -70,7 +51,7 @@ export default class NavigationBar extends Component {
 					:
 					<Button
 						color="orange"
-						onClick={this.handleOpen}
+						onClick={this.props.handleOpen}
 					>{text}</Button>}
 
 				<Route
@@ -79,17 +60,6 @@ export default class NavigationBar extends Component {
 						return <SearchBar {...props} />;
 					}}
 				/>
-				<Sidebar
-					animation='push'
-					icon='labeled'
-					inverted
-					onHide={null}
-					vertical='false'
-					visible={active}
-					width='wide'
-					direction='right'>
-					<EmployeeAdd closeSidebar={this.handleClose} />
-				</Sidebar>
 			</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
 			return <>
@@ -111,7 +81,7 @@ export default class NavigationBar extends Component {
 					:
 					<Button
 						color="orange"
-						onClick={this.handleOpen}
+						onClick={this.props.openSidebar}
 					>{text}</Button>}
 
 				<Route
@@ -120,17 +90,7 @@ export default class NavigationBar extends Component {
 						return <SearchBar {...props} />;
 					}}
 				/>
-				<Sidebar
-					animation='push'
-					icon='labeled'
-					inverted='false'
-					onHide={null}
-					vertical='false'
-					visible={active}
-					width='wide'
-					direction='right'>
-					<ComputerAdd closeSidebar={this.handleClose} />
-				</Sidebar>
+
 			</>
 		} else if (this.props.location.pathname.startsWith("/employee-portal/departments")) {
 			return null

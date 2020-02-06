@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ComputerEdit from './ComputerEdit';
+import ComputerAdd from './ComputerAdd';
 import APIManager from '../../api/APIManager'
 import { Table, Button, Sidebar } from 'semantic-ui-react'
 import '../../App.css';
@@ -9,7 +10,8 @@ export default class ComputerTable extends Component {
     state = {
         computers: [],
         storedComputer: {},
-        visible: false
+        visible: false,
+        newSidebarState: this.props.sidebarState
     }
 
     componentDidMount() {
@@ -23,11 +25,11 @@ export default class ComputerTable extends Component {
 
     refresh = () => {
         APIManager.getAll("computers")
-        .then(response => {
-            this.setState({
-                computers: response
+            .then(response => {
+                this.setState({
+                    computers: response
+                })
             })
-        })
     }
 
     handleOpen = (computer) => this.setState({
@@ -62,48 +64,63 @@ export default class ComputerTable extends Component {
 
         let status = null
         const { active } = this.state
+        const newActive = (this.props.sidebarState)
 
         return (
             <>
 
-                    <Table size='small' celled>
-                        <Table.Header>
+                <Table size='small' celled striped>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell>Computer ID</Table.HeaderCell>
+                            <Table.HeaderCell>Computer Model</Table.HeaderCell>
+                            <Table.HeaderCell>Purchase Date</Table.HeaderCell>
+                            <Table.HeaderCell>Active Status</Table.HeaderCell>
+                            <Table.HeaderCell>Used By</Table.HeaderCell>
+                            <Table.HeaderCell>Details</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    {this.state.computers.map(computer => (
+                        <Table.Body key={computer.id}>
                             <Table.Row>
-                                <Table.HeaderCell>Computer ID</Table.HeaderCell>
-                                <Table.HeaderCell>Computer Model</Table.HeaderCell>
-                                <Table.HeaderCell>Purchase Date</Table.HeaderCell>
-                                <Table.HeaderCell>Active Status</Table.HeaderCell>
-                                <Table.HeaderCell>Used By</Table.HeaderCell>
-                                <Table.HeaderCell>Details</Table.HeaderCell>
+                                <Table.Cell >{computer.id}</Table.Cell>
+                                <Table.Cell >{computer.make} {computer.model}</Table.Cell>
+                                <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
+                                <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
+                                <Table.Cell >{null}</Table.Cell>
+                                <Table.Cell><Button basic color='orange' content='Edit'
+                                    onClick={() => this.handleOpen(computer)}>
+                                </Button></Table.Cell>
                             </Table.Row>
-                        </Table.Header>
-                        {this.state.computers.map(computer => (
-                            <Table.Body key={computer.id}>
-                                <Table.Row>
-                                    <Table.Cell >{computer.id}</Table.Cell>
-                                    <Table.Cell >{computer.make} {computer.model}</Table.Cell>
-                                    <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
-                                    <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
-                                    <Table.Cell >{null}</Table.Cell>
-                                    <Table.Cell><Button basic color='orange' content='Edit'
-                                        onClick={() => this.handleOpen(computer)}>
-                                    </Button></Table.Cell>
-                                </Table.Row>
-                            </Table.Body>))}
+                        </Table.Body>))}
 
-                    </Table>
-                        <Sidebar
-                            animation='push'
-                            icon='labeled'
-                            inverted='false'
-                            onHide={null}
-                            vertical='true'
-                            visible={active}
-                            width='wide'
-                            direction='right'
-                        >
-                            <ComputerEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} />
-                        </Sidebar>
+                </Table>
+                <Sidebar
+                    animation='push'
+                    icon='labeled'
+                    inverted='false'
+                    onHide={null}
+                    vertical='true'
+                    visible={active}
+                    width='wide'
+                    direction='right'
+                >
+                    <ComputerEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} />
+                </Sidebar>
+                <Sidebar
+                    animation='push'
+                    icon='labeled'
+                    inverted='false'
+                    onHide={null}
+                    vertical='false'
+                    visible={newActive}
+                    width='wide'
+                    direction='right'>
+                    <ComputerAdd
+                        closeSidebar={this.props.closeSidebar}
+                        refresh={this.refresh}
+                    />
+                </Sidebar>
             </>
         )
     }

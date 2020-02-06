@@ -12,22 +12,21 @@ import ComputerList from './computer/ComputerList';
 // import { Sidebar, Segment } from 'semantic-ui-react';
 
 export default class EmployeeContainer extends Component {
-    // state = {
-    //     visible: false,
-    //     active: true
-    // }
+    state = {
+        addResourceSidebar: false
+    }
 
-    // handleOpen = () => this.setState({ active: true })
-    // handleClose = () => this.setState({ active: false })
+    handleOpenNewResource = () => this.setState({ addResourceSidebar: true })
+    handleCloseNewResource = () => this.setState({ addResourceSidebar: false })
 
     render() {
-        // const { active } = this.state
         return (
             <>
 
                 <Route path="/" render={props => {
-                    return <NavigationBar view="Employees" {...props} />
+                    return <NavigationBar view="Employees" openSidebar={this.handleOpenNewResource} {...props} />
                 }} />
+
                 <SideBar view="Employees" />
 
                 <Route exact path="/employee-portal/" render={props => {
@@ -35,7 +34,7 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/computers/" render={props => {
-                    return <ComputerLanding {...props} />
+                    return <ComputerLanding sidebarState={this.state.addResourceSidebar} closeSidebar={this.handleCloseNewResource}  {...props} />
                 }} />
 
                 <Route path="/employee-portal/computers/:computerId(\d+)/" render={props => {

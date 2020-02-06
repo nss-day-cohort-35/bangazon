@@ -22,7 +22,9 @@ export default class ComputerEdit extends Component {
         this.setState(stateToChange);
     }
 
-    handleDropdownChange = (e, { value }) => this.setState({ decomissionDate: value })
+    handleDropdownChange = (e, { value }) => this.setState({
+        decomissionDate: value
+    })
 
     updateComputer = evt => {
         evt.preventDefault();
@@ -40,12 +42,10 @@ export default class ComputerEdit extends Component {
 
     render() {
         const booleanOptions = [
-            { key: 1, text: 'Active', value: null },
-            { key: 2, text: 'Inactive', value: Date.now() }
+            { key: 1, text: 'Active', value: true},
+            { key: 2, text: 'Inactive', value: false }
         ]
-
-        const { dropdownValue } = this.state;
-
+        let dropdownValue = booleanOptions
         return (
             <>
                 <Form>
@@ -67,7 +67,7 @@ export default class ComputerEdit extends Component {
                             selection
                             placeholder='Set Active Status'
                             options={booleanOptions}
-                            value={dropdownValue}
+                            // value={dropdownValue}
                             onChange={this.handleDropdownChange}
                             id='decomissionDate'
                         />

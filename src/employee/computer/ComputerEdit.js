@@ -47,7 +47,7 @@ export default class ComputerEdit extends Component {
         ]
         let dropdownValue = booleanOptions
         let date = new Date()
-        console.log(date.toISOString())
+        // console.log(date.toISOString())
         return (
             <>
                 <Form>

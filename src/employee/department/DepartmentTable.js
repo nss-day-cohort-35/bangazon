@@ -65,7 +65,6 @@ export default class ComputerTable extends Component {
         let status = null
         const { active } = this.state
         const newActive = (this.props.sidebarState)
-        console.log(this.state)
         return (
             <>
                 <Table size='small' celled striped>

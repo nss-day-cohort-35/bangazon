@@ -9,6 +9,7 @@ import EmployeeDashboard from './EmployeeDashboard'
 import SideBar from '../nav/SideBar'
 import EmployeeList from './employee/EmployeeList';
 import ComputerList from './computer/ComputerList';
+import DepartmentList from './department/DepartmentList';
 // import { Sidebar, Segment } from 'semantic-ui-react';
 
 export default class EmployeeContainer extends Component {
@@ -75,6 +76,16 @@ export default class EmployeeContainer extends Component {
                     return <DepartmentLanding
                         sidebarState={this.state.addResourceSidebar}
                         closeSidebar={this.handleCloseNewResource}{...props} />
+                }} />
+
+                <Route path="/employee-portal/departments/:departmentId(\d+)/" render={props => {
+                    const searchValue = parseInt(props.match.params.departmentId)
+                    return <DepartmentList
+                        searchValue={searchValue}
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}
+                        {...props}
+                    />
                 }} />
 
             </>

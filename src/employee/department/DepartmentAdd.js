@@ -8,8 +8,8 @@ export default class DepartmentAdd extends Component {
 
     state = {
         id: '',
-        name: '',
-        budget: ''
+        newName: '',
+        newBudget: ''
     }
 
     handleFieldChange = (evt) => {
@@ -23,8 +23,8 @@ export default class DepartmentAdd extends Component {
         evt.preventDefault();
         const newDepartment = {
             id: this.state.id,
-            name: this.state.name,
-            budget: this.state.budget
+            name: this.state.newName,
+            budget: this.state.newBudget
         }
         APIManager.addData("departments", newDepartment)
             .then(() => this.props.refresh())
@@ -54,7 +54,7 @@ export default class DepartmentAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Department Name'
-                            id='name'
+                            id='newName'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -62,7 +62,7 @@ export default class DepartmentAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Department Budget'
-                            id='budget'
+                            id='newBudget'
                         />
                     </div>
                     <Button

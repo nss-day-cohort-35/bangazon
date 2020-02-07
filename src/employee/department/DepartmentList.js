@@ -57,7 +57,9 @@ class DepartmentList extends Component {
 
                         <DepartmentCard
                             key={this.state.storedDepartment.id}
-                            department={this.state.storedDepartment} />
+                            department={this.state.storedDepartment}
+                            sidebarState={this.props.sidebarState}
+                            closeSidebar={this.props.closeSidebar} />
                     </div>
                 }
             </>

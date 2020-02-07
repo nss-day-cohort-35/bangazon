@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import DepartmentEdit from './DepartmentEdit'
-import { Table, Button, Sidebar } from 'semantic-ui-react'
+import DepartmentEdit from './DepartmentEdit';
+import DepartmentAdd from './DepartmentAdd';
+import { Table, Button, Sidebar } from 'semantic-ui-react';
 
 export default class DepartmentCard extends Component {
     state = {
@@ -12,6 +13,8 @@ export default class DepartmentCard extends Component {
 
     render() {
         const { active } = this.state
+        const newActive = (this.props.sidebarState)
+
         return (
             <>
                 <br></br>
@@ -45,6 +48,20 @@ export default class DepartmentCard extends Component {
                     direction='right'
                 >
                     <DepartmentEdit closeSidebar={this.handleClose} department={this.props.department} />
+                </Sidebar>
+                <Sidebar
+                    animation='push'
+                    icon='labeled'
+                    inverted='false'
+                    onHide={null}
+                    vertical='false'
+                    visible={newActive}
+                    width='wide'
+                    direction='right'>
+                    <DepartmentAdd
+                        closeSidebar={this.props.closeSidebar}
+                        refresh={this.refresh}
+                    />
                 </Sidebar>
             </>
         )

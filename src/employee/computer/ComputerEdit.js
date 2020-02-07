@@ -42,10 +42,12 @@ export default class ComputerEdit extends Component {
 
     render() {
         const booleanOptions = [
-            { key: 1, text: 'Active', value: true},
+            { key: 1, text: 'Active', value: true },
             { key: 2, text: 'Inactive', value: false }
         ]
         let dropdownValue = booleanOptions
+        let date = new Date()
+        console.log(date.toISOString())
         return (
             <>
                 <Form>

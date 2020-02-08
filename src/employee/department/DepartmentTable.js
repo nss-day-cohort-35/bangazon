@@ -32,9 +32,9 @@ export default class ComputerTable extends Component {
             })
     }
 
-    handleOpen = (computer) => this.setState({
+    handleOpen = (department) => this.setState({
         active: true,
-        storedComputer: computer
+        storedDepartment: department
     })
 
     handleClose = () => this.setState({ active: false })
@@ -65,7 +65,6 @@ export default class ComputerTable extends Component {
         let status = null
         const { active } = this.state
         const newActive = (this.props.sidebarState)
-
         return (
             <>
                 <Table size='small' celled striped>
@@ -80,7 +79,7 @@ export default class ComputerTable extends Component {
                         <Table.Body key={department.id}>
                             <Table.Row>
                                 <Table.Cell width='3'>{department.name} ({department.id})</Table.Cell>
-                                <Table.Cell width='2'>{department.budget}</Table.Cell>
+                                <Table.Cell width='2'>${department.budget}</Table.Cell>
                                 <Table.Cell width='1'><Button basic color='orange' content='Edit'
                                     onClick={() => this.handleOpen(department)}>
                                 </Button></Table.Cell>
@@ -97,7 +96,7 @@ export default class ComputerTable extends Component {
                     width='wide'
                     direction='right'
                 >
-                    {/* <DepartmentEdit closeSidebar={this.handleClose} refresh={this.refresh} computer={this.state.storedComputer} /> */}
+                    <DepartmentEdit closeSidebar={this.handleClose} refresh={this.refresh} department={this.state.storedDepartment} />
                 </Sidebar>
                 <Sidebar
                     animation='push'
@@ -108,10 +107,10 @@ export default class ComputerTable extends Component {
                     visible={newActive}
                     width='wide'
                     direction='right'>
-                    {/* <DepartmentAdd
+                    <DepartmentAdd
                         closeSidebar={this.props.closeSidebar}
                         refresh={this.refresh}
-                    /> */}
+                    />
                 </Sidebar>
             </>
         )

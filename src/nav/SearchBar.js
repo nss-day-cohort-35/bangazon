@@ -26,19 +26,24 @@ export default class SearchBar extends Component {
             this.handleEmployeeSearch()
         } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             this.handleComputerSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+            this.handleDepartmentSearch()
         }
     }
 
     handleComputerSearch = () => {
         let computerSearchValue = this.state.value
-        console.log(computerSearchValue)
         this.props.history.push(`/employee-portal/computers/${computerSearchValue}/`)
+    }
+
+    handleDepartmentSearch = () => {
+        let departmentSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/departments/${departmentSearchValue}/`)
     }
 
     handleEmployeeSearch = () => {
         let newEmployeeValue = this.state.employeeValue.split(" ")
         let joinedEmployeeValue = newEmployeeValue.join("-")
-        console.log(joinedEmployeeValue)
         this.props.history.push(`/employee-portal/employees/${joinedEmployeeValue}/`)
     }
 
@@ -56,7 +61,7 @@ export default class SearchBar extends Component {
         } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             placeholderText = "Search computers by ID"
         } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
-            placeholderText = "Search departments"
+            placeholderText = "Search depts by ID"
         } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
             placeholderText = "Search trainings"
         }

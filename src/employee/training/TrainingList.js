@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager';
+import TrainingAdd from './TrainingAdd';
 import TrainingCard from './TrainingCard';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { Sidebar } from 'semantic-ui-react';
 
 
 class TrainingList extends Component {
@@ -55,12 +57,10 @@ class TrainingList extends Component {
         }
     }
     render() {
-
-        console.log("Trainings in state", this.state.storedTraining, "Trainings in the array", this.state.trainings, 'searchValue', this.props.searchValue)
-
+        const newActive = (this.props.sidebarState)
         return (
             <>
-                <h3>Upcoming Events</h3>
+                <h3>Upcoming Training Events</h3>
                 {this.props.searchValue === undefined ?
                     <>
                         <div>
@@ -75,15 +75,27 @@ class TrainingList extends Component {
 
                         </div>
                     </>
-                    : 
+                    :
                     <div>
 
-                            <TrainingCard
-                                key={this.state.storedTraining.id}
-                                training={this.state.storedTraining}
-                                sidebarState={this.props.sidebarState}
-                                closeSidebar={this.props.closeSidebar} />
-
+                        <TrainingCard
+                            key={this.state.storedTraining.id}
+                            training={this.state.storedTraining}
+                            sidebarState={this.props.sidebarState}
+                            closeSidebar={this.props.closeSidebar} />
+                        <Sidebar
+                            animation='push'
+                            icon='labeled'
+                            inverted='false'
+                            onHide={null}
+                            vertical='false'
+                            visible={newActive}
+                            width='wide'
+                            direction='right'>
+                            <TrainingAdd
+                                closeSidebar={this.props.closeSidebar}
+                            />
+                        </Sidebar>
                     </div>
                 }
             </>

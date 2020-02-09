@@ -18,9 +18,9 @@ export default class TrainingLanding extends Component {
                     visible={newActive}
                     width='wide'
                     direction='right'>
-                    {/* <TrainingAdd
+                    <TrainingAdd
                         closeSidebar={this.props.closeSidebar}
-                    /> */}
+                    />
                 </Sidebar>
             </>
         )

@@ -62,6 +62,8 @@ export default class EmployeeContainer extends Component {
                     const searchValue = parseInt(props.match.params.trainingId)
                     return <TrainingList
                         searchValue={searchValue}
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}
                         {...props}
                     />
                 }} />

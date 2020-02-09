@@ -44,7 +44,6 @@ export default class EmployeeDetails extends Component {
     render() {
         const { active } = this.state
         const { modalActive } = this.state
-        console.log("active", active)
         return (
             <>
                 <List>

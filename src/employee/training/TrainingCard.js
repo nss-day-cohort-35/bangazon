@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrainingDetails from './TrainingDetails';
-import { Card } from 'semantic-ui-react'
+import { Card, Sidebar } from 'semantic-ui-react'
 import moment from 'moment';
 
 
@@ -22,7 +22,7 @@ export default class TrainingCard extends Component {
     }
 
     render() {
-        console.log("being passed to card", this.props)
+        
         return (
             <>
                 <Card link onClick={() => {

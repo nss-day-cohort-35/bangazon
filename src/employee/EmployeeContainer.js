@@ -10,6 +10,7 @@ import SideBar from '../nav/SideBar'
 import EmployeeList from './employee/EmployeeList';
 import ComputerList from './computer/ComputerList';
 import DepartmentList from './department/DepartmentList';
+import TrainingList from './training/TrainingList'
 // import { Sidebar, Segment } from 'semantic-ui-react';
 
 export default class EmployeeContainer extends Component {
@@ -51,7 +52,18 @@ export default class EmployeeContainer extends Component {
                 }} />
 
                 <Route exact path="/employee-portal/training/" render={props => {
-                    return <TrainingLanding {...props} />
+                    return <TrainingLanding
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}
+                        {...props} />
+                }} />
+
+                <Route path="/employee-portal/training/:trainingId(\d+)/" render={props => {
+                    const searchValue = parseInt(props.match.params.trainingId)
+                    return <TrainingList
+                        searchValue={searchValue}
+                        {...props}
+                    />
                 }} />
 
                 <Route exact path="/employee-portal/employees/" render={props => {

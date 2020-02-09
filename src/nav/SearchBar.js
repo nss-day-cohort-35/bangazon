@@ -28,6 +28,8 @@ export default class SearchBar extends Component {
             this.handleComputerSearch()
         } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/departments/")) {
             this.handleDepartmentSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/training/")) {
+            this.handleTrainingSearch()
         }
     }
 
@@ -39,6 +41,11 @@ export default class SearchBar extends Component {
     handleDepartmentSearch = () => {
         let departmentSearchValue = this.state.value
         this.props.history.push(`/employee-portal/departments/${departmentSearchValue}/`)
+    }
+
+    handleTrainingSearch = () => {
+        let trainingSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/training/${trainingSearchValue}/`)
     }
 
     handleEmployeeSearch = () => {

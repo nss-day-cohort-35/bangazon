@@ -19,7 +19,7 @@ export default class TrainingAdd extends Component {
         this.setState(stateToChange);
     }
 
-
+    // use moment().toISOString() for converting dates from the input field before sending it to the database.
     addTraining = evt => {
         evt.preventDefault();
         const newTraining = {
@@ -31,7 +31,7 @@ export default class TrainingAdd extends Component {
         }
         APIManager.addData("trainingPrograms", newTraining)
             .then(() => this.props.refresh())
-            this.props.closeSidebar()
+        this.props.closeSidebar()
 
     };
 

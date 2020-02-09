@@ -45,9 +45,7 @@ export default class ComputerEdit extends Component {
             { key: 1, text: 'Active', value: true },
             { key: 2, text: 'Inactive', value: false }
         ]
-        let dropdownValue = booleanOptions
-        let date = new Date()
-        // console.log(date.toISOString())
+
         return (
             <>
                 <Form>
@@ -69,7 +67,6 @@ export default class ComputerEdit extends Component {
                             selection
                             placeholder='Set Active Status'
                             options={booleanOptions}
-                            // value={dropdownValue}
                             onChange={this.handleDropdownChange}
                             id='decomissionDate'
                         />

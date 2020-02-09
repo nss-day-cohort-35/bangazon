@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrainingDetails from './TrainingDetails';
-import { Card, Sidebar } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import moment from 'moment';
 
 

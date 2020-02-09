@@ -42,7 +42,7 @@ export default class ComputerEdit extends Component {
 
     render() {
         const booleanOptions = [
-            { key: 1, text: 'Active', value: true },
+            { key: 1, text: 'Active', value: 0 },
             { key: 2, text: 'Inactive', value: false }
         ]
 
@@ -57,7 +57,7 @@ export default class ComputerEdit extends Component {
                         <label>Purchase Date</label>
                         <input
                             onChange={this.handleFieldChange}
-                            placeholder='MM/DD/YYYY'
+                            placeholder={moment(this.props.computer.purchaseDate).format('MM/DD/YYYY')}
                             id='purchaseDate'
                         />
                     </div>

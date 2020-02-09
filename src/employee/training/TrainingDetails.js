@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
 import TrainingEdit from './TrainingEdit';
-import { List, Button, Icon, Sidebar, Modal} from 'semantic-ui-react'
+import { List, Button, Icon, Sidebar, Modal } from 'semantic-ui-react'
 import APIManager from '../../api/APIManager';
 
 
@@ -21,26 +21,6 @@ export default class EmployeeDetails extends Component {
     handleModalOpen = () => this.setState({ modalActive: true })
     handleModalClose = () => this.setState({ modalActive: false })
 
-    toggle = () => {
-        if (this.state.visible === false) {
-            this.setState({
-                visible: true
-            })
-        } else {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
-    closeSidebar = () => {
-        if (this.state.visible === true) {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
     render() {
         const { active } = this.state
         const { modalActive } = this.state
@@ -58,7 +38,7 @@ export default class EmployeeDetails extends Component {
                         </List.Content>
                     </List.Item>
                     <List.Item>
-                        <Button onClick={this.toggle}
+                        <Button
                             onClick={this.handleOpen}
                             icon
                         >

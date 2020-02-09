@@ -7,12 +7,12 @@ export default class EmployeeAdd extends Component {
 
     state = {
         departments: [],
-        firstName: '',
-        lastName: '',
-        departmentId: '',
+        newFirstName: '',
+        newLastName: '',
+        newDepartmentId: '',
         isSupervisor: null,
-        computerId: '',
-        email: '',
+        newComputerId: '',
+        newEmail: '',
     }
 
     handleFieldChange = (evt) => {
@@ -67,7 +67,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter First Name'
-                            id='firstName'
+                            id='newFirstName'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -75,7 +75,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Last Name'
-                            id='lastName'
+                            id='newLastName'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -86,7 +86,7 @@ export default class EmployeeAdd extends Component {
                             options={deptOptions}
                             value={dropdownValue}
                             onChange={this.handleDeptDropdownChange}
-                            id='departmentId'
+                            id='newDepartmentId'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -105,7 +105,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Employee ID'
-                            id='employeeId'
+                            id='newEmployeeId'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -113,7 +113,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Computer ID'
-                            id='computerId'
+                            id='newComputerId'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -121,7 +121,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Email Address'
-                            id='email'
+                            id='newEmail'
                         />
                     </div>
                     <Button

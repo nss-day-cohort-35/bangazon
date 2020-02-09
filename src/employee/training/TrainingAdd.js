@@ -24,8 +24,8 @@ export default class TrainingAdd extends Component {
         evt.preventDefault();
         const newTraining = {
             name: this.state.newTrainingName,
-            startDate: this.state.newStartDate,
-            endDate: this.state.newEndDate,
+            startDate: moment(this.state.newStartDate, 'MM/DD/YYYY', true).format(),
+            endDate: moment(this.state.newEndDate, 'MM/DD/YYYY', true).format(),
             maxAttendees: this.state.newMaxAttendees
 
         }

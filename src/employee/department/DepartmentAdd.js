@@ -7,7 +7,6 @@ import '../../App.css'
 export default class DepartmentAdd extends Component {
 
     state = {
-        id: '',
         newName: '',
         newBudget: ''
     }
@@ -22,33 +21,23 @@ export default class DepartmentAdd extends Component {
     addDepartment = evt => {
         evt.preventDefault();
         const newDepartment = {
-            id: this.state.id,
             name: this.state.newName,
             budget: this.state.newBudget
         }
         APIManager.addData("departments", newDepartment)
-            .then(() => this.props.refresh())
+            .then( () => this.props.refresh())
         this.props.closeSidebar()
 
     };
 
     render() {
-
         return (
 
             <>
                 <Form>
                     <br></br>
-                    <Header as='h1' color='grey'>Add New Computer</Header>
+                    <Header as='h1' color='grey'>Add New Department</Header>
                     <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
-                    <div className='fifteen wide field'>
-                        <label>Department ID</label>
-                        <input
-                            onChange={this.handleFieldChange}
-                            placeholder='Enter Department ID'
-                            id='id'
-                        />
-                    </div>
                     <div className='fifteen wide field'>
                         <label>Department Name</label>
                         <input

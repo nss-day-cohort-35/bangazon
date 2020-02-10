@@ -64,7 +64,7 @@ export default class ComputerTable extends Component {
                                 <Table.Cell >{computer.id}</Table.Cell>
                                 <Table.Cell >{computer.make} {computer.model}</Table.Cell>
                                 <Table.Cell > {moment(computer.purchaseDate).format('MM/DD/YYYY')}</Table.Cell>
-                                <Table.Cell >{computer.decomissionDate === null ? "Active" : "Inactive"}</Table.Cell>
+                                <Table.Cell >{computer.decomissionDate === 0 || computer.decomissionDate === null ? "Active" : "Inactive"}</Table.Cell>
                                 <Table.Cell >{null}</Table.Cell>
                                 <Table.Cell>
                                     <Button

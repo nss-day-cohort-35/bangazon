@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager'
-import { Button, Form, Header, Dropdown } from 'semantic-ui-react'
+import { Button, Icon, Form, Header, Dropdown } from 'semantic-ui-react'
 
 
 export default class EmployeeAdd extends Component {
@@ -28,9 +28,8 @@ export default class EmployeeAdd extends Component {
     addEmployee = evt => {
         evt.preventDefault();
         const newEmployee = {
-            id: parseInt(this.state.id),
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            firstName: this.state.newFirstName,
+            lastName: this.state.newLastName,
             departmentId: parseInt(this.state.departmentId),
             isSupervisor: this.state.isSupervisor,
             computerId: parseInt(this.state.computerId),
@@ -61,7 +60,8 @@ export default class EmployeeAdd extends Component {
             <>
                 <Form>
                     <br></br>
-                    <Header as='h1' color='grey'>Add New Employee</Header>
+                    <Header as='h1' color='grey'>Add New Employee
+                    </Header>
                     <div className='fifteen wide field'>
                         <label>Employee First Name</label>
                         <input
@@ -98,14 +98,6 @@ export default class EmployeeAdd extends Component {
                             value={dropdownValue}
                             onChange={this.handleSupervisorDropdownChange}
                             id='isSupervisor'
-                        />
-                    </div>
-                    <div className='fifteen wide field'>
-                        <label>Employee ID</label>
-                        <input
-                            onChange={this.handleFieldChange}
-                            placeholder='Enter Employee ID'
-                            id='newEmployeeId'
                         />
                     </div>
                     <div className='fifteen wide field'>

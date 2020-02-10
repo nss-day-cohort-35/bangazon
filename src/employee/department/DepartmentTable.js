@@ -40,8 +40,6 @@ export default class ComputerTable extends Component {
     handleClose = () => this.setState({ active: false })
 
     render() {
-
-
         const { active } = this.state
         const newActive = (this.props.sidebarState)
         return (

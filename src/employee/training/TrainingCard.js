@@ -22,15 +22,15 @@ export default class TrainingCard extends Component {
     }
 
     render() {
-        
+
         return (
             <>
                 <Card link onClick={() => {
                     this.trainingDetailsToggle()
                 }}>
                     <h4>{this.props.training.name}</h4>
-                    Start Date: {moment(this.props.training.startDate).format('MM/DD/YYYY @ h:mma')}<br></br>
-                    End Date: {moment(this.props.training.endDate).format('MM/DD/YYYY @ h:mma')}<br></br>
+                    Start Date: {moment(this.props.training.startDate).format('MM/DD/YYYY')}<br></br>
+                    End Date: {moment(this.props.training.endDate).format('MM/DD/YYYY')}<br></br>
                     Capacity: {this.props.training.maxAttendees}
                 </Card>
                 {this.state.cardVisible === true ?

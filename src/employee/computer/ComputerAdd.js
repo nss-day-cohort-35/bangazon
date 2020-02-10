@@ -8,7 +8,6 @@ import '../../App.css'
 export default class ComputerAdd extends Component {
 
     state = {
-        id: '',
         newPurchaseDate: '',
         decomissionDate: null,
         newMake: '',
@@ -26,22 +25,22 @@ export default class ComputerAdd extends Component {
     addComputer = evt => {
         evt.preventDefault();
         const newComputer = {
-            id: this.state.id,
             purchaseDate: moment(this.state.newPurchaseDate, 'MM/DD/YYYY', true).format(),
             decomissionDate: this.state.decomissionDate,
             make: this.state.newMake,
             model: this.state.newModel
         }
         APIManager.addData("computers", newComputer)
-            .then(() => this.props.refresh())
             this.props.closeSidebar()
+            this.props.history.push("/employee-portal/computers/")
+
 
     };
 
     render() {
 
         const booleanOptions = [
-            { key: 1, text: 'Active', value: true },
+            { key: 1, text: 'Active', value: 0 },
             { key: 2, text: 'Inactive', value: false }
         ]
 
@@ -52,14 +51,6 @@ export default class ComputerAdd extends Component {
                     <br></br>
                     <Header as='h1' color='grey'>Add New Computer</Header>
                     <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
-                    <div className='fifteen wide field'>
-                        <label>Computer ID</label>
-                        <input
-                            onChange={this.handleFieldChange}
-                            placeholder='Enter Computer ID'
-                            id='id'
-                        />
-                    </div>
                     <div className='fifteen wide field'>
                         <label>Purchase Date</label>
                         <input

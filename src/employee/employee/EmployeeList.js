@@ -45,7 +45,7 @@ class EmployeeList extends Component {
     render() {
 
         const newActive = (this.props.sidebarState)
-
+        console.log("employee state",this.props.searchValue)
         return (
             <>
                 {this.props.searchValue === undefined ?

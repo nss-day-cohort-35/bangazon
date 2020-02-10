@@ -26,6 +26,7 @@ export default class ComputerEdit extends Component {
         decomissionDate: value
     })
 
+
     updateComputer = evt => {
         evt.preventDefault();
         const updatedComputer = {
@@ -36,16 +37,17 @@ export default class ComputerEdit extends Component {
             model: this.state.model
         }
         APIManager.updateData("computers", updatedComputer)
-            .then(() => this.props.refresh())
+            .then (() => this.props.refresh())
         this.props.closeSidebar()
     };
 
     render() {
+        let date = moment(Date.now()).format()
         const booleanOptions = [
             { key: 1, text: 'Active', value: 0 },
-            { key: 2, text: 'Inactive', value: false }
+            { key: 2, text: 'Inactive', value: date }
         ]
-
+        console.log('date', date)
         return (
             <>
                 <Form>

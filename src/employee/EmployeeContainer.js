@@ -22,6 +22,7 @@ export default class EmployeeContainer extends Component {
     handleCloseNewResource = () => this.setState({ addResourceSidebar: false })
 
     render() {
+        console.log(this.state.addResourceSidebar)
         return (
             <>
 
@@ -47,6 +48,8 @@ export default class EmployeeContainer extends Component {
                     const searchValue = parseInt(props.match.params.computerId)
                     return <ComputerList
                         searchValue={searchValue}
+                        sidebarState={this.state.addResourceSidebar}
+                        closeSidebar={this.handleCloseNewResource}
                         {...props}
                     />
                 }} />
@@ -86,10 +89,12 @@ export default class EmployeeContainer extends Component {
                     />
                 }} />
 
-                <Route exact path="/employee-portal/departments" render={props => {
+                <Route exact path="/employee-portal/departments/" render={props => {
                     return <DepartmentLanding
                         sidebarState={this.state.addResourceSidebar}
-                        closeSidebar={this.handleCloseNewResource}{...props} />
+                        closeSidebar={this.handleCloseNewResource}
+                        {...props}
+                        />
                 }} />
 
                 <Route path="/employee-portal/departments/:departmentId(\d+)/" render={props => {

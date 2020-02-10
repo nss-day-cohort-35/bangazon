@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager'
-import { Button, Form, Header, Dropdown } from 'semantic-ui-react'
+import { Button, Icon, Form, Header, Dropdown } from 'semantic-ui-react'
 
 
 export default class EmployeeAdd extends Component {
 
     state = {
         departments: [],
-        firstName: '',
-        lastName: '',
-        departmentId: '',
+        newFirstName: '',
+        newLastName: '',
+        newDepartmentId: '',
         isSupervisor: null,
-        computerId: '',
-        email: '',
+        newComputerId: '',
+        newEmail: '',
     }
 
     handleFieldChange = (evt) => {
@@ -28,9 +28,8 @@ export default class EmployeeAdd extends Component {
     addEmployee = evt => {
         evt.preventDefault();
         const newEmployee = {
-            id: parseInt(this.state.id),
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            firstName: this.state.newFirstName,
+            lastName: this.state.newLastName,
             departmentId: parseInt(this.state.departmentId),
             isSupervisor: this.state.isSupervisor,
             computerId: parseInt(this.state.computerId),
@@ -61,13 +60,14 @@ export default class EmployeeAdd extends Component {
             <>
                 <Form>
                     <br></br>
-                    <Header as='h1' color='grey'>Add New Employee</Header>
+                    <Header as='h1' color='grey'>Add New Employee
+                    </Header>
                     <div className='fifteen wide field'>
                         <label>Employee First Name</label>
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter First Name'
-                            id='firstName'
+                            id='newFirstName'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -75,7 +75,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Last Name'
-                            id='lastName'
+                            id='newLastName'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -86,7 +86,7 @@ export default class EmployeeAdd extends Component {
                             options={deptOptions}
                             value={dropdownValue}
                             onChange={this.handleDeptDropdownChange}
-                            id='departmentId'
+                            id='newDepartmentId'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -101,19 +101,11 @@ export default class EmployeeAdd extends Component {
                         />
                     </div>
                     <div className='fifteen wide field'>
-                        <label>Employee ID</label>
-                        <input
-                            onChange={this.handleFieldChange}
-                            placeholder='Enter Employee ID'
-                            id='employeeId'
-                        />
-                    </div>
-                    <div className='fifteen wide field'>
                         <label>Computer ID</label>
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Computer ID'
-                            id='computerId'
+                            id='newComputerId'
                         />
                     </div>
                     <div className='fifteen wide field'>
@@ -121,7 +113,7 @@ export default class EmployeeAdd extends Component {
                         <input
                             onChange={this.handleFieldChange}
                             placeholder='Enter Email Address'
-                            id='email'
+                            id='newEmail'
                         />
                     </div>
                     <Button

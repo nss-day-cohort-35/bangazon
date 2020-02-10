@@ -2,20 +2,15 @@ import React, { Component } from 'react';
 import APIManager from '../../api/APIManager';
 import ComputerCard from './ComputerCard';
 import ComputerTable from './ComputerTable';
+import ComputerAdd from './ComputerAdd';
 import { withRouter } from 'react-router-dom'
-
+import { Sidebar } from 'semantic-ui-react';
 
 class ComputerList extends Component {
     state = {
         computers: [],
         storedComputer: {}
     }
-
-    // getComputerData = () => {
-    //     this.setState({
-    //         storedComputer: this.props.searchValue
-    //     })
-    // }
 
 
     componentDidMount() {
@@ -26,7 +21,6 @@ class ComputerList extends Component {
                     this.setState({
                         storedComputer: response
                     })
-                    console.log("computer response", response)
                 })
     }
 
@@ -42,9 +36,19 @@ class ComputerList extends Component {
                 })
         }
     }
-    render() {
 
-        console.log("computers in state", this.state.storedComputer)
+    refresh = () => {
+        APIManager.getAll("computers")
+            .then(response => {
+                this.setState({
+                    computers: response
+                })
+            })
+    }
+
+    render() {
+        const newActive = this.props.sidebarState
+        console.log("props", this.props)
 
         return (
             <>
@@ -61,8 +65,23 @@ class ComputerList extends Component {
                             />
                         ))}
                         <ComputerCard
-                        key={this.state.storedComputer.id}
-                        computer={this.state.storedComputer} />
+                            key={this.state.storedComputer.id}
+                            computer={this.state.storedComputer}
+                            sidebarState={this.state.addResourceSidebar}
+                            closeSidebar={this.handleCloseNewResource}
+                            refresh={this.refresh} />
+                        <Sidebar
+                            animation='push'
+                            icon='labeled'
+                            inverted='false'
+                            onHide={null}
+                            vertical='true'
+                            visible={newActive}
+                            width='wide'
+                            direction='right'
+                        >
+                            <ComputerAdd closeSidebar={this.props.closeSidebar} computer={this.props.computer} refresh={this.refresh} />
+                        </Sidebar>
                     </div>
                 }
             </>

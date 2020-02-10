@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import APIManager from '../../api/APIManager';
 import DepartmentCard from './DepartmentCard';
-import DepartmentTable from './DepartmentTable';
 import { withRouter } from 'react-router-dom'
 
 

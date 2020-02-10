@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DepartmentEdit from './DepartmentEdit';
 import DepartmentAdd from './DepartmentAdd';
 import APIManager from '../../api/APIManager'
-import { Table, Button, Sidebar } from 'semantic-ui-react'
+import { Table, Button, Sidebar, Icon } from 'semantic-ui-react'
 import '../../App.css';
 
 export default class ComputerTable extends Component {
@@ -39,53 +39,37 @@ export default class ComputerTable extends Component {
 
     handleClose = () => this.setState({ active: false })
 
-    toggle = () => {
-        if (this.state.visible === false) {
-            this.setState({
-                visible: true
-            })
-        } else {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
-    closeSidebar = () => {
-        if (this.state.visible === true) {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
-
     render() {
-
-        let status = null
         const { active } = this.state
         const newActive = (this.props.sidebarState)
         return (
             <>
-                <Table size='small' celled striped>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Department Name</Table.HeaderCell>
-                            <Table.HeaderCell>Budget</Table.HeaderCell>
-                            <Table.HeaderCell>Details</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    {this.state.departments.map(department => (
-                        <Table.Body key={department.id}>
+                <div>
+                    <Table size='small' celled striped>
+                        <Table.Header>
                             <Table.Row>
-                                <Table.Cell width='3'>{department.name} ({department.id})</Table.Cell>
-                                <Table.Cell width='2'>${department.budget}</Table.Cell>
-                                <Table.Cell width='1'><Button basic color='orange' content='Edit'
-                                    onClick={() => this.handleOpen(department)}>
-                                </Button></Table.Cell>
+                                <Table.HeaderCell>Department Name</Table.HeaderCell>
+                                <Table.HeaderCell>Budget</Table.HeaderCell>
+                                <Table.HeaderCell>Details</Table.HeaderCell>
                             </Table.Row>
-                        </Table.Body>))}
-                </Table>
+                        </Table.Header>
+                        {this.state.departments.map(department => (
+                            <Table.Body key={department.id}>
+                                <Table.Row>
+                                    <Table.Cell width='3'>{department.name} ({department.id})</Table.Cell>
+                                    <Table.Cell width='2'>${department.budget}</Table.Cell>
+                                    <Table.Cell width='1'>
+                                        <Button
+                                            basic
+                                            onClick={() => this.handleOpen(department)}
+                                            icon>
+                                            <Icon name='pencil alternate' />
+                                        </Button>
+                                    </Table.Cell>
+                                </Table.Row>
+                            </Table.Body>))}
+                    </Table>
+                </div>
                 <Sidebar
                     animation='push'
                     icon='labeled'

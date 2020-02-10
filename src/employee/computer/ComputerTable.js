@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import ComputerEdit from './ComputerEdit';
 import ComputerAdd from './ComputerAdd';
 import APIManager from '../../api/APIManager'
-import { Table, Button, Sidebar } from 'semantic-ui-react'
+import { Table, Button, Sidebar, Icon } from 'semantic-ui-react'
+import moment from 'moment'
 import '../../App.css';
 
 export default class ComputerTable extends Component {
@@ -39,37 +40,14 @@ export default class ComputerTable extends Component {
 
     handleClose = () => this.setState({ active: false })
 
-    toggle = () => {
-        if (this.state.visible === false) {
-            this.setState({
-                visible: true
-            })
-        } else {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
-    closeSidebar = () => {
-        if (this.state.visible === true) {
-            this.setState({
-                visible: false
-            })
-        }
-    }
-
-
     render() {
-
-        let status = null
         const { active } = this.state
         const newActive = (this.props.sidebarState)
-
+console.log("props", this.props)
         return (
             <>
 
-                <Table size='small' celled striped>
+                <Table celled striped>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>Computer ID</Table.HeaderCell>
@@ -85,12 +63,16 @@ export default class ComputerTable extends Component {
                             <Table.Row>
                                 <Table.Cell >{computer.id}</Table.Cell>
                                 <Table.Cell >{computer.make} {computer.model}</Table.Cell>
-                                <Table.Cell > {(new Date(computer.purchaseDate)).getMonth() + 1}/{(new Date(computer.purchaseDate)).getDate()}/{(new Date(computer.purchaseDate)).getFullYear()}</Table.Cell>
-                                <Table.Cell >{computer.decomissionDate === null ? status = "Active" : "Inactive"}</Table.Cell>
+                                <Table.Cell > {moment(computer.purchaseDate).format('MM/DD/YYYY')}</Table.Cell>
+                                <Table.Cell >{computer.decomissionDate === 0 || computer.decomissionDate === null ? "Active" : "Inactive"}</Table.Cell>
                                 <Table.Cell >{null}</Table.Cell>
-                                <Table.Cell><Button basic color='orange' content='Edit'
-                                    onClick={() => this.handleOpen(computer)}>
-                                </Button></Table.Cell>
+                                <Table.Cell>
+                                    <Button
+                                        basic
+                                        onClick={() => this.handleOpen(computer)}
+                                        icon>
+                                        <Icon name='pencil alternate' />
+                                    </Button></Table.Cell>
                             </Table.Row>
                         </Table.Body>))}
 

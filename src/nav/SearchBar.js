@@ -6,7 +6,7 @@ import { Input } from 'semantic-ui-react'
 export default class SearchBar extends Component {
 
     state = {
-        view: "",
+        view: '',
         isLoading: false,
         value: '',
         employeeValue: '',
@@ -28,6 +28,8 @@ export default class SearchBar extends Component {
             this.handleComputerSearch()
         } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/departments/")) {
             this.handleDepartmentSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/training/")) {
+            this.handleTrainingSearch()
         }
     }
 
@@ -39,6 +41,11 @@ export default class SearchBar extends Component {
     handleDepartmentSearch = () => {
         let departmentSearchValue = this.state.value
         this.props.history.push(`/employee-portal/departments/${departmentSearchValue}/`)
+    }
+
+    handleTrainingSearch = () => {
+        let trainingSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/training/${trainingSearchValue}/`)
     }
 
     handleEmployeeSearch = () => {
@@ -69,16 +76,21 @@ export default class SearchBar extends Component {
         let id = 'value'
         if (this.props.location.pathname === "/employee-portal/") {
             id = 'employeeValue'
-        } else if (this.props.location.pathname.startsWith("/employee-portal/employees")) {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             id = 'employeeValue'
         }
 
         let onClickAction = null
-        if (this.props.location.pathname === "/employee-portal" || this.props.location.pathname.startsWith("/employee-portal/employees")) {
+        if (this.props.location.pathname === "/employee-portal/" || this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             onClickAction = this.handleEmployeeSearch
-        } else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             onClickAction = this.handleComputerSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+            onClickAction = this.handleDepartmentSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
+            onClickAction = this.handleTrainingSearch
         }
+
 
         return (
             <>

@@ -26,6 +26,7 @@ export default class ComputerEdit extends Component {
         decomissionDate: value
     })
 
+
     updateComputer = evt => {
         evt.preventDefault();
         const updatedComputer = {
@@ -36,18 +37,17 @@ export default class ComputerEdit extends Component {
             model: this.state.model
         }
         APIManager.updateData("computers", updatedComputer)
-            .then(() => this.props.refresh())
+            .then (() => this.props.refresh())
         this.props.closeSidebar()
     };
 
     render() {
+        let date = moment(Date.now()).format()
         const booleanOptions = [
-            { key: 1, text: 'Active', value: true },
-            { key: 2, text: 'Inactive', value: false }
+            { key: 1, text: 'Active', value: 0 },
+            { key: 2, text: 'Inactive', value: date }
         ]
-        let dropdownValue = booleanOptions
-        let date = new Date()
-        // console.log(date.toISOString())
+        console.log('date', date)
         return (
             <>
                 <Form>
@@ -59,7 +59,7 @@ export default class ComputerEdit extends Component {
                         <label>Purchase Date</label>
                         <input
                             onChange={this.handleFieldChange}
-                            placeholder='MM/DD/YYYY'
+                            placeholder={moment(this.props.computer.purchaseDate).format('MM/DD/YYYY')}
                             id='purchaseDate'
                         />
                     </div>
@@ -69,7 +69,6 @@ export default class ComputerEdit extends Component {
                             selection
                             placeholder='Set Active Status'
                             options={booleanOptions}
-                            // value={dropdownValue}
                             onChange={this.handleDropdownChange}
                             id='decomissionDate'
                         />

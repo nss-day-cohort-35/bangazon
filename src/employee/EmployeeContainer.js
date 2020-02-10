@@ -22,7 +22,6 @@ export default class EmployeeContainer extends Component {
     handleCloseNewResource = () => this.setState({ addResourceSidebar: false })
 
     render() {
-        console.log(this.state.addResourceSidebar)
         return (
             <>
 
@@ -36,7 +35,8 @@ export default class EmployeeContainer extends Component {
 
                 <Route exact path="/employee-portal/" render={props => {
                     return <EmployeeDashboard {...props} />
-                }} />
+                }}
+                />
 
                 <Route exact path="/employee-portal/computers/" render={props => {
                     return <ComputerLanding

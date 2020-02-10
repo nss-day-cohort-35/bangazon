@@ -38,7 +38,7 @@ export default class ComputerAdd extends Component {
     };
 
     render() {
-
+console.log(this.props)
         const booleanOptions = [
             { key: 1, text: 'Active', value: 0 },
             { key: 2, text: 'Inactive', value: false }

@@ -81,7 +81,7 @@ export default class SearchBar extends Component {
         }
 
         let onClickAction = null
-        if (this.props.location.pathname === "/employee-portal" || this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+        if (this.props.location.pathname === "/employee-portal/" || this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             onClickAction = this.handleEmployeeSearch
         } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             onClickAction = this.handleComputerSearch

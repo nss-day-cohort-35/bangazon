@@ -1,8 +1,12 @@
+/* Landing Page */
+
+
+
+
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);
   background-color: #ffffff !important;
 }
-
 
 .computerImage {
 max-width: 50%;

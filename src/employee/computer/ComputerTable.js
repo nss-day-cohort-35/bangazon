@@ -43,7 +43,7 @@ export default class ComputerTable extends Component {
     render() {
         const { active } = this.state
         const newActive = (this.props.sidebarState)
-
+console.log("props", this.props)
         return (
             <>
 

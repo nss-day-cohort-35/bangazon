@@ -16,7 +16,7 @@ export default class ComputerCard extends Component {
         let status = null
         let { active } = this.state
         let newActive = this.props.sidebarState
-        if (this.props.computer.decomissionDate === null) {
+        if (this.props.computer.decomissionDate === 0 || this.props.computer.decomissionDate === null) {
             status = "Active"
         } else status = "Inactive"
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import { Menu, Sidebar } from "semantic-ui-react";
 
 class SideBar extends Component {
 	state = {
@@ -9,23 +9,23 @@ class SideBar extends Component {
 
 	employeeOptions = [
 		{
-			title: "Dashboard",
+			title: "DASHBOARD",
 			link: "/employee-portal/"
 		},
 		{
-			title: "Computers",
+			title: "COMPUTERS",
 			link: "/employee-portal/computers/"
 		},
 		{
-			title: "Departments",
+			title: "DEPARTMENTS",
 			link: "/employee-portal/departments/"
 		},
 		{
-			title: "Employees",
+			title: "EMPLOYEES",
 			link: "/employee-portal/employees/"
 		},
 		{
-			title: "Training",
+			title: "TRAINING",
 			link: "/employee-portal/training/"
 		}
 	];
@@ -63,7 +63,8 @@ class SideBar extends Component {
 
 		return (
 			<>
-				<Menu pointing vertical>
+				<Sidebar as={Menu} pointing vertical visible='true'>
+					<img src={require('../images/B-Logo.png')} className='bangazonLogo'/>
 					{items.map((option) => (
 						<Menu.Item
                             key={option.link}
@@ -73,7 +74,7 @@ class SideBar extends Component {
 							onClick={this.handleItemClick}
 						/>
 					))}
-				</Menu>
+				</Sidebar>
 			</>
 		);
 	}

@@ -1,7 +1,109 @@
 /* Landing Page */
 
+.landingDiv {
+display: flex;
+justify-content: space-around;
+margin-top: 5%
+}
+
+.landingEmployeePortalDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.landingCustomerPortalDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.portalTitle{
+  display: flex;
+  justify-content: center;
+  font-family: Avenir Next;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 33px;
+  color: #33475B;
+}
+
+/* Landing End */
 
 
+/* SideBar Menu */
+
+.bangazonLogo{
+  margin-top: 5%;
+  margin-left: 17%;
+  max-width: 65%;
+}
+
+.ui.vertical.menu {
+  display: block;
+  flex-direction: column;
+  background: #6A78D1;
+}
+
+.ui.left.sidebar{
+  width: 225px;
+  overflow-x: hidden;
+}
+
+/* Non-active links */
+.ui.menu .item {
+  position: relative;
+  vertical-align: middle;
+  line-height: 5.85;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: .92857143em 1.14285714em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Avenir';
+  font-size: 15.5px;
+  font-weight: 900;
+}
+
+/* Non-active link on hover */
+.ui.menu a.item:hover {
+  cursor: pointer;
+  background: rgba(180, 187, 232, .5);
+  color: #ffffff;
+}
+
+/* Active link on hover */
+.ui.menu .active.item:hover, .ui.vertical.menu .active.item:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: #B4BBE8;
+}
+
+.ui.menu .active.item {
+  background: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'Avenir';
+  font-weight: 900;
+  box-shadow: none;
+}
+
+.ui.menu .active.item:hover{
+  background: #B4BBE8;
+
+}
+
+.ui.vertical.menu .item {
+  border-radius: 0;
+  border-bottom: none;
+}
+
+.ui.vertical.menu .active.item {
+  background: #B4BBE8;
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(34,36,38,.45);
+}
+
+/* SideBar Menu End */
 
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);

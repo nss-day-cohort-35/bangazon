@@ -25,13 +25,13 @@ export default class EmployeeContainer extends Component {
         return (
             <>
 
+
                 <Route path="/" render={props => {
                     return <NavigationBar
                         view="Employees"
                         openSidebar={this.handleOpenNewResource} {...props} />
                 }} />
 
-                <SideBar view="Employees" />
 
                 <Route exact path="/employee-portal/" render={props => {
                     return <EmployeeDashboard {...props} />
@@ -94,7 +94,7 @@ export default class EmployeeContainer extends Component {
                         sidebarState={this.state.addResourceSidebar}
                         closeSidebar={this.handleCloseNewResource}
                         {...props}
-                        />
+                    />
                 }} />
 
                 <Route path="/employee-portal/departments/:departmentId(\d+)/" render={props => {
@@ -107,6 +107,7 @@ export default class EmployeeContainer extends Component {
                     />
                 }} />
 
+                <SideBar view="Employees" />
             </>
         )
     }

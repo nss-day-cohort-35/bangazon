@@ -3,8 +3,7 @@ import './App.css';
 import { Link, Route } from 'react-router-dom'
 import EmployeeContainer from './employee/EmployeeContainer'
 import CustomerContainer from './customer/CustomerContainer'
-// import { UserProvider } from './UserContext';
-import { Button } from 'semantic-ui-react'
+import { Button, Divider } from 'semantic-ui-react'
 
 class Landing extends Component {
 
@@ -21,22 +20,24 @@ class Landing extends Component {
     return (
       <>
         <Route exact path="/" render={props => {
-          return <div>
-            <div>
+          return <div className='landingDiv'>
+            <div className='landingEmployeePortalDiv'>
               <Link to="/employee-portal/">
                 <img src={require("../src/images/Human.png")} alt="watering plants"></img>
               </Link>
+              <h2 className='portalTitle'>EMPLOYEE MANAGER</h2>
               <Button basic color='orange' onClick={() => this.toEmployees(props)}>
                 Employees
               </Button>
             </div>
 
-            <hr></hr>
+            <Divider vertical >OR</Divider>
 
-            <div>
+            <div className='landingCustomerPortalDiv'>
               <Link to="/customer-portal/">
                 <img src={require("../src/images/Shopping-Cart.png")} alt="shopping cart"></img>
               </Link>
+              <h2 className='portalTitle'>CUSTOMER MANAGER</h2>
               <Button basic color='orange' onClick={() => this.toCustomers(props)}>
                 Customers
               </Button>

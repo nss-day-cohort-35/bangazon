@@ -105,6 +105,12 @@ margin-top: 5%
 
 /* SideBar Menu End */
 
+/* Employee Container */
+.containerDiv {
+  margin-left: 250px;
+}
+/* Employee Container End */
+
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);
   background-color: #ffffff !important;

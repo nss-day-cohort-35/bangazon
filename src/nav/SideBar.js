@@ -5,7 +5,7 @@ import { Menu, Sidebar } from "semantic-ui-react";
 class SideBar extends Component {
 	state = {
 		activeItem: ""
-    };
+	};
 
 	employeeOptions = [
 		{
@@ -63,11 +63,16 @@ class SideBar extends Component {
 
 		return (
 			<>
-				<Sidebar as={Menu} pointing vertical visible='true'>
-					<img src={require('../images/B-Logo.png')} className='bangazonLogo'/>
+
+				<Sidebar
+					as={Menu}
+					pointing
+					vertical
+					visible>
+					<img src={require('../images/B-Logo.png')} className='bangazonLogo' />
 					{items.map((option) => (
 						<Menu.Item
-                            key={option.link}
+							key={option.link}
 							name={option.title}
 							url={option.link}
 							active={activeItem === option.title}

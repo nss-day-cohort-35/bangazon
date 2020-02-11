@@ -15,7 +15,7 @@ export default class EmployeeDashboard extends Component {
                     </Card>
                     <img src={require('../images/Welcome.png')} alt='welcome flag' ></img>
                 </div>
-                <div classname='dashboardBottomRow'>
+                <div className='dashboardBottomRow'>
                     <Card>
                         <Card.Header>
                             TRAINING

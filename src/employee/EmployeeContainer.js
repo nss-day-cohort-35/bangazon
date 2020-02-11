@@ -11,7 +11,6 @@ import EmployeeList from './employee/EmployeeList';
 import ComputerList from './computer/ComputerList';
 import DepartmentList from './department/DepartmentList';
 import TrainingList from './training/TrainingList'
-import { Sidebar, Segment } from 'semantic-ui-react';
 
 export default class EmployeeContainer extends Component {
     state = {

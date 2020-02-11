@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import DepartmentEdit from './DepartmentEdit';
 import DepartmentAdd from './DepartmentAdd';
-import { Link } from 'react-router-dom';
 import { Table, Button, Sidebar, Icon } from 'semantic-ui-react';
 import APIManager from '../../api/APIManager';
 

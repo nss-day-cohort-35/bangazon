@@ -40,9 +40,11 @@ export default class TrainingEdit extends Component {
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Edit Training</Header>
-                    <Header as='p' color='grey'>Training ID: {this.props.training.id}</Header>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='slideBarHeader'>Edit Training</Header>
+                        <Header as='p' className='slideBarSubheader'>Training ID: {this.props.training.id}</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/Training.png')} alt="Computer" className="computerImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Training Name</label>
                         <input
@@ -75,17 +77,19 @@ export default class TrainingEdit extends Component {
                             id='maxAttendees'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        onClick={(evt) => this.updateTraining(evt)}>
-                        Edit Training Info
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            onClick={(evt) => this.updateTraining(evt)}>
+                            Edit Training Info
                         </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} />
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
                 </Form>
 
             </>

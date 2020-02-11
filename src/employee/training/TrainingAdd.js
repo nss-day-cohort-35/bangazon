@@ -39,8 +39,10 @@ export default class TrainingAdd extends Component {
         return (
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Create Training</Header>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='addSlideBarHeader'>Create Training</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/Training.png')} alt="Computer" className="computerImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Training Name</label>
                         <input
@@ -73,6 +75,7 @@ export default class TrainingAdd extends Component {
                             id='newMaxAttendees'
                         />
                     </div>
+                    <div className='slideBarButtonContainer'>
                     <Button
                         type='submit'
                         color='orange'
@@ -84,6 +87,7 @@ export default class TrainingAdd extends Component {
                         color='orange'
                         content='Cancel'
                         onClick={this.props.closeSidebar} />
+                        </div>
                 </Form>
 
             </>

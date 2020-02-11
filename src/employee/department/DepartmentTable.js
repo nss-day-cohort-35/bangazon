@@ -57,7 +57,7 @@ export default class ComputerTable extends Component {
                             <Table.Body key={department.id}>
                                 <Table.Row>
                                     <Table.Cell width='3'>{department.name} ({department.id})</Table.Cell>
-                                    <Table.Cell width='2'>${department.budget}</Table.Cell>
+                                    <Table.Cell width='2'>${department.budget.toLocaleString()}</Table.Cell>
                                     <Table.Cell width='1'>
                                         <Button
                                             basic

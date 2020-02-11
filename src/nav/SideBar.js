@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Menu, Sidebar } from "semantic-ui-react";
 
 class SideBar extends Component {
@@ -70,7 +70,9 @@ class SideBar extends Component {
 					size='tiny'
 					vertical
 					visible>
-					<img src={require('../images/B-Logo.png')} alt='bangazon logo'className='bangazonLogo' />
+					<Link to="/">
+						<img src={require('../images/B-Logo.png')} alt='bangazon logo' className='bangazonLogo' />
+					</Link>
 					{items.map((option) => (
 						<Menu.Item
 							key={option.link}

@@ -22,7 +22,7 @@ export default class DepartmentEdit extends Component {
         const updatedDepartment = {
             id: this.props.department.id,
             name: this.state.name,
-            budget: this.state.budget
+            budget: parseInt(this.state.budget)
 
         }
         console.log()

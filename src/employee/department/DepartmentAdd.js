@@ -22,7 +22,7 @@ export default class DepartmentAdd extends Component {
         evt.preventDefault();
         const newDepartment = {
             name: this.state.newName,
-            budget: this.state.newBudget
+            budget: parseInt(this.state.newBudget)
         }
         APIManager.addData("departments", newDepartment)
             .then(() => this.props.refresh())

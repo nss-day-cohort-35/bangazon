@@ -226,6 +226,56 @@ align-items: center;
 
 /* Dashboard End */
 
+/* Employees */
+
+.cardContainer{
+  display: flex;
+  justify-content: row;
+}
+
+/* width of the details card */
+.detailsCard{
+width: 485px !important;
+height: 365px !important;
+}
+
+.cardRibbon {
+  width: 100%;
+}
+
+.headerButtonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.cardEditButton {
+  max-width: 0px;
+}
+
+.detailsCardFlexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailsCardInfo {
+padding-left: 20px;
+padding-top: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: row;
+}
+
+/* Employees End */
+
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);
   background-color: #ffffff !important;

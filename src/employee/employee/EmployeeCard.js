@@ -39,7 +39,7 @@ export default class EmployeeCard extends Component {
                     </Card>
                     {this.state.cardVisible === true ?
                         <>
-                            <Card>
+                            <Card className='detailsCard'>
                                 <EmployeeDetails
                                     toggle={this.props.toggle}
                                     employee={this.props.employee}

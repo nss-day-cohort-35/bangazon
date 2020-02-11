@@ -37,7 +37,9 @@ class Landing extends Component {
               <Link to="/customer-portal/">
                 <img src={require("../src/images/Shopping-Cart.png")} alt="shopping cart"></img>
               </Link>
-              <h2 className='portalTitle'>CUSTOMER MANAGER</h2>
+              <h2 className='portalTitle'>
+                CUSTOMER MANAGER
+                </h2>
               <Button basic color='orange' onClick={() => this.toCustomers(props)}>
                 Customers
               </Button>

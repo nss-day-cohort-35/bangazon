@@ -110,6 +110,58 @@ margin-top: 5%
 
 /* SideBar Menu End */
 
+/* SlideBar */
+
+.purpleHeader{
+  padding-top: 30px;
+  background-color: #6A78D1;
+}
+
+.slideBarHeader {
+  padding-left: 25px !important;
+  color: #ffffff !important;
+  font-family: 'Avenir Next' !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+
+.addSlideBarHeader {
+  padding-left: 25px !important;
+  padding-bottom: 30px !important;
+  color: #ffffff !important;
+  font-family: 'Avenir Next' !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+
+.slideBarSubheader{
+  padding-left: 25px !important;
+  padding-bottom: 30px !important;
+  color: #ffffff !important;
+  font-family: 'Avenir Next' !important;
+  font-size: 15px;
+  font-weight: 600 !important;
+}
+
+.slideBarImg{
+  display: flex;
+  justify-content: center;
+}
+
+.computerImage {
+  max-width: 40%;
+  }
+
+
+.fifteen.wide.field{
+  padding-left: 25px;
+}
+
+.slideBarButtonContainer{
+  padding-left: 25px;
+}
+/* SlideBar End */
+
 /* Employee Container */
 .containerDiv {
   margin-left: 200px;
@@ -171,9 +223,7 @@ align-items: center;
   background-color: #ffffff !important;
 }
 
-.computerImage {
-max-width: 50%;
-}
+
 
 .imgContainer{
   display: flex;

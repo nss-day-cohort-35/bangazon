@@ -37,7 +37,7 @@ export default class ComputerEdit extends Component {
             model: this.state.model
         }
         APIManager.updateData("computers", updatedComputer)
-            .then (() => this.props.refresh())
+            .then(() => this.props.refresh())
         this.props.closeSidebar()
     };
 
@@ -51,10 +51,11 @@ export default class ComputerEdit extends Component {
         return (
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Edit Computer</Header>
-                    <Header as='p' color='grey'>Computer ID: {this.props.computer.id}</Header>
-                    <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='slideBarHeader'>Edit Computer</Header>
+                        <Header as='p' className='slideBarSubheader'>Computer ID: {this.props.computer.id}</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Purchase Date</label>
                         <input
@@ -90,18 +91,20 @@ export default class ComputerEdit extends Component {
                             id='model'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        content='Edit Computer Info'
-                        onClick={(evt) => this.updateComputer(evt)}>
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            content='Edit Computer Info'
+                            onClick={(evt) => this.updateComputer(evt)}>
 
-                    </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} />
+                        </Button>
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
                     <br></br>
                 </Form>
 

@@ -31,14 +31,14 @@ export default class ComputerAdd extends Component {
             model: this.state.newModel
         }
         APIManager.addData("computers", newComputer)
-            this.props.closeSidebar()
-            this.props.history.push("/employee-portal/computers/")
+        this.props.closeSidebar()
+        this.props.history.push("/employee-portal/computers/")
 
 
     };
 
     render() {
-console.log(this.props)
+        console.log(this.props)
         const booleanOptions = [
             { key: 1, text: 'Active', value: 0 },
             { key: 2, text: 'Inactive', value: false }
@@ -48,9 +48,10 @@ console.log(this.props)
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Add New Computer</Header>
-                    <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='addSlideBarHeader'>Add New Computer</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Purchase Date</label>
                         <input
@@ -85,17 +86,20 @@ console.log(this.props)
                             id='newModel'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        onClick={(evt) => this.addComputer(evt)}>
-                        Add New Computer!
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            onClick={(evt) => this.addComputer(evt)}>
+                            Add New Computer!
                         </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} /></Form>
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
+                </Form>
             </>
         )
     }

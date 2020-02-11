@@ -8,7 +8,7 @@ import { Button } from 'semantic-ui-react'
 export default class NavigationBar extends Component {
 
 	render() {
-
+		console.log("navProps", this.props)
 		let text = null
 		if (this.props.location.pathname.startsWith("/customer-portal/customers/")) {
 			text = "Add a Customer"
@@ -55,7 +55,7 @@ export default class NavigationBar extends Component {
 				{this.props.location.pathname === "/employee-portal/" ? null
 					:
 					<div className='barAndButtonContainer'>
-						<h1 className='viewHeader' >{this.props.view}</h1>
+						<h1 className='viewHeader' >Employees</h1>
 						<div className='searchBarContainer'>
 							<Route
 								path="/"
@@ -66,7 +66,7 @@ export default class NavigationBar extends Component {
 							<div className='buttonContainer'>
 								<Button
 									color="orange"
-									onClick={this.toggle}
+									onClick={this.props.openSidebar}
 								>
 
 									{text}</Button>
@@ -94,7 +94,7 @@ export default class NavigationBar extends Component {
 				{this.props.location.pathname === "/employee-portal/" ? null
 					:
 					<div className='barAndButtonContainer'>
-						<h1 className='viewHeader' >{this.props.view}</h1>
+						<h1 className='viewHeader' >Computers</h1>
 						<div className='searchBarContainer'>
 							<Route
 								path="/"
@@ -105,7 +105,7 @@ export default class NavigationBar extends Component {
 							<div className='buttonContainer'>
 								<Button
 									color="orange"
-									onClick={this.toggle}
+									onClick={this.props.openSidebar}
 								>
 
 									{text}</Button>
@@ -133,7 +133,7 @@ export default class NavigationBar extends Component {
 				{this.props.location.pathname === "/employee-portal/" ? null
 					:
 					<div className='barAndButtonContainer'>
-						<h1 className='viewHeader' >{this.props.view}</h1>
+						<h1 className='viewHeader' >Departments</h1>
 						<div className='searchBarContainer'>
 							<Route
 								path="/"
@@ -144,7 +144,7 @@ export default class NavigationBar extends Component {
 							<div className='buttonContainer'>
 								<Button
 									color="orange"
-									onClick={this.toggle}
+									onClick={this.props.openSidebar}
 								>
 
 									{text}</Button>
@@ -173,7 +173,7 @@ export default class NavigationBar extends Component {
 				{this.props.location.pathname === "/employee-portal/" ? null
 					:
 					<div className='barAndButtonContainer'>
-						<h1 className='viewHeader' >{this.props.view}</h1>
+						<h1 className='viewHeader' >Training</h1>
 						<div className='searchBarContainer'>
 							<Route
 								path="/"
@@ -184,7 +184,7 @@ export default class NavigationBar extends Component {
 							<div className='buttonContainer'>
 								<Button
 									color="orange"
-									onClick={this.toggle}
+									onClick={this.props.openSidebar}
 								>
 
 									{text}</Button>
@@ -215,7 +215,7 @@ export default class NavigationBar extends Component {
 						)}
 					{this.props.location.pathname === "/employee-portal/" ?
 						<div className='barAndButtonContainer'>
-							<h1 className='viewHeader' >{this.props.view}</h1>
+							<h1 className='viewHeader' >Dashboard</h1>
 							<div className='searchBarContainer'>
 								<Route
 									path="/"
@@ -226,7 +226,7 @@ export default class NavigationBar extends Component {
 								<div className='buttonContainer'>
 									<Button
 										color="orange"
-										onClick={this.toggle}
+										onClick={this.props.openSidebar}
 									>
 
 										{text}</Button>

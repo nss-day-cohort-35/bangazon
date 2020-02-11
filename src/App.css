@@ -159,7 +159,6 @@ margin-top: 5%
 .employeeImage {
   max-width: 55%;
   }
-  
 
 .fifteen.wide.field{
   padding-left: 25px;
@@ -230,23 +229,36 @@ align-items: center;
 
 .cardContainer{
   display: flex;
-  justify-content: row;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
 /* width of the details card */
+.card{
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 0.25px #d4d4d5 !important;
+margin: 0 !important;
+}
+
+.searchResultsCard{
+  max-height: 71px;
+}
+
 .detailsCard{
 width: 485px !important;
 height: 365px !important;
 }
 
+
 .cardRibbon {
-  width: 100%;
+  min-width: 100%;
 }
 
 .headerButtonContainer{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 325px !important;
 }
 
 .cardHeader {
@@ -255,9 +267,11 @@ height: 365px !important;
 
 }
 
-.cardEditButton {
-  max-width: 0px;
+.detailsEmployeeName {
+  font-family: 'Avenir Next';
+  font-weight: 750;
 }
+
 
 .detailsCardFlexRow {
   display: flex;

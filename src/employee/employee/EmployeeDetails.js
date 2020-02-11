@@ -30,15 +30,11 @@ export default class EmployeeDetails extends Component {
                             <List.Item className='headerButtonContainer'>
                                 <div className='cardHeader'>
                                     <List.Content>
-                                        <h4>{this.props.employee.firstName} {this.props.employee.lastName}</h4>
+                                        <h4 className='detailsEmployeeName'>{this.props.employee.firstName} {this.props.employee.lastName}</h4>
                                     </List.Content>
                                 </div>
                                 <div className='cardEditButton'>
-                                    <Button
-                                        onClick={this.handleOpen}
-                                        size='tiny'
-                                        icon
-                                    >
+                                    <Button onClick={this.handleOpen} size='tiny' icon >
                                         <Icon name='pencil alternate' />
                                     </Button>
                                 </div>

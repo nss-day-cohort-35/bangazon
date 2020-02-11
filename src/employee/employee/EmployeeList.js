@@ -55,15 +55,18 @@ class EmployeeList extends Component {
                         </div>
                     </>
                     :
-                    <div className='cardContainer'>
-                        {this.state.employees.map(employee => (
-                            <EmployeeCard
-                                key={employee.id}
-                                employee={employee}
-                                sidebarState={this.props.sidebarState}
-                                closeSidebar={this.props.closeSidebar}
-                            />
-                        ))}
+                    <div>
+                        Search Results
+                    <div className='cards'>
+                            {this.state.employees.map(employee => (
+                                <EmployeeCard
+                                    key={employee.id}
+                                    employee={employee}
+                                    sidebarState={this.props.sidebarState}
+                                    closeSidebar={this.props.closeSidebar}
+                                />
+                            ))}
+                        </div>
                     </div>
                 }
                 <Sidebar

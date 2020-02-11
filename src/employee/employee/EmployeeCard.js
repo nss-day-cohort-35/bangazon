@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeDetails from './EmployeeDetails'
-import { Card } from 'semantic-ui-react'
+import { Card, Divider } from 'semantic-ui-react'
 
 export default class EmployeeCard extends Component {
     state = {
@@ -24,8 +24,9 @@ export default class EmployeeCard extends Component {
     render() {
         return (
             <>
-                <div>
+                <div className='cardContainer'>
                     <Card
+                        className='searchResultsCard'
                         link
                         onClick={() => {
                             this.employeeDetailsToggle()

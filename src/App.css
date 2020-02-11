@@ -157,6 +157,15 @@ align-items: center;
 }
 /* NavBar End */
 
+/* Dashboard */
+
+.dashboardTopRow{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Dashboard End */
+
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);
   background-color: #ffffff !important;

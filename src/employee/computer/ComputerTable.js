@@ -47,7 +47,7 @@ console.log("props", this.props)
         return (
             <>
 
-                <Table celled striped>
+                <Table size='small' celled striped>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>Computer ID</Table.HeaderCell>

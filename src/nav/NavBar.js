@@ -7,7 +7,6 @@ import { Button } from 'semantic-ui-react'
 
 export default class NavigationBar extends Component {
 
-
 	render() {
 
 		let text = null

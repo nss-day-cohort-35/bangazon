@@ -38,9 +38,11 @@ export default class DepartmentEdit extends Component {
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Edit Department</Header>
-                    <Header as='p' color='grey'>Department ID: {this.props.department.id}</Header>
+                <div className='purpleHeader'>
+                    <Header as='h1'className='slideBarHeader'>Edit Department</Header>
+                    <Header as='p'className='slideBarSubheader'>Department ID: {this.props.department.id}</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/Departments.png')} alt="Computer" className="departmentImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Department Name</label>
                         <input
@@ -57,6 +59,7 @@ export default class DepartmentEdit extends Component {
                             id='budget'
                         />
                     </div>
+                    <div className='slideBarButtonContainer'>
                     <Button
                         type='submit'
                         color='orange'
@@ -68,6 +71,7 @@ export default class DepartmentEdit extends Component {
                         color='orange'
                         content='Cancel'
                         onClick={this.props.closeSidebar} />
+                        </div>
                 </Form>
 
             </>

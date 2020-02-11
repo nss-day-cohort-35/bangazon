@@ -25,7 +25,7 @@ export default class DepartmentAdd extends Component {
             budget: this.state.newBudget
         }
         APIManager.addData("departments", newDepartment)
-            .then( () => this.props.refresh())
+            .then(() => this.props.refresh())
         this.props.closeSidebar()
 
     };
@@ -35,9 +35,10 @@ export default class DepartmentAdd extends Component {
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Add New Department</Header>
-                    <div><img src={require('../../images/API.png')} alt="Computer" className="computerImage" /></div>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='addSlideBarHeader'>Add New Department</Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/Departments.png')} alt="Computer" className="departmentImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Department Name</label>
                         <input
@@ -54,17 +55,20 @@ export default class DepartmentAdd extends Component {
                             id='newBudget'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        onClick={(evt) => this.addDepartment(evt)}>
-                        Add New Department!
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            onClick={(evt) => this.addDepartment(evt)}>
+                            Add New Department!
                         </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} /></Form>
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
+                </Form>
             </>
         )
     }

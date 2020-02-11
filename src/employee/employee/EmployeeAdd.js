@@ -59,9 +59,12 @@ export default class EmployeeAdd extends Component {
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Add New Employee
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='addSlideBarHeader'>
+                            Add New Employee
                     </Header>
+                    </div>
+                    <div className='slideBarImg'><img src={require('../../images/Employees.png')} alt="Computer" className="employeeImage" /></div>
                     <div className='fifteen wide field'>
                         <label>Employee First Name</label>
                         <input
@@ -116,17 +119,19 @@ export default class EmployeeAdd extends Component {
                             id='newEmail'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        onClick={(evt) => this.addEmployee(evt)}>
-                        Create New Employee!
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            onClick={(evt) => this.addEmployee(evt)}>
+                            Create New Employee!
                         </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} />
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
                 </Form>
 
             </>

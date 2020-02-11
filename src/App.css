@@ -152,10 +152,14 @@ margin-top: 5%
   max-width: 40%;
   }
 
-  .departmentImage {
-    max-width: 70%;
-    }
+.departmentImage {
+  max-width: 70%;
+  }
 
+.employeeImage {
+  max-width: 55%;
+  }
+  
 
 .fifteen.wide.field{
   padding-left: 25px;

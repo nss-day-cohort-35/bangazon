@@ -60,10 +60,12 @@ export default class EmployeeEdit extends Component {
 
             <>
                 <Form>
-                    <br></br>
-                    <Header as='h1' color='grey'>Edit Employee</Header>
-                    <Header as='p' color='grey'>Employee ID: {this.props.employee.id}</Header>
+                    <div className='purpleHeader'>
+                        <Header as='h1' className='slideBarHeader'>Edit Employee</Header>
+                        <Header as='p' className='slideBarSubheader'>Employee ID: {this.props.employee.id}</Header>
+                    </div>
                     <div className='fifteen wide field'>
+                        <div className='slideBarImg'><img src={require('../../images/Employees.png')} alt="Computer" className="employeeImage" /></div>
                         <label>Employee First Name</label>
                         <input
                             onChange={this.handleFieldChange}
@@ -115,17 +117,19 @@ export default class EmployeeEdit extends Component {
                             id='email'
                         />
                     </div>
-                    <Button
-                        type='submit'
-                        color='orange'
-                        onClick={(evt) => this.updateEmployee(evt)}>
-                        Edit Employee Info
+                    <div className='slideBarButtonContainer'>
+                        <Button
+                            type='submit'
+                            color='orange'
+                            onClick={(evt) => this.updateEmployee(evt)}>
+                            Edit Employee Info
                         </Button>
-                    <Button
-                        basic
-                        color='orange'
-                        content='Cancel'
-                        onClick={this.props.closeSidebar} />
+                        <Button
+                            basic
+                            color='orange'
+                            content='Cancel'
+                            onClick={this.props.closeSidebar} />
+                    </div>
                 </Form>
 
             </>

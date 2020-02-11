@@ -67,9 +67,10 @@ class SideBar extends Component {
 				<Sidebar
 					as={Menu}
 					pointing
+					size='tiny'
 					vertical
 					visible>
-					<img src={require('../images/B-Logo.png')} className='bangazonLogo' />
+					<img src={require('../images/B-Logo.png')} alt='bangazon logo'className='bangazonLogo' />
 					{items.map((option) => (
 						<Menu.Item
 							key={option.link}

@@ -45,12 +45,14 @@ class EmployeeList extends Component {
     render() {
 
         const newActive = (this.props.sidebarState)
-        console.log("employee state",this.props.searchValue)
+        console.log("employee state", this.props.searchValue)
         return (
             <>
                 {this.props.searchValue === undefined ?
                     <>
-                        <img src={require("../../images/Empty-State-Charts.png")} alt="magnifying glass"></img>
+                        <div className='imgContainer'>
+                            <img src={require("../../images/Empty-State-Charts.png")} className='employeeSearchImg' alt="magnifying glass"></img>
+                        </div>
                     </>
                     :
                     <div>

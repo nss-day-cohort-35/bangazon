@@ -13,47 +13,48 @@ export default class CustomerContainer extends Component {
 	render() {
 		return (
 			<>
-				<NavigationBar portal="Customers" {...this.props} />
-				<p>Customer Container</p>
 				<SideBar view="Customers" />
 
-				<CustomerOrders />
-				<CustomerProfileCard />
+				<div className='containerDiv'>
+				<p>Customer Container</p>
+					<NavigationBar portal="Customers" {...this.props} />
+					<CustomerOrders />
+					<CustomerProfileCard />
 
-				<Route
-					exact
-					path="/customer-portal"
-					render={props => {
-						return <CustomerLanding {...props} />;
-					}}
-				/>
+					<Route
+						exact
+						path="/customer-portal"
+						render={props => {
+							return <CustomerLanding {...props} />;
+						}}
+					/>
 
 
 
-				<Route
-					exact
-					path="/customer-portal/orders"
-					render={props => {
-						return <OrderLanding {...props} />;
-					}}
-				/>
+					<Route
+						exact
+						path="/customer-portal/orders"
+						render={props => {
+							return <OrderLanding {...props} />;
+						}}
+					/>
 
-				<Route
-					exact
-					path="/customer-portal/payments"
-					render={props => {
-						return <PaymentLanding {...props} />;
-					}}
-				/>
+					<Route
+						exact
+						path="/customer-portal/payments"
+						render={props => {
+							return <PaymentLanding {...props} />;
+						}}
+					/>
 
-				<Route
-					exact
-					path="/customer-portal/products"
-					render={props => {
-						return <ProductLanding {...props} />;
-					}}
-				/>
-
+					<Route
+						exact
+						path="/customer-portal/products"
+						render={props => {
+							return <ProductLanding {...props} />;
+						}}
+					/>
+				</div>
 			</>
 		);
 	}

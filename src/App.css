@@ -19,7 +19,7 @@ margin-top: 5%
 .portalTitle{
   display: flex;
   justify-content: center;
-  font-family: Avenir Next;
+  font-family: 'Avenir Next';
   font-style: normal;
   font-weight: 800;
   font-size: 33px;
@@ -33,8 +33,11 @@ margin-top: 5%
 
 .bangazonLogo{
   margin-top: 5%;
-  margin-left: 17%;
-  max-width: 65%;
+  margin-bottom: 9%;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  max-width: 90%;
 }
 
 .ui.vertical.menu {
@@ -43,17 +46,19 @@ margin-top: 5%
   background: #6A78D1;
 }
 
-.ui.left.sidebar{
-  width: 225px;
+.ui.left.sidebar {
+  width: 200px;
   overflow-x: hidden;
+  border-radius: 0px 20px 20px 0px !important;
 }
 
 /* Non-active links */
 .ui.menu .item {
   position: relative;
   vertical-align: middle;
-  line-height: 5.85;
+  line-height: 5.75;
   text-decoration: none;
+  text-align: center;
   -webkit-tap-highlight-color: transparent;
   flex: 0 0 auto;
   -webkit-user-select: none;
@@ -62,7 +67,7 @@ margin-top: 5%
   text-transform: none;
   color: rgba(255, 255, 255, 1);
   font-family: 'Avenir';
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -94,7 +99,7 @@ margin-top: 5%
 
 .ui.vertical.menu .item {
   border-radius: 0;
-  border-bottom: none;
+  border-bottom: none !important;
 }
 
 .ui.vertical.menu .active.item {
@@ -107,9 +112,50 @@ margin-top: 5%
 
 /* Employee Container */
 .containerDiv {
-  margin-left: 250px;
+  margin-left: 200px;
+  margin-right: 50px;
 }
 /* Employee Container End */
+
+/* NavBar */
+
+.portalDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 35px;
+  margin-bottom: 15px;
+}
+
+.viewManager {
+  font-family: 'Avenir Next';
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.viewHeader {
+  font-family: 'Avenir Next';
+  font-weight: normal;
+  font-size: 28px;
+}
+
+.barAndButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.searchBarContainer {
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.buttonContainer {
+  margin-left: 10px;
+}
+/* NavBar End */
 
 .ui.right.visible.sidebar {
   box-shadow: 0 0 20px rgba(34,36,38,.15);
@@ -118,4 +164,9 @@ margin-top: 5%
 
 .computerImage {
 max-width: 50%;
+}
+
+.imgContainer{
+  display: flex;
+  justify-content: center;
 }

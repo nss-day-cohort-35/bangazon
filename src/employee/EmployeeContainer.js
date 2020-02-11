@@ -24,16 +24,14 @@ export default class EmployeeContainer extends Component {
     render() {
         return (
             <>
-
-
                 <SideBar view="Employees" />
 
                 <div className='containerDiv'>
-                <Route path="/" render={props => {
-                    return <NavigationBar
-                        view="Employees"
-                        openSidebar={this.handleOpenNewResource} {...props} />
-                }} />
+                    <Route path="/" render={props => {
+                        return <NavigationBar
+                            view="Employees"
+                            openSidebar={this.handleOpenNewResource} {...props} />
+                    }} />
 
                     <Route exact path="/employee-portal/" render={props => {
                         return <EmployeeDashboard {...props} />

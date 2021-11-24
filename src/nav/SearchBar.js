@@ -4,11 +4,12 @@ import { Input } from 'semantic-ui-react'
 
 
 export default class SearchBar extends Component {
+
     state = {
-        view: "",
+        view: '',
         isLoading: false,
-        value: "",
-        employeeValue: ""
+        value: '',
+        employeeValue: '',
     }
 
     handleFieldChange = (e) => {
@@ -17,54 +18,90 @@ export default class SearchBar extends Component {
         this.setState(stateToChange);
     }
 
-    employeeHandleKeyPress = (event) => {
-        if(event.key === 'Enter' && this.props.view === "employees"){
-          this.handleEmployeeSearch()
-        }
-      }
 
-    handleEmployeeSearch = () => {
-        sessionStorage.setItem("employeeSearch", this.state.employeeValue)
-        this.props.history.push("/employee-portal/employees")
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter' && this.props.location.pathname === "/employee-portal/") {
+            this.handleEmployeeSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+            this.handleEmployeeSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/computers/")) {
+            this.handleComputerSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+            this.handleDepartmentSearch()
+        } else if (event.key === 'Enter' && this.props.location.pathname.startsWith("/employee-portal/training/")) {
+            this.handleTrainingSearch()
+        }
     }
 
+    handleComputerSearch = () => {
+        let computerSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/computers/${computerSearchValue}/`)
+    }
 
+    handleDepartmentSearch = () => {
+        let departmentSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/departments/${departmentSearchValue}/`)
+    }
+
+    handleTrainingSearch = () => {
+        let trainingSearchValue = this.state.value
+        this.props.history.push(`/employee-portal/training/${trainingSearchValue}/`)
+    }
+
+    handleEmployeeSearch = () => {
+        let newEmployeeValue = this.state.employeeValue.split(" ")
+        let joinedEmployeeValue = newEmployeeValue.join("-")
+        this.props.history.push(`/employee-portal/employees/${joinedEmployeeValue}/`)
+    }
 
     render() {
 
         let placeholderText = "Search..."
-        if (this.props.view === "customers") {
+        if (this.props.location.pathname === "/customer-portal/customers/") {
             placeholderText = "Search for customer..."
-        } else if (this.props.view === "products") {
+        } else if (this.props.location.pathname === "/customer-portal/products/") {
             placeholderText = "Search for products..."
-        } else if (this.props.view === "orders") {
+        } else if (this.props.location.pathname === "/customer-portal/orders/") {
             placeholderText = "Search for order by ID"
-        } else if (this.props.view === "employees") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             placeholderText = "Find your employees"
-        } else if (this.props.view === "computers") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
             placeholderText = "Search computers by ID"
-        } else if (this.props.view === "departments") {
-            placeholderText = "Search departments"
-        } else if (this.props.view === "training") {
+        } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+            placeholderText = "Search depts by ID"
+        } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
             placeholderText = "Search trainings"
         }
 
         let id = 'value'
-        if (this.props.view === "employees") {
+        if (this.props.location.pathname === "/employee-portal/") {
+            id = 'employeeValue'
+        } else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
             id = 'employeeValue'
         }
+
+        let onClickAction = null
+        if (this.props.location.pathname === "/employee-portal/" || this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+            onClickAction = this.handleEmployeeSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
+            onClickAction = this.handleComputerSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+            onClickAction = this.handleDepartmentSearch
+        } else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
+            onClickAction = this.handleTrainingSearch
+        }
+
 
         return (
             <>
                 <Input
                     size='large'
-                    icon={{name: 'search', link: true}}
+                    icon={{ name: 'search', link: true, onClick: onClickAction }}
                     type="text"
                     onChange={this.handleFieldChange}
-                    onKeyPress={this.employeeHandleKeyPress}
+                    onKeyPress={this.handleKeyPress}
                     id={id}
                     placeholder={placeholderText}
-
                 />
 
             </>

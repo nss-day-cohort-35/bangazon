@@ -4,93 +4,239 @@ import SearchBar from './SearchBar';
 import { Button } from 'semantic-ui-react'
 
 
+
 export default class NavigationBar extends Component {
-	state = {
-		view: ""
-	}
+
 	render() {
-		return (
-			<>
-				<h1>{this.props.view}</h1>
+		console.log("navProps", this.props)
+		let text = null
+		if (this.props.location.pathname.startsWith("/customer-portal/customers/")) {
+			text = "Add a Customer"
+		} else if (this.props.location.pathname === "/employee-portal/") {
+			text = "Add an Employee"
+		} else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+			text = "Add an Employee"
+		} else if (this.props.location.pathname.startsWith("/employee-portal/computers/")) {
+			text = "Add a Computer"
+		} else if (this.props.location.pathname.startsWith("/employee-portal/departments/")) {
+			text = "Add a Department"
+		} else if (this.props.location.pathname.startsWith("/employee-portal/training/")) {
+			text = "Add Trainings"
+		} else if (this.props.location.pathname.startsWith("/customer-portal/products/")) {
+			text = "Add a Product"
+		} else if (this.props.location.pathname.startsWith("/customer-portal/orders/")) {
+			text = "Add an Order"
+		}
+
+
+
+		if (this.props.location.pathname.startsWith("/customer-portal/customers/")) {
+			return null
+		} else if (this.props.location.pathname.startsWith("/customer-portal/products")) {
+			return null
+		} else if (this.props.location.pathname.startsWith("/customer-portal/orders")) {
+			return null
+		} else if (this.props.location.pathname.startsWith("/employee-portal/employees/")) {
+			return <>
 				{this.props.view === "Employees" ? (
-					<Link to="/customer-portal">
-						<Button color="orange">Go to Customer Portal</Button>
-					</Link>
+					<div className='portalDiv'>
+						<h4 className='viewManager'>{this.props.view.toUpperCase()} MANAGER</h4>
+						<div className='portalButton'>
+							<Link to="/customer-portal/">
+								<Button color="blue">Go to Customer Portal</Button>
+							</Link>
+						</div>
+					</div>
 				) : (
-						<Link to="/employee-portal">
-							<Button color="orange">Go to Employee Portal</Button>
+						<Link to="/employee-portal/">
+							<Button color="blue">Go to Employee Portal</Button>
 						</Link>
 					)}
-				<Route
-					exact path="/customer-portal"
-					render={props => {
-						return <SearchBar {...props} view="customers" />;
-					}}
-				/>
+				{this.props.location.pathname === "/employee-portal/" ? null
+					:
+					<div className='barAndButtonContainer'>
+						<h1 className='viewHeader' >Employees</h1>
+						<div className='searchBarContainer'>
+							<Route
+								path="/"
+								render={props => {
+									return <SearchBar {...props} />;
+								}}
+							/>
+							<div className='buttonContainer'>
+								<Button
+									color="orange"
+									onClick={this.props.openSidebar}
+								>
 
-				<Route
-					path="/customer-portal/customers"
-					render={props => {
-						return <SearchBar {...props} view="customers" />;
-					}}
-				/>
-				<Route
-					path="/customer-portal/orders"
-					render={props => {
-						return <SearchBar {...props} view="orders" />;
-					}}
-				/>
-
-				<Route
-					path="/customer-portal/payments"
-					render={props => {
-						return null;
-					}}
-				/>
-
-				<Route
-					path="/customer-portal/products"
-					render={props => {
-						return <SearchBar {...props} view="products" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal"
-					render={props => {
-						return <SearchBar {...props} view="employees" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/employees"
-					render={props => {
-						return <SearchBar {...props} view="employees" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/computers"
-					render={props => {
-						return <SearchBar {...props} view="computers" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/departments"
-					render={props => {
-						return <SearchBar {...props} view="departments" />;
-					}}
-				/>
-
-				<Route
-					exact path="/employee-portal/training"
-					render={props => {
-						return <SearchBar {...props} view="training" />;
-					}}
-				/>
+									{text}</Button>
+							</div>
+						</div>
+					</div>
+				}
 			</>
-		);
-	}
+		} else if (this.props.location.pathname.startsWith("/employee-portal/computers")) {
+			return <>
+				{this.props.view === "Employees" ? (
+					<div className='portalDiv'>
+						<h4 className='viewManager'>{this.props.view.toUpperCase()} MANAGER</h4>
+						<div className='portalButton'>
+							<Link to="/customer-portal/">
+								<Button color="blue">Go to Customer Portal</Button>
+							</Link>
+						</div>
+					</div>
+				) : (
+						<Link to="/employee-portal/">
+							<Button color="blue">Go to Employee Portal</Button>
+						</Link>
+					)}
+				{this.props.location.pathname === "/employee-portal/" ? null
+					:
+					<div className='barAndButtonContainer'>
+						<h1 className='viewHeader' >Computers</h1>
+						<div className='searchBarContainer'>
+							<Route
+								path="/"
+								render={props => {
+									return <SearchBar {...props} />;
+								}}
+							/>
+							<div className='buttonContainer'>
+								<Button
+									color="orange"
+									onClick={this.props.openSidebar}
+								>
 
+									{text}</Button>
+							</div>
+						</div>
+					</div>
+				}
+			</>
+		} else if (this.props.location.pathname.startsWith("/employee-portal/departments")) {
+			return <>
+				{this.props.view === "Employees" ? (
+					<div className='portalDiv'>
+						<h4 className='viewManager'>{this.props.view.toUpperCase()} MANAGER</h4>
+						<div className='portalButton'>
+							<Link to="/customer-portal/">
+								<Button color="blue">Go to Customer Portal</Button>
+							</Link>
+						</div>
+					</div>
+				) : (
+						<Link to="/employee-portal/">
+							<Button color="blue">Go to Employee Portal</Button>
+						</Link>
+					)}
+				{this.props.location.pathname === "/employee-portal/" ? null
+					:
+					<div className='barAndButtonContainer'>
+						<h1 className='viewHeader' >Departments</h1>
+						<div className='searchBarContainer'>
+							<Route
+								path="/"
+								render={props => {
+									return <SearchBar {...props} />;
+								}}
+							/>
+							<div className='buttonContainer'>
+								<Button
+									color="orange"
+									onClick={this.props.openSidebar}
+								>
+
+									{text}</Button>
+							</div>
+						</div>
+					</div>
+				}
+
+			</>
+		} else if (this.props.location.pathname.startsWith("/employee-portal/training")) {
+			return <>
+				{this.props.view === "Employees" ? (
+					<div className='portalDiv'>
+						<h4 className='viewManager'>{this.props.view.toUpperCase()} MANAGER</h4>
+						<div className='portalButton'>
+							<Link to="/customer-portal/">
+								<Button color="blue">Go to Customer Portal</Button>
+							</Link>
+						</div>
+					</div>
+				) : (
+						<Link to="/employee-portal/">
+							<Button color="blue">Go to Employee Portal</Button>
+						</Link>
+					)}
+				{this.props.location.pathname === "/employee-portal/" ? null
+					:
+					<div className='barAndButtonContainer'>
+						<h1 className='viewHeader' >Training</h1>
+						<div className='searchBarContainer'>
+							<Route
+								path="/"
+								render={props => {
+									return <SearchBar {...props} />;
+								}}
+							/>
+							<div className='buttonContainer'>
+								<Button
+									color="orange"
+									onClick={this.props.openSidebar}
+								>
+
+									{text}</Button>
+							</div>
+						</div>
+					</div>
+				}
+
+
+			</>
+
+		} else
+			return (
+				<>
+					{this.props.view === "Employees" ? (
+						<div className='portalDiv'>
+							<h4 className='viewManager'>{this.props.view.toUpperCase()} MANAGER</h4>
+							<div className='portalButton'>
+								<Link to="/customer-portal/">
+									<Button color="blue">Go to Customer Portal</Button>
+								</Link>
+							</div>
+						</div>
+					) : (
+							<Link to="/employee-portal/">
+								<Button color="blue">Go to Employee Portal</Button>
+							</Link>
+						)}
+					{this.props.location.pathname === "/employee-portal/" ?
+						<div className='barAndButtonContainer'>
+							<h1 className='viewHeader' >Dashboard</h1>
+							<div className='searchBarContainer'>
+								<Route
+									path="/"
+									render={props => {
+										return <SearchBar {...props} />;
+									}}
+								/>
+								<div className='buttonContainer'>
+									<Button
+										color="orange"
+										onClick={this.props.openSidebar}
+									>
+
+										{text}</Button>
+								</div>
+							</div>
+						</div>
+						: null
+					}
+
+				</>
+			);
+	}
 }

@@ -1,32 +1,32 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import { withRouter, Link } from "react-router-dom";
+import { Menu, Sidebar } from "semantic-ui-react";
 
 class SideBar extends Component {
 	state = {
 		activeItem: ""
-    };
+	};
 
 	employeeOptions = [
 		{
-			title: "Dashboard",
+			title: "DASHBOARD",
 			link: "/employee-portal/"
 		},
 		{
-			title: "Computers",
-			link: "/employee-portal/computers"
+			title: "COMPUTERS",
+			link: "/employee-portal/computers/"
 		},
 		{
-			title: "Departments",
-			link: "/employee-portal/departments"
+			title: "DEPARTMENTS",
+			link: "/employee-portal/departments/"
 		},
 		{
-			title: "Employees",
-			link: "/employee-portal/employees"
+			title: "EMPLOYEES",
+			link: "/employee-portal/employees/"
 		},
 		{
-			title: "Training",
-			link: "/employee-portal/training"
+			title: "TRAINING",
+			link: "/employee-portal/training/"
 		}
 	];
 
@@ -63,17 +63,26 @@ class SideBar extends Component {
 
 		return (
 			<>
-				<Menu pointing vertical>
+
+				<Sidebar
+					as={Menu}
+					pointing
+					size='tiny'
+					vertical
+					visible>
+					<Link to="/">
+						<img src={require('../images/B-Logo.png')} alt='bangazon logo' className='bangazonLogo' />
+					</Link>
 					{items.map((option) => (
 						<Menu.Item
-                            key={option.link}
+							key={option.link}
 							name={option.title}
 							url={option.link}
 							active={activeItem === option.title}
 							onClick={this.handleItemClick}
 						/>
 					))}
-				</Menu>
+				</Sidebar>
 			</>
 		);
 	}
